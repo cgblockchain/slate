@@ -49,6 +49,17 @@ response = requests.post('https://cryptosign.herokuapp.com/oauth/token/', auth=a
 
 ```
 
+```javascript
+# Your response will be like this
+{
+    "scope": "cryptosign write read",
+    "access_token": "12hRiSaV7M97hILdzEBpc3IgIBhyKB",
+    "expires_in": 36000,
+    "refresh_token": "MF7sNeG7AoCnGhpyJxncyjDRvr5Mn5",
+    "token_type": "Bearer"
+}
+```
+
 > Make sure to replace `<username>` with your username, `<password>` with your password, `<client_id>` with your client ID and `<client_secret>` with your client secret key.
 
 Cryptosign uses API keys with Oauth authetication to allow access to the API. You can register a new Cryptosign API key at our [developer portal](http://cryptosign.herokuapp.com/oauth/applications/).
@@ -64,7 +75,7 @@ Just be sure that <code>Authorization grant type</code> is set to <code>Resource
 
 # Payload
 
-## Get All Kittens
+## Get the PDF Crypto Signed!
 
 ```ruby
 require 'Cryptosign'
