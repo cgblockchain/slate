@@ -2,9 +2,8 @@
 title: CryptoSign API Reference
 
 language_tabs:
-  - curl
+  - shell
   - python
-  - javascript
 
 toc_footers:
   - <a href='https://cryptosign.herokuapp.com/'>Sign Up for a Developer Key</a>
@@ -20,47 +19,47 @@ search: true
 
 Welcome to the CryptoSign API Documentation! You can use our API to access Cryptosign API endpoints, which can get information about how auth and to send payloads to retrieve a pdf signed.
 
-We have language bindings in Curl, Javascript and Python! You can view code examples in the dark area to the right, and you can switch the programming language of the examples with the tabs in the top right.
+We have language bindings in curl on shell and Python! You can view code examples in the dark area to the right, and you can switch the programming language of the examples with the tabs in the top right.
 
 
 # Authentication
 
 > To authorize, use this code:
 
-```ruby
-require 'kittn'
+```shell
+# With curl, you can just pass the correct header with each request
+curl -X POST \
+  -d "grant_type=password&username=<username>&password=<password>" \
+  -u "<client_id>:<client_secret>" https://cryptosign.herokuapp.com/oauth/token/
 
-api = Kittn::APIClient.authorize!('meowmeowmeow')
 ```
 
 ```python
-import kittn
+import requests
+from requests.auth import HTTPBasicAuth
 
-api = kittn.authorize('meowmeowmeow')
+data = {
+  "grant_type" : "password",
+  "username" : "<username>",
+  "password" : "<password>"
+}
+auth = HTTPBasicAuth('<client_id>', '<client_secret>')
+
+response = requests.post('https://cryptosign.herokuapp.com/oauth/token/', auth=auth, data=data)
+
 ```
 
-```shell
-# With shell, you can just pass the correct header with each request
-curl "api_endpoint_here"
-  -H "Authorization: meowmeowmeow"
-```
+> Make sure to replace `<username>` with your username, `<password>` with your password, `<client_id>` with your client ID and `<client_secret>` with your client secret key.
 
-```javascript
-const kittn = require('kittn');
+Cryptosign uses API keys with Oauth authetication to allow access to the API. You can register a new Cryptosign API key at our [developer portal](http://cryptosign.herokuapp.com/oauth/applications/).
 
-let api = kittn.authorize('meowmeowmeow');
-```
+Cryptosign expects for the Token Access to be included in all API requests to the server in a header that looks like the following:
 
-> Make sure to replace `meowmeowmeow` with your API key.
-
-Kittn uses API keys to allow access to the API. You can register a new Kittn API key at our [developer portal](http://example.com/developers).
-
-Kittn expects for the API key to be included in all API requests to the server in a header that looks like the following:
-
-`Authorization: meowmeowmeow`
+`Authorization: Bearer meowmeowmeow`
 
 <aside class="notice">
 You must replace <code>meowmeowmeow</code> with your personal API key.
+Just be sure that <code>Authorization grant type</code> is set to <code>Resource owner password-cased</code> when create a new Application API.
 </aside>
 
 # Payload
@@ -68,16 +67,16 @@ You must replace <code>meowmeowmeow</code> with your personal API key.
 ## Get All Kittens
 
 ```ruby
-require 'kittn'
+require 'Cryptosign'
 
-api = Kittn::APIClient.authorize!('meowmeowmeow')
+api = Cryptosign::APIClient.authorize!('meowmeowmeow')
 api.kittens.get
 ```
 
 ```python
-import kittn
+import Cryptosign
 
-api = kittn.authorize('meowmeowmeow')
+api = Cryptosign.authorize('meowmeowmeow')
 api.kittens.get()
 ```
 
@@ -87,9 +86,9 @@ curl "http://example.com/api/kittens"
 ```
 
 ```javascript
-const kittn = require('kittn');
+const Cryptosign = require('Cryptosign');
 
-let api = kittn.authorize('meowmeowmeow');
+let api = Cryptosign.authorize('meowmeowmeow');
 let kittens = api.kittens.get();
 ```
 
@@ -134,16 +133,16 @@ Remember — a happy kitten is an authenticated kitten!
 ## Get a Specific Kitten
 
 ```ruby
-require 'kittn'
+require 'Cryptosign'
 
-api = Kittn::APIClient.authorize!('meowmeowmeow')
+api = Cryptosign::APIClient.authorize!('meowmeowmeow')
 api.kittens.get(2)
 ```
 
 ```python
-import kittn
+import Cryptosign
 
-api = kittn.authorize('meowmeowmeow')
+api = Cryptosign.authorize('meowmeowmeow')
 api.kittens.get(2)
 ```
 
@@ -153,9 +152,9 @@ curl "http://example.com/api/kittens/2"
 ```
 
 ```javascript
-const kittn = require('kittn');
+const Cryptosign = require('Cryptosign');
 
-let api = kittn.authorize('meowmeowmeow');
+let api = Cryptosign.authorize('meowmeowmeow');
 let max = api.kittens.get(2);
 ```
 
