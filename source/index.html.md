@@ -49,8 +49,9 @@ response = requests.post('https://cryptosign.herokuapp.com/oauth/token/', auth=a
 
 ```
 
+> Your response will be like this
+
 ```javascript
-# Your response will be like this
 {
     "scope": "cryptosign write read",
     "access_token": "12hRiSaV7M97hILdzEBpc3IgIBhyKB",
