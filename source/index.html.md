@@ -160,7 +160,7 @@ Parameter | Default | Description
 pdf | A base64 File String | This is your pdf who is attach it to the signed doc, will be signed every page.
 params.title | String | The title of the given pdf
 params.file_name | String title | The filename with his extension, `mytitle.pdf`
-params.log | A png base 64 File String | This is your logo who will be show on the signed pdf.
+params.logo | A png base 64 File String | This is your logo who will be show on the signed pdf.
 signatures.hash | A hash string | This hash string is the sign of a person, represented as string.
 signatures.email | Email String | The email of the person.
 signatures.name | String | The name of the person.
