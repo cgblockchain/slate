@@ -49,9 +49,9 @@ response = requests.post('https://cryptosign.herokuapp.com/oauth/token/', auth=a
 
 ```
 
-> Your response will be like this
+> The above command returns JSON structured like this:
 
-```javascript
+```json
 {
     "scope": "cryptosign write read",
     "access_token": "12hRiSaV7M97hILdzEBpc3IgIBhyKB",
@@ -78,121 +78,94 @@ Just be sure that <code>Authorization grant type</code> is set to <code>Resource
 
 ## Get the PDF Crypto Signed!
 
-```ruby
-require 'Cryptosign'
-
-api = Cryptosign::APIClient.authorize!('meowmeowmeow')
-api.kittens.get
-```
-
-```python
-import Cryptosign
-
-api = Cryptosign.authorize('meowmeowmeow')
-api.kittens.get()
-```
-
 ```shell
-curl "http://example.com/api/kittens"
-  -H "Authorization: meowmeowmeow"
-```
-
-```javascript
-const Cryptosign = require('Cryptosign');
-
-let api = Cryptosign.authorize('meowmeowmeow');
-let kittens = api.kittens.get();
-```
-
-> The above command returns JSON structured like this:
-
-```json
-[
+curl -X POST \
+  https://cryptosign.herokuapp.com/api/v1/sign/ \
+  -H 'authorization: Bearer 12hRiSaV7M97hILdzEBpc3IgIBhyKB' \
+  -H 'content-type: application/json' \
+  -d '{
+  "pdf":"JVBERi0xLjcKCjEgMCBvYmogICUgZW50cnkgcG9pbnQKPDwKICAvVHlwZSAvQ2F0YWxvZwogIC9QYWdlcyAyIDAgUgo+PgplbmRvYmoKCjIgMCBvYmoKPDwKICAvVHlwZSAvUGFnZXMKICAvTWVkaWFCb3ggWyAwIDAgMjAwIDIwMCBdCiAgL0NvdW50IDEKICAvS2lkcyBbIDMgMCBSIF0KPj4KZW5kb2JqCgozIDAgb2JqCjw8CiAgL1R5cGUgL1BhZ2UKICAvUGFyZW50IDIgMCBSCiAgL1Jlc291cmNlcyA8PAogICAgL0ZvbnQgPDwKICAgICAgL0YxIDQgMCBSIAogICAgPj4KICA+PgogIC9Db250ZW50cyA1IDAgUgo+PgplbmRvYmoKCjQgMCBvYmoKPDwKICAvVHlwZSAvRm9udAogIC9TdWJ0eXBlIC9UeXBlMQogIC9CYXNlRm9udCAvVGltZXMtUm9tYW4KPj4KZW5kb2JqCgo1IDAgb2JqICAlIHBhZ2UgY29udGVudAo8PAogIC9MZW5ndGggNDQKPj4Kc3RyZWFtCkJUCjcwIDUwIFRECi9GMSAxMiBUZgooSGVsbG8sIHdvcmxkISkgVGoKRVQKZW5kc3RyZWFtCmVuZG9iagoKeHJlZgowIDYKMDAwMDAwMDAwMCA2NTUzNSBmIAowMDAwMDAwMDEwIDAwMDAwIG4gCjAwMDAwMDAwNzkgMDAwMDAgbiAKMDAwMDAwMDE3MyAwMDAwMCBuIAowMDAwMDAwMzAxIDAwMDAwIG4gCjAwMDAwMDAzODAgMDAwMDAgbiAKdHJhaWxlcgo8PAogIC9TaXplIDYKICAvUm9vdCAxIDAgUgo+PgpzdGFydHhyZWYKNDkyCiUlRU9G",
+  "signatures" : [
   {
-    "id": 1,
-    "name": "Fluffums",
-    "breed": "calico",
-    "fluffiness": 6,
-    "cuteness": 7
+    "hash" : "asdldsalkdsaj21j31kl321jk312jk312",
+    "email" : "prueba1@trato.io",
+    "name" : "Prueba 1"
   },
   {
-    "id": 2,
-    "name": "Max",
-    "breed": "unknown",
-    "fluffiness": 5,
-    "cuteness": 10
+    "hash" : "sdaklkk213hkj312jkh123hjk123hj2hjk31h",
+    "email" : "prueba2@trato.io",
+    "name" : "Prueba 2"
+  }],
+  "params" : {
+    "title" : "Titulo",
+    "file_name" : "prueba.pdf"
   }
-]
+}'
 ```
 
-This endpoint retrieves all kittens.
+> Make sure to replace Bearer 12hRiSaV7M97hILdzEBpc3IgIBhyKB with your own Access Token, get it in the previous step.
+
+```python
+import requests
+
+ACCESS_TOKEN = "12hRiSaV7M97hILdzEBpc3IgIBhyKB" # Get it with the previous step.
+
+headers = {
+  "Authorization": "Bearer {}".format(ACCESS_TOKEN),
+  "Content-Type" : "application/json"
+}
+
+data ={
+  "pdf":"JVBERi0xLjcKCjEgMCBvYmogICUgZW50cnkgcG9pbnds+aP==",
+  "signatures" : [
+  {
+    "hash" : "asdldsalkdsaj21j31kl321jk312jk312=",
+    "email" : "test@mail.io",
+    "name" : "Prueba 1"
+  },
+  {
+    "hash" : "sdaklkk213hkj312jkh123hjk123hj2hjk31h=",
+    "email" : "hola@mail.io",
+    "name" : "Prueba 2"
+  },
+  {
+    "hash" : "sdaklkk213hkj312jkh123hjk123hj2hjk31h=",
+    "email" : "prueba3@mail.io",
+    "name" : "Prueba 3"
+  }],
+  "params" : {
+    "title" : "Titulo",
+    "file_name" : "Titulo.pdf",
+    "logo": "YijhuYIOYGkjiphUYIOdgUTdfxYFLAdfKSHdfUOPpY=="
+  }
+}
+
+response = requests.post(data=data, headers=headers)
+
+```
+
+
+> Your response will be the pdf, just can save it wherever you want.
+
+This endpoint retrieves the pdf crypto signed.
 
 ### HTTP Request
 
-`GET http://example.com/api/kittens`
+`POST http://cryptosign.herokuapp.com/api/v1/sign/`
 
 ### Query Parameters
 
 Parameter | Default | Description
 --------- | ------- | -----------
-include_cats | false | If set to true, the result will also include cats.
-available | true | If set to false, the result will include kittens that have already been adopted.
+pdf | A base64 File String | This is your pdf who is attach it to the signed doc, will be signed every page.
+params.title | String | The title of the given pdf
+params.file_name | String title | The filename with his extension, `mytitle.pdf`
+params.log | A png base 64 File String | This is your logo who will be show on the signed pdf.
+signatures.hash | A hash string | This hash string is the sign of a person, represented as string.
+signatures.email | Email String | The email of the person.
+signatures.name | String | The name of the person.
+
 
 <aside class="success">
-Remember — a happy kitten is an authenticated kitten!
+  Thats all, enjoy creating crypto signed pdf's!
 </aside>
-
-## Get a Specific Kitten
-
-```ruby
-require 'Cryptosign'
-
-api = Cryptosign::APIClient.authorize!('meowmeowmeow')
-api.kittens.get(2)
-```
-
-```python
-import Cryptosign
-
-api = Cryptosign.authorize('meowmeowmeow')
-api.kittens.get(2)
-```
-
-```shell
-curl "http://example.com/api/kittens/2"
-  -H "Authorization: meowmeowmeow"
-```
-
-```javascript
-const Cryptosign = require('Cryptosign');
-
-let api = Cryptosign.authorize('meowmeowmeow');
-let max = api.kittens.get(2);
-```
-
-> The above command returns JSON structured like this:
-
-```json
-{
-  "id": 2,
-  "name": "Max",
-  "breed": "unknown",
-  "fluffiness": 5,
-  "cuteness": 10
-}
-```
-
-This endpoint retrieves a specific kitten.
-
-<aside class="warning">Inside HTML code blocks like this one, you can't use Markdown, so use <code>&lt;code&gt;</code> blocks to denote code.</aside>
-
-### HTTP Request
-
-`GET http://example.com/kittens/<ID>`
-
-### URL Parameters
-
-Parameter | Description
---------- | -----------
-ID | The ID of the kitten to retrieve
-
