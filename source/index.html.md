@@ -88,17 +88,18 @@ curl -X POST \
   "signatures" : [
   {
     "hash" : "asdldsalkdsaj21j31kl321jk312jk312",
-    "email" : "prueba1@trato.io",
+    "email" : "prueba1@mycompany.io",
     "name" : "Prueba 1"
   },
   {
     "hash" : "sdaklkk213hkj312jkh123hjk123hj2hjk31h",
-    "email" : "prueba2@trato.io",
+    "email" : "prueba2@mycompany.io",
     "name" : "Prueba 2"
   }],
   "params" : {
     "title" : "Titulo",
-    "file_name" : "prueba.pdf"
+    "file_name" : "prueba.pdf",
+    "logo": "YijhuYIOYGkjiphUYIOdgUTdfxYFLAdfKSHdfUOPpY=="
   }
 }'
 ```
@@ -127,11 +128,6 @@ data ={
     "hash" : "sdaklkk213hkj312jkh123hjk123hj2hjk31h=",
     "email" : "hola@mail.io",
     "name" : "Prueba 2"
-  },
-  {
-    "hash" : "sdaklkk213hkj312jkh123hjk123hj2hjk31h=",
-    "email" : "prueba3@mail.io",
-    "name" : "Prueba 3"
   }],
   "params" : {
     "title" : "Titulo",
@@ -140,7 +136,7 @@ data ={
   }
 }
 
-response = requests.post(data=data, headers=headers)
+response = requests.post('https://cryptosign.herokuapp.com/api/v1/sign/',data=data, headers=headers)
 
 ```
 
