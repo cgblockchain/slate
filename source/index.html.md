@@ -6,7 +6,7 @@ language_tabs:
   - python
 
 toc_footers:
-  - <a href='https://cryptosign.herokuapp.com/'>Sign Up for a Developer Key</a>
+  - <a href='http://www.cryptosign.info/login/'>Sign Up for a Developer Key</a>
   - <a href='https://github.com/tripit/slate'>Documentation Powered by Slate</a>
 
 includes:
@@ -30,7 +30,7 @@ We have language bindings in curl on shell and Python! You can view code example
 # With curl, you can just pass the correct header with each request
 curl -X POST \
   -d "grant_type=password&username=<username>&password=<password>" \
-  -u "<client_id>:<client_secret>" https://cryptosign.herokuapp.com/oauth/token/
+  -u "<client_id>:<client_secret>" http://www.cryptosign.info/oauth/token/
 
 ```
 
@@ -45,7 +45,7 @@ data = {
 }
 auth = HTTPBasicAuth('<client_id>', '<client_secret>')
 
-response = requests.post('https://cryptosign.herokuapp.com/oauth/token/', auth=auth, data=data)
+response = requests.post('http://www.cryptosign.info/oauth/token/', auth=auth, data=data)
 
 ```
 
@@ -63,7 +63,7 @@ response = requests.post('https://cryptosign.herokuapp.com/oauth/token/', auth=a
 
 > Make sure to replace `<username>` with your username, `<password>` with your password, `<client_id>` with your client ID and `<client_secret>` with your client secret key.
 
-Cryptosign uses API keys with Oauth authetication to allow access to the API. You can register a new Cryptosign API key at our [developer portal](http://cryptosign.herokuapp.com/oauth/applications/).
+Cryptosign uses API keys with Oauth authetication to allow access to the API. You can register a new Cryptosign API key at our [developer portal](http://www.cryptosign.info/oauth/applications/).
 
 Cryptosign expects for the Token Access to be included in all API requests to the server in a header that looks like the following:
 
@@ -80,7 +80,7 @@ Just be sure that <code>Authorization grant type</code> is set to <code>Resource
 
 ```shell
 curl -X POST \
-  https://cryptosign.herokuapp.com/api/v1/sign/ \
+  http://www.cryptosign.info/api/v1/sign/ \
   -H 'authorization: Bearer 12hRiSaV7M97hILdzEBpc3IgIBhyKB' \
   -H 'content-type: application/json' \
   -d '{
@@ -136,7 +136,7 @@ data ={
   }
 }
 
-response = requests.post('https://cryptosign.herokuapp.com/api/v1/sign/',data=data, headers=headers)
+response = requests.post('http://www.cryptosign.info/api/v1/sign/',data=data, headers=headers)
 
 ```
 
@@ -147,7 +147,7 @@ This endpoint retrieves the pdf crypto signed.
 
 ### HTTP Request
 
-`POST http://cryptosign.herokuapp.com/api/v1/sign/`
+`POST http://www.cryptosign.info/api/v1/sign/`
 
 ### Query Parameters
 
