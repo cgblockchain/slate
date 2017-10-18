@@ -37,7 +37,9 @@ curl -X POST \
 ```python
 import requests
 from requests.auth import HTTPBasicAuth
-
+headers = {
+  "Content-Type" : "application/json"
+}
 data = {
   "grant_type" : "password",
   "username" : "<username>",
@@ -45,7 +47,8 @@ data = {
 }
 auth = HTTPBasicAuth('<client_id>', '<client_secret>')
 
-response = requests.post('http://www.cryptosign.info/oauth/token/', auth=auth, data=data)
+response = requests.post('http://www.cryptosign.info/oauth/token/',
+            auth=auth, json=data, headers=headers)
 
 ```
 
@@ -84,6 +87,7 @@ curl -X POST \
   -H 'authorization: Bearer 12hRiSaV7M97hILdzEBpc3IgIBhyKB' \
   -H 'content-type: application/json' \
   -d '{
+  "timezone": "America/Mexico_City",
   "pdf":"JVBERi0xLjcKCjEgMCBvYmogICUgZW50cnkgcG9pbnQKPDwKICAvVHlwZSAvQ2F0YWxvZwogIC9QYWdlcyAyIDAgUgo+PgplbmRvYmoKCjIgMCBvYmoKPDwKICAvVHlwZSAvUGFnZXMKICAvTWVkaWFCb3ggWyAwIDAgMjAwIDIwMCBdCiAgL0NvdW50IDEKICAvS2lkcyBbIDMgMCBSIF0KPj4KZW5kb2JqCgozIDAgb2JqCjw8CiAgL1R5cGUgL1BhZ2UKICAvUGFyZW50IDIgMCBSCiAgL1Jlc291cmNlcyA8PAogICAgL0ZvbnQgPDwKICAgICAgL0YxIDQgMCBSIAogICAgPj4KICA+PgogIC9Db250ZW50cyA1IDAgUgo+PgplbmRvYmoKCjQgMCBvYmoKPDwKICAvVHlwZSAvRm9udAogIC9TdWJ0eXBlIC9UeXBlMQogIC9CYXNlRm9udCAvVGltZXMtUm9tYW4KPj4KZW5kb2JqCgo1IDAgb2JqICAlIHBhZ2UgY29udGVudAo8PAogIC9MZW5ndGggNDQKPj4Kc3RyZWFtCkJUCjcwIDUwIFRECi9GMSAxMiBUZgooSGVsbG8sIHdvcmxkISkgVGoKRVQKZW5kc3RyZWFtCmVuZG9iagoKeHJlZgowIDYKMDAwMDAwMDAwMCA2NTUzNSBmIAowMDAwMDAwMDEwIDAwMDAwIG4gCjAwMDAwMDAwNzkgMDAwMDAgbiAKMDAwMDAwMDE3MyAwMDAwMCBuIAowMDAwMDAwMzAxIDAwMDAwIG4gCjAwMDAwMDAzODAgMDAwMDAgbiAKdHJhaWxlcgo8PAogIC9TaXplIDYKICAvUm9vdCAxIDAgUgo+PgpzdGFydHhyZWYKNDkyCiUlRU9G",
   "signatures" : [
   {
@@ -117,6 +121,7 @@ headers = {
 }
 
 data ={
+  "timezone" : "America/Mexico_City",
   "pdf":"JVBERi0xLjcKCjEgMCBvYmogICUgZW50cnkgcG9pbnds+aP==",
   "signatures" : [
   {
@@ -136,7 +141,14 @@ data ={
   }
 }
 
-response = requests.post('http://www.cryptosign.info/api/v1/sign/',data=data, headers=headers)
+response = requests.post('http://www.cryptosign.info/api/v1/sign/',json=data, headers=headers)
+
+# save it
+with open("./myfile.pdf", "wb") as f:
+    f.write(response.content)
+
+# or display it
+print(response.content)
 
 ```
 
@@ -153,6 +165,7 @@ This endpoint retrieves the pdf crypto signed.
 
 Parameter | Default | Description
 --------- | ------- | -----------
+timezone | "UTC" | A valid timezone string code, Optional field by default "UTC"
 pdf | A base64 File String | This is your pdf who is attach it to the signed doc, will be signed every page.
 params.title | String | The title of the given pdf
 params.file_name | String title | The filename with his extension, `mytitle.pdf`
@@ -164,4 +177,8 @@ signatures.name | String | The name of the person.
 
 <aside class="success">
   Thats all, enjoy creating crypto signed pdf's!
+</aside>
+
+<aside class="info">
+  You can see what timezones are available here `GET http://www.cryptosign.info/api/v1/timezones/` with your bearer token as Authorization or visit <a href="https://en.wikipedia.org/wiki/List_of_tz_database_time_zones" target="_blank">wikipedia tz list</a>
 </aside>
