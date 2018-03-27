@@ -107,23 +107,195 @@ Just sure to have the correct credentials every endpoint
 ## Order Ammend
 URL `PUT api/v1/order/{order_id}/ammend`
 
+> To create Ammend Order, use this code:
+
+```shell
+# With curl, you can just pass the correct header with each request
+curl -X POST \
+  -d "{
+        "ORDER_ATTRIBUTES" : {
+          "PROGRAM_ID": "",
+          "PARENT_ID": "",
+          "QUANTITY": "",
+          "SIDE": "",
+          "PRICE": "",
+          "ALLOCATIONS": :[
+            {
+              "ALLOCATION_ACCOUNT": "",
+              "ALLOCATION_QUANTITY: """
+            }
+          ],
+          "PRICE_TYPE_QUALIFIER": "",
+          "TIF": "",
+          "EXPIRY": "",
+          "SETTLEMENT_DATE": "",
+          "CCY_PAIR": "",
+          "FIXING_DATE": "",
+          "ORDER_TYPE": "",
+          "STOP_PRICE": "",
+          "PAR_VALUE": "",
+          "MATURITY_DATE": "",
+          "STRIKE_PRICE": "",
+          "EXECUTED_VOLUME": "",
+          "COMMITTED_VOLUME": "",
+          "OWNER": "",
+          "ORDER_ATTRIBUTE_ID": "",
+
+        },
+        "SECURITY" : {
+          "CCY_PAIR_NEAR_DATE_FAR_DATE_ENTERED_TIMESTAMP": "",
+          "SEDOL": "",
+          "OCC_Symbol": "",
+          "TICKER": "",
+          "Instrument_Symbol": "",
+          "SECURITY_ID: """
+
+        },
+        "SENDER" : {
+          "FIRM_ID": "",
+          "USER": "",
+          "TIMESTAMP": "",
+          "SENDER_ID": "",
+
+        },
+        "ORDER_STATUS": {
+          "NEW_ORDER": "",
+          "ORDER_AMEND": "",
+          "ORDER_CANCEL": "",
+          "ORDER_COMPLETE": "",
+          "SENT_TO_TRADE": "",
+          "PARENT_ORDER_CREATION": "",
+          "ARCHIVE": "",
+          "ORDER_STATUS_ID: """
+
+        }
+
+    }" \
+  -u "<client_id>:<client_secret>" {base_url}{url}
+
+```
+
+
+
+> Base URL is the follow for all the endpoints `https://www.cgblockchain.com/` and url for this endpoint is `api/v1/order` .
+
+
 ## Order Cancel/Complete
 URL `PUT api/v1/order/cancel`
 URL `PUT api/v1/order/complete`
 
+> To create Cancel/Complete Order, use this code:
+
+
+
+> Base URL is the follow for all the endpoints `https://www.cgblockchain.com/` and url for this endpoint is `api/v1/order` .
+
+
 ## Run compliance
 URL `POST api/v1/compliance/`
+
+> To create compliance, use this code:
+
+
+> Base URL is the follow for all the endpoints `https://www.cgblockchain.com/` and url for this endpoint is `api/v1/order` .
+
 
 ## Sent to trade
 URL `POST api/v1/order/{order_id}/sent_to_trade`
 
+> To create sent to trade Order, use this code:
+
+```shell
+# With curl, you can just pass the correct header with each request
+curl -X POST \
+  -d "{
+        "ORDER_ATTRIBUTES" : {
+          "PROGRAM_ID": "",
+          "PARENT_ID": "",
+          "QUANTITY": "",
+          "SIDE": "",
+          "PRICE": "",
+          "ALLOCATIONS": :[
+            {
+              "ALLOCATION_ACCOUNT": "",
+              "ALLOCATION_QUANTITY: """
+            }
+          ],
+          "PRICE_TYPE_QUALIFIER": "",
+          "TIF": "",
+          "EXPIRY": "",
+          "SETTLEMENT_DATE": "",
+          "CCY_PAIR": "",
+          "FIXING_DATE": "",
+          "ORDER_TYPE": "",
+          "STOP_PRICE": "",
+          "PAR_VALUE": "",
+          "MATURITY_DATE": "",
+          "STRIKE_PRICE": "",
+          "EXECUTED_VOLUME": "",
+          "COMMITTED_VOLUME": "",
+          "OWNER": "",
+          "ORDER_ATTRIBUTE_ID": "",
+
+        },
+        "SECURITY" : {
+          "CCY_PAIR_NEAR_DATE_FAR_DATE_ENTERED_TIMESTAMP": "",
+          "SEDOL": "",
+          "OCC_Symbol": "",
+          "TICKER": "",
+          "Instrument_Symbol": "",
+          "SECURITY_ID: """
+
+        },
+        "SENDER" : {
+          "FIRM_ID": "",
+          "USER": "",
+          "TIMESTAMP": "",
+          "SENDER_ID": "",
+
+        },
+        "ORDER_STATUS": {
+          "NEW_ORDER": "",
+          "ORDER_AMEND": "",
+          "ORDER_CANCEL": "",
+          "ORDER_COMPLETE": "",
+          "SENT_TO_TRADE": "",
+          "PARENT_ORDER_CREATION": "",
+          "ARCHIVE": "",
+          "ORDER_STATUS_ID: """
+
+        }
+
+    }" \
+  -u "<client_id>:<client_secret>" {base_url}{url}
+
+```
+
+
+
+> Base URL is the follow for all the endpoints `https://www.cgblockchain.com/` and url for this endpoint is `api/v1/order` .
+
+
 ## Parent Order Creation
 URL `POST api/v1/order/{order_id}/parent_creation`
 
+> To create Parent creation Order, use this code:
+
+
+
+> Base URL is the follow for all the endpoints `https://www.cgblockchain.com/` and url for this endpoint is `api/v1/order` .
+
 # Assign / adquire
+
 URL `POST api/v1/order/{order_id}/assign`
 
-# Merge/split
+> To create Assign/adquire Order, use this code:
+
+
+> Base URL is the follow for all the endpoints `https://www.cgblockchain.com/` and url for this endpoint is `api/v1/order` .
+
+
+# Merge / split
 ## Merge
 URL `POST api/v1/merge/{order_id}`
 ## Split
