@@ -17,9 +17,13 @@ search: true
 # Introduction
 
 Welcome to the CG API Documentation! You can use our API to access CG API endpoints.
+Every endpoint will use CRUD based on API RestFul implementation.
+You need to change {base_url} for base url our site that is `https://www.cgblockchain.com/` and then use endpoint url that every endpoint has, i.e `New Order ENDPOINT "url" : "api/v1/neworder"` `https://www.cgblockchain.com/api/v1/neworder`
 
 
-# New Order api/v1/order
+# Order  `api/v1/order`
+
+## New order
 
 > To create new Order, use this code:
 
@@ -91,58 +95,40 @@ curl -X POST \
 
 
 
-> Base URL is the follow for all the endpoints `http://cg-api.com/` and url is `api/v1/order` .
-
-CG uses API keys with Oauth authetication to allow access to the API. You can register a new cg API key at our [developer portal](#).
-
+> Base URL is the follow for all the endpoints `https://www.cgblockchain.com/` and url for this endpoint is `api/v1/order` .
 
 
 <aside class="notice">
 Just sure to have the correct credentials every endpoint
 </aside>
 
-# Payload
+## Order Ammend
 
-## Get the PDF CG !
+## Order Cancel/Complete
 
-```shell
-curl -X POST \
-  http://www.cg.info/api/v1/sign/ \
-  -H 'authorization: Bearer 12hRiSaV7M97hILdzEBpc3IgIBhyKB' \
-  -H 'content-type: application/json' \
-  -d '{
+## Run compliance
 
-}'
-```
+## Sent to trade
+## Parent Order Creation
 
-> Make sure to replace Bearer 12hRiSaV7M97hILdzEBpc3IgIBhyKB with your own Access Token, get it in the previous step.
+# Assign / adquire
+# Merge/split
+## Merge
+## Split
+# Sweep
+# Placements
 
-> That's all
-
-This endpoint retrieves the pdf CG .
-
-### HTTP Request
-
-`POST http://www.cg.info/api/v1/sign/`
-
-### Query Parameters
-
-Parameter | Default | Description
---------- | ------- | -----------
-timezone | "UTC" | A valid timezone string code, Optional field by default "UTC"
-pdf | A base64 File String | This is your pdf who is attach it to the signed doc, will be signed every page.
-params.title | String | The title of the given pdf
-params.file_name | String title | The filename with his extension, `mytitle.pdf`
-params.logo | A png base 64 File String | This is your logo who will be show on the signed pdf.
-signatures.hash | A hash string | This hash string is the sign of a person, represented as string.
-signatures.email | Email String | The email of the person.
-signatures.name | String | The name of the person.
+## New Placement
+## Placement Amend
+## Placement Cancel
+# Executions
+## Execution
+## Execution ammend
+## Execution cancel
 
 
-<aside class="success">
-  Note: ""
-</aside>
+# Post Trade Allocation
+# Exeption
+# archive
 
-<aside class="info">
-  Another note
-</aside>
+
