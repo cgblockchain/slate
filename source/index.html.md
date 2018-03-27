@@ -1,12 +1,12 @@
 ---
-title: CryptoSign API Reference
+title: CG API Reference
 
 language_tabs:
   - shell
-  - python
+  - python(`TODO`)
 
 toc_footers:
-  - <a href='http://www.cryptosign.info/login/'>Sign Up for a Developer Key</a>
+  - <a href='#'>More info</a>
   - <a href='https://github.com/tripit/slate'>Documentation Powered by Slate</a>
 
 includes:
@@ -17,9 +17,7 @@ search: true
 
 # Introduction
 
-Welcome to the CryptoSign API Documentation! You can use our API to access Cryptosign API endpoints, which can get information about how auth and to send payloads to retrieve a pdf signed.
-
-We have language bindings in curl on shell and Python! You can view code examples in the dark area to the right, and you can switch the programming language of the examples with the tabs in the top right.
+Welcome to the CG API Documentation! You can use our API to access CG API endpoints.
 
 
 # Authentication
