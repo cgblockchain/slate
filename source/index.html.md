@@ -21,9 +21,11 @@ Every endpoint will use CRUD based on API RestFul implementation.
 You need to change {base_url} for base url our site that is `https://www.cgblockchain.com/` and then use endpoint url that every endpoint has, i.e `New Order ENDPOINT "url" : "api/v1/neworder"` `https://www.cgblockchain.com/api/v1/neworder`
 
 
-# Order  `api/v1/order`
+# Order
 
 ## New order
+
+URL `POST api/v1/neworder/`
 
 > To create new Order, use this code:
 
@@ -103,32 +105,53 @@ Just sure to have the correct credentials every endpoint
 </aside>
 
 ## Order Ammend
+URL `PUT api/v1/order/{order_id}/ammend`
 
 ## Order Cancel/Complete
+URL `PUT api/v1/order/cancel`
+URL `PUT api/v1/order/complete`
 
 ## Run compliance
+URL `POST api/v1/compliance/`
 
 ## Sent to trade
+URL `POST api/v1/order/{order_id}/sent_to_trade`
+
 ## Parent Order Creation
+URL `POST api/v1/order/{order_id}/parent_creation`
 
 # Assign / adquire
+URL `POST api/v1/order/{order_id}/assign`
+
 # Merge/split
 ## Merge
+URL `POST api/v1/merge/{order_id}`
 ## Split
+URL `POST api/v1/split/{order_id}`
 # Sweep
-# Placements
+URL `POST api/v1/sweep/{order_id}`
 
+# Placements
 ## New Placement
+URL `POST api/v1/placements/`
 ## Placement Amend
+URL `POST api/v1/placements/{placement_id}/ammend`
 ## Placement Cancel
+URL `POST api/v1/placements/{placement_id}/cancel`
 # Executions
 ## Execution
+URL `POST api/v1/executions/`
 ## Execution ammend
+URL `POST api/v1/executions/ammend`
 ## Execution cancel
+URL `POST api/v1/executions/cancel`
 
 
 # Post Trade Allocation
-# Exeption
+URL `POST api/v1/post_trade_allocation`
+# Exception
+URL `POST api/v1/exceptions`
 # archive
+URL `POST api/v1/executions/archive`
 
 
