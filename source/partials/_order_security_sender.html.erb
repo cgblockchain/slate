@@ -1,0 +1,65 @@
+```shell
+# With curl, you can just pass the correct header with each request
+curl -X POST \
+  -d "{
+        "ORDER_ATTRIBUTES" : {
+          "PROGRAM_ID": "",
+          "PARENT_ID": "",
+          "QUANTITY": "",
+          "SIDE": "",
+          "PRICE": "",
+          "ALLOCATIONS": :[
+            {
+              "ALLOCATION_ACCOUNT": "",
+              "ALLOCATION_QUANTITY: """
+            }
+          ],
+          "PRICE_TYPE_QUALIFIER": "",
+          "TIF": "",
+          "EXPIRY": "",
+          "SETTLEMENT_DATE": "",
+          "CCY_PAIR": "",
+          "FIXING_DATE": "",
+          "ORDER_TYPE": "",
+          "STOP_PRICE": "",
+          "PAR_VALUE": "",
+          "MATURITY_DATE": "",
+          "STRIKE_PRICE": "",
+          "EXECUTED_VOLUME": "",
+          "COMMITTED_VOLUME": "",
+          "OWNER": "",
+          "ORDER_ATTRIBUTE_ID": "",
+
+        },
+        "SECURITY" : {
+          "CCY_PAIR_NEAR_DATE_FAR_DATE_ENTERED_TIMESTAMP": "",
+          "SEDOL": "",
+          "OCC_Symbol": "",
+          "TICKER": "",
+          "Instrument_Symbol": "",
+          "SECURITY_ID: """
+
+        },
+        "SENDER" : {
+          "FIRM_ID": "",
+          "USER": "",
+          "TIMESTAMP": "",
+          "SENDER_ID": "",
+
+        },
+        "ORDER_STATUS": {
+          "NEW_ORDER": "",
+          "ORDER_AMEND": "",
+          "ORDER_CANCEL": "",
+          "ORDER_COMPLETE": "",
+          "SENT_TO_TRADE": "",
+          "PARENT_ORDER_CREATION": "",
+          "ARCHIVE": "",
+          "ORDER_STATUS_ID: """
+
+        }
+
+    }" \
+  -u "<client_id>:<client_secret>" {base_url}{url}
+
+```
