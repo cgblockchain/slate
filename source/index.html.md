@@ -2,7 +2,7 @@
 title: CG API Reference
 
 language_tabs:
-  - curl
+  - shell
 
 toc_footers:
   - <a href='#'>More info</a>
@@ -23,7 +23,7 @@ Welcome to the CG API Documentation! You can use our API to access CG API endpoi
 
 > To create new Order, use this code:
 
-```curl
+```shell
 # With curl, you can just pass the correct header with each request
 curl -X POST \
   -d "{
@@ -85,37 +85,27 @@ curl -X POST \
         }
 
     }" \
-  -u "<client_id>:<client_secret>" {base_url/url}
+  -u "<client_id>:<client_secret>" {base_url}{url}
 
 ```
 
 
-> The above command returns JSON structured like this:
 
-```json
-{
+> Base URL is the follow for all the endpoints `http://cg-api.com/` and url is `api/v1/order` .
 
-}
-```
+CG uses API keys with Oauth authetication to allow access to the API. You can register a new cg API key at our [developer portal](#).
 
-> Base URL is the follow for all the endpoints `http://cg-api.com/` .
 
-CG uses API keys with Oauth authetication to allow access to the API. You can register a new cg API key at our [developer portal](oauth/applications/).
-
-cg expects for the Token Access to be included in all API requests to the server in a header that looks like the following:
-
-`Authorization: Bearer meowmeowmeow`
 
 <aside class="notice">
-You must replace <code>meowmeowmeow</code> with your personal API key.
-Just be sure that <code>Authorization grant type</code> is set to <code>Resource owner password-cased</code> when create a new Application API.
+Just sure to have the correct credentials every endpoint
 </aside>
 
 # Payload
 
-## Get the PDF Crypto Signed!
+## Get the PDF CG !
 
-```curl
+```shell
 curl -X POST \
   http://www.cg.info/api/v1/sign/ \
   -H 'authorization: Bearer 12hRiSaV7M97hILdzEBpc3IgIBhyKB' \
@@ -129,7 +119,7 @@ curl -X POST \
 
 > That's all
 
-This endpoint retrieves the pdf crypto signed.
+This endpoint retrieves the pdf CG .
 
 ### HTTP Request
 
