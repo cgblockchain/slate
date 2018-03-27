@@ -2,8 +2,7 @@
 title: CG API Reference
 
 language_tabs:
-  - shell
-  - python(`TODO`)
+  - curl
 
 toc_footers:
   - <a href='#'>More info</a>
@@ -20,11 +19,11 @@ search: true
 Welcome to the CG API Documentation! You can use our API to access CG API endpoints.
 
 
-# New Order `POST api/v1/NewOrder`
+# New Order api/v1/order
 
-> To authorize, use this code:
+> To create new Order, use this code:
 
-```shell
+```curl
 # With curl, you can just pass the correct header with each request
 curl -X POST \
   -d "{
@@ -34,7 +33,7 @@ curl -X POST \
           "QUANTITY": "",
           "SIDE": "",
           "PRICE": "",
-          "ALLOCATIONS": : ""[
+          "ALLOCATIONS": :[
             {
               "ALLOCATION_ACCOUNT": "",
               "ALLOCATION_QUANTITY: """
@@ -90,23 +89,6 @@ curl -X POST \
 
 ```
 
-```python
-import requests
-from requests.auth import HTTPBasicAuth
-headers = {
-  "Content-Type" : "application/json"
-}
-data = {
-  "grant_type" : "password",
-  "username" : "<username>",
-  "password" : "<password>"
-}
-auth = HTTPBasicAuth('<client_id>', '<client_secret>')
-
-response = requests.post('http://www.cg.info/oauth/token/',
-            auth=auth, json=data, headers=headers)
-
-```
 
 > The above command returns JSON structured like this:
 
@@ -133,7 +115,7 @@ Just be sure that <code>Authorization grant type</code> is set to <code>Resource
 
 ## Get the PDF Crypto Signed!
 
-```shell
+```curl
 curl -X POST \
   http://www.cg.info/api/v1/sign/ \
   -H 'authorization: Bearer 12hRiSaV7M97hILdzEBpc3IgIBhyKB' \
@@ -144,32 +126,6 @@ curl -X POST \
 ```
 
 > Make sure to replace Bearer 12hRiSaV7M97hILdzEBpc3IgIBhyKB with your own Access Token, get it in the previous step.
-
-```python
-import requests
-
-ACCESS_TOKEN = "12hRiSaV7M97hILdzEBpc3IgIBhyKB" # Get it with the previous step.
-
-headers = {
-  "Authorization": "Bearer {}".format(ACCESS_TOKEN),
-  "Content-Type" : "application/json"
-}
-
-data ={
-
-}
-
-response = requests.post('{urlbase}{urlendpoint}'.format(),json=data, headers=headers)
-
-# save it
-with open("./myfile.pdf", "wb") as f:
-    f.write(response.content)
-
-# or display it
-print(response.content)
-
-```
-
 
 > That's all
 
