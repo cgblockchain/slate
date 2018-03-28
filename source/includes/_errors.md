@@ -1,6 +1,6 @@
 # Errors
 
-<aside class="notice"> If you require any assistance, please write to us at [CG contact email]. Providing the request identifier would help to ensure a quicker resolution.</aside>
+<aside class="notice"> If you require any assistance, please write to us at <a href="https://www.cgblockchain.com/contact">CG contact page</a>. Providing the request identifier would help to ensure a quicker resolution.</aside>
 
 In some scenarios, the CG API may return error codes. The table below helps you understand the common error codes and their respective descriptions.
 
