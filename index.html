@@ -1,0 +1,2160 @@
+<!doctype html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <meta content="IE=edge,chrome=1" http-equiv="X-UA-Compatible">
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+    <title>CG API Reference</title>
+
+    <style>
+      .highlight table td { padding: 5px; }
+.highlight table pre { margin: 0; }
+.highlight .gh {
+  color: #999999;
+}
+.highlight .sr {
+  color: #f6aa11;
+}
+.highlight .go {
+  color: #888888;
+}
+.highlight .gp {
+  color: #555555;
+}
+.highlight .gs {
+}
+.highlight .gu {
+  color: #aaaaaa;
+}
+.highlight .nb {
+  color: #f6aa11;
+}
+.highlight .cm {
+  color: #75715e;
+}
+.highlight .cp {
+  color: #75715e;
+}
+.highlight .c1 {
+  color: #75715e;
+}
+.highlight .cs {
+  color: #75715e;
+}
+.highlight .c, .highlight .cd {
+  color: #75715e;
+}
+.highlight .err {
+  color: #960050;
+}
+.highlight .gr {
+  color: #960050;
+}
+.highlight .gt {
+  color: #960050;
+}
+.highlight .gd {
+  color: #49483e;
+}
+.highlight .gi {
+  color: #49483e;
+}
+.highlight .ge {
+  color: #49483e;
+}
+.highlight .kc {
+  color: #66d9ef;
+}
+.highlight .kd {
+  color: #66d9ef;
+}
+.highlight .kr {
+  color: #66d9ef;
+}
+.highlight .no {
+  color: #66d9ef;
+}
+.highlight .kt {
+  color: #66d9ef;
+}
+.highlight .mf {
+  color: #ae81ff;
+}
+.highlight .mh {
+  color: #ae81ff;
+}
+.highlight .il {
+  color: #ae81ff;
+}
+.highlight .mi {
+  color: #ae81ff;
+}
+.highlight .mo {
+  color: #ae81ff;
+}
+.highlight .m, .highlight .mb, .highlight .mx {
+  color: #ae81ff;
+}
+.highlight .sc {
+  color: #ae81ff;
+}
+.highlight .se {
+  color: #ae81ff;
+}
+.highlight .ss {
+  color: #ae81ff;
+}
+.highlight .sd {
+  color: #e6db74;
+}
+.highlight .s2 {
+  color: #e6db74;
+}
+.highlight .sb {
+  color: #e6db74;
+}
+.highlight .sh {
+  color: #e6db74;
+}
+.highlight .si {
+  color: #e6db74;
+}
+.highlight .sx {
+  color: #e6db74;
+}
+.highlight .s1 {
+  color: #e6db74;
+}
+.highlight .s {
+  color: #e6db74;
+}
+.highlight .na {
+  color: #a6e22e;
+}
+.highlight .nc {
+  color: #a6e22e;
+}
+.highlight .nd {
+  color: #a6e22e;
+}
+.highlight .ne {
+  color: #a6e22e;
+}
+.highlight .nf {
+  color: #a6e22e;
+}
+.highlight .vc {
+  color: #ffffff;
+}
+.highlight .nn {
+  color: #ffffff;
+}
+.highlight .nl {
+  color: #ffffff;
+}
+.highlight .ni {
+  color: #ffffff;
+}
+.highlight .bp {
+  color: #ffffff;
+}
+.highlight .vg {
+  color: #ffffff;
+}
+.highlight .vi {
+  color: #ffffff;
+}
+.highlight .nv {
+  color: #ffffff;
+}
+.highlight .w {
+  color: #ffffff;
+}
+.highlight {
+  color: #ffffff;
+}
+.highlight .n, .highlight .py, .highlight .nx {
+  color: #ffffff;
+}
+.highlight .ow {
+  color: #f92672;
+}
+.highlight .nt {
+  color: #f92672;
+}
+.highlight .k, .highlight .kv {
+  color: #f92672;
+}
+.highlight .kn {
+  color: #f92672;
+}
+.highlight .kp {
+  color: #f92672;
+}
+.highlight .o {
+  color: #f92672;
+}
+    </style>
+    <link href="stylesheets/screen.css" rel="stylesheet" media="screen" />
+    <link href="stylesheets/print.css" rel="stylesheet" media="print" />
+      <script src="javascripts/all.js"></script>
+  </head>
+
+  <body class="index" data-languages="[&quot;shell&quot;]">
+    <a href="#" id="nav-button">
+      <span>
+        NAV
+        <img src="images/navbar.png" alt="Navbar" />
+      </span>
+    </a>
+    <div class="tocify-wrapper">
+      <img src="images/logo.png" alt="Logo" />
+        <div class="lang-selector">
+              <a href="#" data-language-name="shell">shell</a>
+        </div>
+        <div class="search">
+          <input type="text" class="search" id="input-search" placeholder="Search">
+        </div>
+        <ul class="search-results"></ul>
+      <div id="toc">
+      </div>
+        <ul class="toc-footer">
+            <li><a href='https://www.cgblockchain.com/'>More info</a></li>
+            <li><a href='https://github.com/tripit/slate'>Documentation Powered by Slate</a></li>
+        </ul>
+    </div>
+    <div class="page-wrapper">
+      <div class="dark-box"></div>
+      <div class="content">
+        <h1 id="introduction">Introduction</h1>
+
+<p>Welcome to the CG API Documentation! CG’s API platform includes numerous endpoints to help you build your solutions.
+To get started, you will first need to change the base url {base_url} on our website at <code class="prettyprint">https://www.cgblockchain.com/</code> Next, you will need to use the endpoint &lsquo;url&rsquo; i.e. <code class="prettyprint">New Order == &quot;api/v1/neworder&quot;</code> The final url result should be: <code class="prettyprint">https://www.cgblockchain.com/api/v1/neworder</code></p>
+
+<p>In this API Documentation, you will notice that each data subject contains 3 components.  The “subject name” refers to the block name, “scope” is the frequency of which a block is provided for the data subject, and “attributes” are the contents of each data subject. As the CG API is based on an event-driven architecture, each event will be represented by one or more data subjects based on the Lifecyle of an order.</p>
+
+<h1 id="order">Order</h1>
+
+<p>The <code class="prettyprint">&#39;ORDER_ATTRIBUTES&#39;</code> data subject provides the fundamentals of the order, and may vary depending on asset class.
+Both the current &amp; previous version will be provided. This is a common subject across all Portware events.</p>
+
+<p>The <code class="prettyprint">&#39;SECURITY&#39;</code> data subject provides the underlying Instrument of the order. This will uniquely identify what instrument
+is being traded, and will vary depending on asset class. This is a common subject across all Portware events.</p>
+
+<p>The ‘SENDER’ data subject will identify what user or systematic process is providing information specific to the event.
+This is a common subject across all Portware events.</p>
+
+<p>Below describe attributes for those three main subjects that should be repetead by every endpoint</p>
+
+<p>ORDER_ATTRIBUTES</p>
+
+<p>Scope : A block will be included for both CURRENT &amp; PREVIOUS state.</p>
+
+<p>The description for each attribute under the &lsquo;ORDER_ATTRIBUTES&rsquo; data subject are as follows:</p>
+
+<table><thead>
+<tr>
+<th>Attribute</th>
+<th>Description</th>
+</tr>
+</thead><tbody>
+<tr>
+<td>PROGRAM_ID</td>
+<td>The Program ID of the Portware Basket.</td>
+</tr>
+<tr>
+<td>PARENT_ID</td>
+<td>The Parent ID representing the order.</td>
+</tr>
+<tr>
+<td>QUANTITY</td>
+<td>The Order Quantity submitted on the order.</td>
+</tr>
+<tr>
+<td>SIDE</td>
+<td>The side of the order (i.e.B/S/SS).</td>
+</tr>
+<tr>
+<td>PRICE</td>
+<td>The price provided on the order.</td>
+</tr>
+<tr>
+<td>PRICE_TYPE_QUALIFIER</td>
+<td>Held, Not Held TIF GTC, Day, GTD</td>
+</tr>
+<tr>
+<td>EXPIRY</td>
+<td>Expiry of the order.</td>
+</tr>
+<tr>
+<td>SETTLEMENT_DATE</td>
+<td>Settlement date of the order.</td>
+</tr>
+<tr>
+<td>CCY_PAIR</td>
+<td>If the event is associated with an FX order, currency pair will be included.</td>
+</tr>
+<tr>
+<td>FIXING_DATE</td>
+<td>If the event is associated with an FX NDF order, fixing date will be included.</td>
+</tr>
+<tr>
+<td>ORDER_TYPE</td>
+<td>Stop, Stop Limit, Limit Market</td>
+</tr>
+<tr>
+<td>STOP_PRICE</td>
+<td>Stop price if the</td>
+</tr>
+<tr>
+<td>ORDER_TYPE</td>
+<td>It is stop limit.</td>
+</tr>
+<tr>
+<td>PAR_VALUE</td>
+<td>Included if the order is specific to Fixed Income.</td>
+</tr>
+<tr>
+<td>MATURITY_DATE</td>
+<td>The Maturity date of a Fixed income or futures contract.</td>
+</tr>
+<tr>
+<td>STRIKE_PRICE</td>
+<td>The strike price of an options contract.</td>
+</tr>
+<tr>
+<td>EXECUTED_VOLUME</td>
+<td>The volume executed at the time of an event.</td>
+</tr>
+<tr>
+<td>COMMITTED_VOLUME</td>
+<td>Any remaining quantity currently allocated to a service / broker at the time of an event.</td>
+</tr>
+<tr>
+<td>OWNER</td>
+<td>The current owner of the order.</td>
+</tr>
+<tr>
+<td>ORDER_ATTRIBUTE_ID</td>
+<td>ID assigned to the ORDER_ATTRIBUTES block.</td>
+</tr>
+</tbody></table>
+
+<p>ALLOCATION attribute repeats for each account provided</p>
+
+<table><thead>
+<tr>
+<th>Attribute</th>
+<th>Description</th>
+</tr>
+</thead><tbody>
+<tr>
+<td>ALLOCATION_ACCOUNT</td>
+<td>The allocations associated with the incoming order.</td>
+</tr>
+<tr>
+<td>ALLOCATION_QUANTITY</td>
+<td>The quantity associated with the referenced account.</td>
+</tr>
+</tbody></table>
+
+<p>SECURITY</p>
+
+<p>Scope : A block will only be included for the CURRENT state. Information provided will be consistent across the entire order lifecycle.
+The description for each attribute under the &lsquo;SECURITY&rsquo; data subject are as follows:</p>
+
+<table><thead>
+<tr>
+<th>Attribute</th>
+<th>Description</th>
+</tr>
+</thead><tbody>
+<tr>
+<td>METADATA_STRING</td>
+<td> A combination of Currency Pair, Near Date, and Far Date (in the case of a swap), and the time entered.</td>
+</tr>
+<tr>
+<td>SEDOL</td>
+<td> The SEDOL of an equity.</td>
+</tr>
+<tr>
+<td>OCC_Symbol</td>
+<td> The OCC Symbol for an equity option.</td>
+</tr>
+<tr>
+<td>TICKER</td>
+<td> The ticker of the futures contract.</td>
+</tr>
+<tr>
+<td>Instrument_Symbol</td>
+<td> The Symbol of the bond or index.</td>
+</tr>
+<tr>
+<td>SECURITY_ID</td>
+<td> ID assigned to the SECURITY block.</td>
+</tr>
+</tbody></table>
+
+<p>SENDER</p>
+
+<p>Scope : A block will only be included for the CURRENT state.</p>
+
+<p>The description for each attribute under the &lsquo;SENDER&rsquo; data subject are as follows:</p>
+
+<table><thead>
+<tr>
+<th>Attribute</th>
+<th>Description</th>
+</tr>
+</thead><tbody>
+<tr>
+<td>FIRM_ID</td>
+<td>ID representing the FIRM to which an order is associated.</td>
+</tr>
+<tr>
+<td>USER</td>
+<td>ID of the user that actioned the event. This can either be a system ID or user ID.</td>
+</tr>
+<tr>
+<td>TIMESTAMP</td>
+<td>The timestamp at which the event is generated.</td>
+</tr>
+<tr>
+<td>SENDER_ID</td>
+<td>ID assigned to the SENDER block.</td>
+</tr>
+</tbody></table>
+
+<h2 id="new-order">New order</h2>
+
+<p><code class="prettyprint">POST api/v1/order/</code></p>
+
+<p>The <code class="prettyprint">&#39;ORDER_STATUS&#39;</code> data subject provides the state of the order within the lifecycle; both current and previous.</p>
+
+<p>The description for each attribute under the &lsquo;ORDER_STATUS&rsquo; data subject are as follows:</p>
+
+<table><thead>
+<tr>
+<th>Attribute</th>
+<th>Description</th>
+</tr>
+</thead><tbody>
+<tr>
+<td>NEW_ORDER</td>
+<td>Represents a new order at the inception of the order lifecycle.</td>
+</tr>
+<tr>
+<td>ORDER_AMEND</td>
+<td>Represents an amendment to an order&rsquo;s attributes.</td>
+</tr>
+<tr>
+<td>ORDER_CANCEL</td>
+<td>Represents the cancellation of an order.</td>
+</tr>
+<tr>
+<td>ORDER_COMPLETE</td>
+<td>Represents the completion of an order.</td>
+</tr>
+<tr>
+<td>SENT_TO_TRADE</td>
+<td>Represents an order passing compliance, and being sent to trade.</td>
+</tr>
+<tr>
+<td>PARENT_ORDER_CREATION</td>
+<td>Represents the activation of the order following the &lsquo;SENT_TO_TRADE&rsquo; event.</td>
+</tr>
+<tr>
+<td>ARCHIVE</td>
+<td>Represents an order&rsquo;s archival.</td>
+</tr>
+<tr>
+<td>ORDER_STATUS_ID</td>
+<td>ID assigned to the ORDER_STATUS block.</td>
+</tr>
+</tbody></table>
+
+<blockquote>
+<p>To create new Order, use this code:</p>
+</blockquote>
+<pre class="highlight shell tab-shell"><code><span class="c"># With curl, you can just pass the correct header with each request</span>
+curl -X POST <span class="se">\</span>
+  -d <span class="s2">"{
+        "</span>ORDER_ATTRIBUTES<span class="s2">": {
+          "</span>PROGRAM_ID<span class="s2">": "",
+          "</span>PARENT_ID<span class="s2">": "",
+          "</span>QUANTITY<span class="s2">": "",
+          "</span>SIDE<span class="s2">": "",
+          "</span>PRICE<span class="s2">": "",
+          "</span>ALLOCATIONS<span class="s2">": [
+            {
+              "</span>ALLOCATION_ACCOUNT<span class="s2">": "",
+              "</span>ALLOCATION_QUANTITY<span class="s2">": ""
+            }
+          ],
+          "</span>PRICE_TYPE_QUALIFIER<span class="s2">": "",
+          "</span>TIF<span class="s2">": "",
+          "</span>EXPIRY<span class="s2">": "",
+          "</span>SETTLEMENT_DATE<span class="s2">": "",
+          "</span>CCY_PAIR<span class="s2">": "",
+          "</span>FIXING_DATE<span class="s2">": "",
+          "</span>ORDER_TYPE<span class="s2">": "",
+          "</span>STOP_PRICE<span class="s2">": "",
+          "</span>PAR_VALUE<span class="s2">": "",
+          "</span>MATURITY_DATE<span class="s2">": "",
+          "</span>STRIKE_PRICE<span class="s2">": "",
+          "</span>EXECUTED_VOLUME<span class="s2">": "",
+          "</span>COMMITTED_VOLUME<span class="s2">": "",
+          "</span>OWNER<span class="s2">": "",
+          "</span>ORDER_ATTRIBUTE_ID<span class="s2">": ""
+        },
+        "</span>SECURITY<span class="s2">": {
+          "</span>METADATA_STRING<span class="s2">": "",
+          "</span>SEDOL<span class="s2">": "",
+          "</span>OCC_Symbol<span class="s2">": "",
+          "</span>TICKER<span class="s2">": "",
+          "</span>Instrument_Symbol<span class="s2">": "",
+          "</span>SECURITY_ID<span class="s2">": ""
+        },
+        "</span>SENDER<span class="s2">": {
+          "</span>FIRM_ID<span class="s2">": "",
+          "</span>USER<span class="s2">": "",
+          "</span>TIMESTAMP<span class="s2">": "",
+          "</span>SENDER_ID<span class="s2">": ""
+
+        },
+        "</span>ORDER_STATUS<span class="s2">" : {
+          "</span>NEW_ORDER<span class="s2">": "",
+          "</span>ORDER_AMEND<span class="s2">": "",
+          "</span>ORDER_CANCEL<span class="s2">": "",
+          "</span>ORDER_COMPLETE<span class="s2">": "",
+          "</span>SENT_TO_TRADE<span class="s2">": "",
+          "</span>PARENT_ORDER_CREATION<span class="s2">": "",
+          "</span>ARCHIVE<span class="s2">": "",
+          "</span>ORDER_STATUS_ID<span class="s2">": ""
+        }
+    }"</span> <span class="se">\</span>
+    <span class="o">{</span>base_url<span class="o">}{</span>url<span class="o">}</span>
+
+</code></pre>
+<blockquote>
+<p>Change {base_url} with main domain and {url} with corresponding endpoint url</p>
+</blockquote>
+
+<h2 id="order-amend">Order amend</h2>
+
+<p><code class="prettyprint">PUT api/v1/order/{order_id}/amend</code></p>
+
+<p>The attribute ORDER_AMEND represents an amendment to an order&rsquo;s attributes.</p>
+
+<p><code class="prettyprint">Scope</code> A block will be included for both CURRENT &amp; PREVIOUS state.</p>
+
+<blockquote>
+<p>To create amend Order, use this code:</p>
+</blockquote>
+<pre class="highlight shell tab-shell"><code><span class="c"># With curl, you can just pass the correct header with each request</span>
+curl -X POST <span class="se">\</span>
+  -d <span class="s2">"{
+        "</span>ORDER_ATTRIBUTES<span class="s2">": {
+          "</span>PROGRAM_ID<span class="s2">": "",
+          "</span>PARENT_ID<span class="s2">": "",
+          "</span>QUANTITY<span class="s2">": "",
+          "</span>SIDE<span class="s2">": "",
+          "</span>PRICE<span class="s2">": "",
+          "</span>ALLOCATIONS<span class="s2">": [
+            {
+              "</span>ALLOCATION_ACCOUNT<span class="s2">": "",
+              "</span>ALLOCATION_QUANTITY<span class="s2">": ""
+            }
+          ],
+          "</span>PRICE_TYPE_QUALIFIER<span class="s2">": "",
+          "</span>TIF<span class="s2">": "",
+          "</span>EXPIRY<span class="s2">": "",
+          "</span>SETTLEMENT_DATE<span class="s2">": "",
+          "</span>CCY_PAIR<span class="s2">": "",
+          "</span>FIXING_DATE<span class="s2">": "",
+          "</span>ORDER_TYPE<span class="s2">": "",
+          "</span>STOP_PRICE<span class="s2">": "",
+          "</span>PAR_VALUE<span class="s2">": "",
+          "</span>MATURITY_DATE<span class="s2">": "",
+          "</span>STRIKE_PRICE<span class="s2">": "",
+          "</span>EXECUTED_VOLUME<span class="s2">": "",
+          "</span>COMMITTED_VOLUME<span class="s2">": "",
+          "</span>OWNER<span class="s2">": "",
+          "</span>ORDER_ATTRIBUTE_ID<span class="s2">": ""
+        },
+        "</span>SECURITY<span class="s2">": {
+          "</span>METADATA_STRING<span class="s2">": "",
+          "</span>SEDOL<span class="s2">": "",
+          "</span>OCC_Symbol<span class="s2">": "",
+          "</span>TICKER<span class="s2">": "",
+          "</span>Instrument_Symbol<span class="s2">": "",
+          "</span>SECURITY_ID<span class="s2">": ""
+        },
+        "</span>SENDER<span class="s2">": {
+          "</span>FIRM_ID<span class="s2">": "",
+          "</span>USER<span class="s2">": "",
+          "</span>TIMESTAMP<span class="s2">": "",
+          "</span>SENDER_ID<span class="s2">": ""
+
+        },
+        "</span>ORDER_STATUS<span class="s2">" : {
+          "</span>NEW_ORDER<span class="s2">": "",
+          "</span>ORDER_AMEND<span class="s2">": "",
+          "</span>ORDER_CANCEL<span class="s2">": "",
+          "</span>ORDER_COMPLETE<span class="s2">": "",
+          "</span>SENT_TO_TRADE<span class="s2">": "",
+          "</span>PARENT_ORDER_CREATION<span class="s2">": "",
+          "</span>ARCHIVE<span class="s2">": "",
+          "</span>ORDER_STATUS_ID<span class="s2">": ""
+        }
+    }"</span> <span class="se">\</span>
+    <span class="o">{</span>base_url<span class="o">}{</span>url<span class="o">}</span>
+
+</code></pre>
+<blockquote>
+<p>Change {base_url} with main domain and {url} with corresponding endpoint url</p>
+</blockquote>
+
+<h2 id="order-cancel-complete">Order Cancel/Complete</h2>
+
+<p><code class="prettyprint">PUT api/v1/order/{order_id}/cancel</code>
+<code class="prettyprint">PUT api/v1/order/{order_id}/complete</code></p>
+
+<p>ORDER_CANCEL represents the cancellation of an order.
+ORDER_COMPLETE represents the completion of an order.</p>
+
+<p><code class="prettyprint">Scope</code> A block will be included for both CURRENT &amp; PREVIOUS state.</p>
+
+<blockquote>
+<p>To create Cancel/Complete Order, use this code:</p>
+</blockquote>
+<pre class="highlight shell tab-shell"><code><span class="c"># With curl, you can just pass the correct header with each request</span>
+curl -X POST <span class="se">\</span>
+  -d <span class="s2">"{
+        "</span>ORDER_ATTRIBUTES<span class="s2">": {
+          "</span>PROGRAM_ID<span class="s2">": "",
+          "</span>PARENT_ID<span class="s2">": "",
+          "</span>QUANTITY<span class="s2">": "",
+          "</span>SIDE<span class="s2">": "",
+          "</span>PRICE<span class="s2">": "",
+          "</span>ALLOCATIONS<span class="s2">": [
+            {
+              "</span>ALLOCATION_ACCOUNT<span class="s2">": "",
+              "</span>ALLOCATION_QUANTITY<span class="s2">": ""
+            }
+          ],
+          "</span>PRICE_TYPE_QUALIFIER<span class="s2">": "",
+          "</span>TIF<span class="s2">": "",
+          "</span>EXPIRY<span class="s2">": "",
+          "</span>SETTLEMENT_DATE<span class="s2">": "",
+          "</span>CCY_PAIR<span class="s2">": "",
+          "</span>FIXING_DATE<span class="s2">": "",
+          "</span>ORDER_TYPE<span class="s2">": "",
+          "</span>STOP_PRICE<span class="s2">": "",
+          "</span>PAR_VALUE<span class="s2">": "",
+          "</span>MATURITY_DATE<span class="s2">": "",
+          "</span>STRIKE_PRICE<span class="s2">": "",
+          "</span>EXECUTED_VOLUME<span class="s2">": "",
+          "</span>COMMITTED_VOLUME<span class="s2">": "",
+          "</span>OWNER<span class="s2">": "",
+          "</span>ORDER_ATTRIBUTE_ID<span class="s2">": ""
+        },
+        "</span>SECURITY<span class="s2">": {
+          "</span>METADATA_STRING<span class="s2">": "",
+          "</span>SEDOL<span class="s2">": "",
+          "</span>OCC_Symbol<span class="s2">": "",
+          "</span>TICKER<span class="s2">": "",
+          "</span>Instrument_Symbol<span class="s2">": "",
+          "</span>SECURITY_ID<span class="s2">": ""
+        },
+        "</span>SENDER<span class="s2">": {
+          "</span>FIRM_ID<span class="s2">": "",
+          "</span>USER<span class="s2">": "",
+          "</span>TIMESTAMP<span class="s2">": "",
+          "</span>SENDER_ID<span class="s2">": ""
+
+        },
+        "</span>ORDER_STATUS<span class="s2">" : {
+          "</span>NEW_ORDER<span class="s2">": "",
+          "</span>ORDER_AMEND<span class="s2">": "",
+          "</span>ORDER_CANCEL<span class="s2">": "",
+          "</span>ORDER_COMPLETE<span class="s2">": "",
+          "</span>SENT_TO_TRADE<span class="s2">": "",
+          "</span>PARENT_ORDER_CREATION<span class="s2">": "",
+          "</span>ARCHIVE<span class="s2">": "",
+          "</span>ORDER_STATUS_ID<span class="s2">": ""
+        }
+    }"</span> <span class="se">\</span>
+    <span class="o">{</span>base_url<span class="o">}{</span>url<span class="o">}</span>
+
+</code></pre>
+<blockquote>
+<p>Change {base_url} with main domain and {url} with corresponding endpoint url</p>
+</blockquote>
+
+<h2 id="run-compliance">Run compliance</h2>
+
+<p><code class="prettyprint">POST api/v1/compliance/</code></p>
+
+<p>The <code class="prettyprint">&#39;COMPLIANCE&#39;</code> data subject provides a repeating status of compliance checks performed during the order lifecycle.
+For every rule applied, a type; rule description; status; and plain English result text will be provided.</p>
+
+<table><thead>
+<tr>
+<th>Attribute</th>
+<th>Description</th>
+</tr>
+</thead><tbody>
+<tr>
+<td>COMPLIANCE_RUN</td>
+<td>It is the iteration of compliance applied to an order.</td>
+</tr>
+<tr>
+<td>COMPLIANCE_ID</td>
+<td>It is the ID assigned to the COMPLIANCE block.</td>
+</tr>
+</tbody></table>
+
+<p><code class="prettyprint">Scope</code> Repeats per compliance rule applied to an order, and provides the result.</p>
+
+<blockquote>
+<p>To create compliance, use this code:</p>
+</blockquote>
+<pre class="highlight shell tab-shell"><code><span class="c"># With curl, you can just pass the correct header with each request</span>
+curl -X POST <span class="se">\</span>
+  -d <span class="s2">"{
+        "</span>ORDER_ATTRIBUTES<span class="s2">": {
+          "</span>PROGRAM_ID<span class="s2">": "",
+          "</span>PARENT_ID<span class="s2">": "",
+          "</span>QUANTITY<span class="s2">": "",
+          "</span>SIDE<span class="s2">": "",
+          "</span>PRICE<span class="s2">": "",
+          "</span>ALLOCATIONS<span class="s2">": [
+            {
+              "</span>ALLOCATION_ACCOUNT<span class="s2">": "",
+              "</span>ALLOCATION_QUANTITY<span class="s2">": ""
+            }
+          ],
+          "</span>PRICE_TYPE_QUALIFIER<span class="s2">": "",
+          "</span>TIF<span class="s2">": "",
+          "</span>EXPIRY<span class="s2">": "",
+          "</span>SETTLEMENT_DATE<span class="s2">": "",
+          "</span>CCY_PAIR<span class="s2">": "",
+          "</span>FIXING_DATE<span class="s2">": "",
+          "</span>ORDER_TYPE<span class="s2">": "",
+          "</span>STOP_PRICE<span class="s2">": "",
+          "</span>PAR_VALUE<span class="s2">": "",
+          "</span>MATURITY_DATE<span class="s2">": "",
+          "</span>STRIKE_PRICE<span class="s2">": "",
+          "</span>EXECUTED_VOLUME<span class="s2">": "",
+          "</span>COMMITTED_VOLUME<span class="s2">": "",
+          "</span>OWNER<span class="s2">": "",
+          "</span>ORDER_ATTRIBUTE_ID<span class="s2">": ""
+        },
+        "</span>SECURITY<span class="s2">": {
+          "</span>METADATA_STRING<span class="s2">": "",
+          "</span>SEDOL<span class="s2">": "",
+          "</span>OCC_Symbol<span class="s2">": "",
+          "</span>TICKER<span class="s2">": "",
+          "</span>Instrument_Symbol<span class="s2">": "",
+          "</span>SECURITY_ID<span class="s2">": ""
+        },
+        "</span>SENDER<span class="s2">": {
+          "</span>FIRM_ID<span class="s2">": "",
+          "</span>USER<span class="s2">": "",
+          "</span>TIMESTAMP<span class="s2">": "",
+          "</span>SENDER_ID<span class="s2">": ""
+
+        },
+        "</span>COMPLIANCE<span class="s2">" : {
+          "</span>COMPLIANCE_RUN<span class="s2">": "",
+          "</span>COMPLIANCE_TYPE<span class="s2">": "",
+          "</span>COMPLIANCE_RULE<span class="s2">": "",
+          "</span>COMPLIANCE_STATUS<span class="s2">": "",
+          "</span>COMPLIANCE_RESULT_TEXT<span class="s2">": "",
+          "</span>COMPLIANCE_ID<span class="s2">": ""
+        }
+    }"</span> <span class="se">\</span>
+    <span class="o">{</span>base_url<span class="o">}{</span>url<span class="o">}</span>
+
+</code></pre>
+<blockquote>
+<p>Change {base_url} with main domain and {url} with corresponding endpoint url</p>
+</blockquote>
+
+<h2 id="sent-to-trade">Sent to trade</h2>
+
+<p><code class="prettyprint">POST api/v1/order/{order_id}/sent_to_trade</code></p>
+
+<p>SENT_TO_TRADE represents an order passing compliance, and being sent to trade. It is an attribute of the ‘ORDER_STATUS’ block name that provides the state of the order within the lifecycle; both current and previous.</p>
+
+<p><code class="prettyprint">Scope</code> A block will be included for both CURRENT &amp; PREVIOUS state.</p>
+
+<blockquote>
+<p>To create sent to trade Order, use this code:</p>
+</blockquote>
+<pre class="highlight shell tab-shell"><code><span class="c"># With curl, you can just pass the correct header with each request</span>
+curl -X POST <span class="se">\</span>
+  -d <span class="s2">"{
+        "</span>ORDER_ATTRIBUTES<span class="s2">": {
+          "</span>PROGRAM_ID<span class="s2">": "",
+          "</span>PARENT_ID<span class="s2">": "",
+          "</span>QUANTITY<span class="s2">": "",
+          "</span>SIDE<span class="s2">": "",
+          "</span>PRICE<span class="s2">": "",
+          "</span>ALLOCATIONS<span class="s2">": [
+            {
+              "</span>ALLOCATION_ACCOUNT<span class="s2">": "",
+              "</span>ALLOCATION_QUANTITY<span class="s2">": ""
+            }
+          ],
+          "</span>PRICE_TYPE_QUALIFIER<span class="s2">": "",
+          "</span>TIF<span class="s2">": "",
+          "</span>EXPIRY<span class="s2">": "",
+          "</span>SETTLEMENT_DATE<span class="s2">": "",
+          "</span>CCY_PAIR<span class="s2">": "",
+          "</span>FIXING_DATE<span class="s2">": "",
+          "</span>ORDER_TYPE<span class="s2">": "",
+          "</span>STOP_PRICE<span class="s2">": "",
+          "</span>PAR_VALUE<span class="s2">": "",
+          "</span>MATURITY_DATE<span class="s2">": "",
+          "</span>STRIKE_PRICE<span class="s2">": "",
+          "</span>EXECUTED_VOLUME<span class="s2">": "",
+          "</span>COMMITTED_VOLUME<span class="s2">": "",
+          "</span>OWNER<span class="s2">": "",
+          "</span>ORDER_ATTRIBUTE_ID<span class="s2">": ""
+        },
+        "</span>SECURITY<span class="s2">": {
+          "</span>METADATA_STRING<span class="s2">": "",
+          "</span>SEDOL<span class="s2">": "",
+          "</span>OCC_Symbol<span class="s2">": "",
+          "</span>TICKER<span class="s2">": "",
+          "</span>Instrument_Symbol<span class="s2">": "",
+          "</span>SECURITY_ID<span class="s2">": ""
+        },
+        "</span>SENDER<span class="s2">": {
+          "</span>FIRM_ID<span class="s2">": "",
+          "</span>USER<span class="s2">": "",
+          "</span>TIMESTAMP<span class="s2">": "",
+          "</span>SENDER_ID<span class="s2">": ""
+
+        },
+        "</span>ORDER_STATUS<span class="s2">" : {
+          "</span>NEW_ORDER<span class="s2">": "",
+          "</span>ORDER_AMEND<span class="s2">": "",
+          "</span>ORDER_CANCEL<span class="s2">": "",
+          "</span>ORDER_COMPLETE<span class="s2">": "",
+          "</span>SENT_TO_TRADE<span class="s2">": "",
+          "</span>PARENT_ORDER_CREATION<span class="s2">": "",
+          "</span>ARCHIVE<span class="s2">": "",
+          "</span>ORDER_STATUS_ID<span class="s2">": ""
+        }
+    }"</span> <span class="se">\</span>
+    <span class="o">{</span>base_url<span class="o">}{</span>url<span class="o">}</span>
+
+</code></pre>
+<blockquote>
+<p>Change {base_url} with main domain and {url} with corresponding endpoint url</p>
+</blockquote>
+
+<h2 id="parent-order-creation">Parent Order Creation</h2>
+
+<p><code class="prettyprint">POST api/v1/order/{order_id}/parent_creation</code></p>
+
+<p>PARENT_ORDER_CREATION represents the activation of the order following the &lsquo;SENT_TO_TRADE&rsquo; event. It is also an attribute of the ‘ORDER_STATUS’ block name that provides the state of the order within the lifecycle; both current and previous.</p>
+
+<p><code class="prettyprint">Scope</code> A block will be included for both CURRENT &amp; PREVIOUS state.</p>
+
+<blockquote>
+<p>To create Parent creation Order, use this code:</p>
+</blockquote>
+<pre class="highlight shell tab-shell"><code><span class="c"># With curl, you can just pass the correct header with each request</span>
+curl -X POST <span class="se">\</span>
+  -d <span class="s2">"{
+        "</span>ORDER_ATTRIBUTES<span class="s2">": {
+          "</span>PROGRAM_ID<span class="s2">": "",
+          "</span>PARENT_ID<span class="s2">": "",
+          "</span>QUANTITY<span class="s2">": "",
+          "</span>SIDE<span class="s2">": "",
+          "</span>PRICE<span class="s2">": "",
+          "</span>ALLOCATIONS<span class="s2">": [
+            {
+              "</span>ALLOCATION_ACCOUNT<span class="s2">": "",
+              "</span>ALLOCATION_QUANTITY<span class="s2">": ""
+            }
+          ],
+          "</span>PRICE_TYPE_QUALIFIER<span class="s2">": "",
+          "</span>TIF<span class="s2">": "",
+          "</span>EXPIRY<span class="s2">": "",
+          "</span>SETTLEMENT_DATE<span class="s2">": "",
+          "</span>CCY_PAIR<span class="s2">": "",
+          "</span>FIXING_DATE<span class="s2">": "",
+          "</span>ORDER_TYPE<span class="s2">": "",
+          "</span>STOP_PRICE<span class="s2">": "",
+          "</span>PAR_VALUE<span class="s2">": "",
+          "</span>MATURITY_DATE<span class="s2">": "",
+          "</span>STRIKE_PRICE<span class="s2">": "",
+          "</span>EXECUTED_VOLUME<span class="s2">": "",
+          "</span>COMMITTED_VOLUME<span class="s2">": "",
+          "</span>OWNER<span class="s2">": "",
+          "</span>ORDER_ATTRIBUTE_ID<span class="s2">": ""
+        },
+        "</span>SECURITY<span class="s2">": {
+          "</span>METADATA_STRING<span class="s2">": "",
+          "</span>SEDOL<span class="s2">": "",
+          "</span>OCC_Symbol<span class="s2">": "",
+          "</span>TICKER<span class="s2">": "",
+          "</span>Instrument_Symbol<span class="s2">": "",
+          "</span>SECURITY_ID<span class="s2">": ""
+        },
+        "</span>SENDER<span class="s2">": {
+          "</span>FIRM_ID<span class="s2">": "",
+          "</span>USER<span class="s2">": "",
+          "</span>TIMESTAMP<span class="s2">": "",
+          "</span>SENDER_ID<span class="s2">": ""
+
+        },
+        "</span>ORDER_STATUS<span class="s2">" : {
+          "</span>NEW_ORDER<span class="s2">": "",
+          "</span>ORDER_AMEND<span class="s2">": "",
+          "</span>ORDER_CANCEL<span class="s2">": "",
+          "</span>ORDER_COMPLETE<span class="s2">": "",
+          "</span>SENT_TO_TRADE<span class="s2">": "",
+          "</span>PARENT_ORDER_CREATION<span class="s2">": "",
+          "</span>ARCHIVE<span class="s2">": "",
+          "</span>ORDER_STATUS_ID<span class="s2">": ""
+        }
+    }"</span> <span class="se">\</span>
+    <span class="o">{</span>base_url<span class="o">}{</span>url<span class="o">}</span>
+
+</code></pre>
+<blockquote>
+<p>Change {base_url} with main domain and {url} with corresponding endpoint url</p>
+</blockquote>
+
+<h1 id="assign-acquire">Assign / acquire</h1>
+
+<p><code class="prettyprint">POST api/v1/order/{order_id}/assign</code></p>
+
+<p>The <code class="prettyprint">&#39;ORDER_ATTRIBUTES&#39;</code> data subject provides the fundamentals of the order, and may vary depending on asset class.
+Both the current &amp; previous version will be provided. This is a common subject across all Portware events.</p>
+
+<p>The <code class="prettyprint">&#39;SECURITY&#39;</code> data subject provides the underlying Instrument of the order. This will uniquely identify what instrument
+is being traded, and will vary depending on asset class. This is a common subject across all Portware events.</p>
+
+<p>The ‘SENDER’ data subject will identify what user or systematic process is providing information specific to the event.
+This is a common subject across all Portware events.</p>
+
+<p>Assign/Acquire is an event that represents a milestone for the lifecycle of an order. It represents 3 data subjects: ORDER_ATTRIBUTE, SECURITY, SENDER.</p>
+
+<blockquote>
+<p>To create Assign/acquire Order, use this code:</p>
+</blockquote>
+<pre class="highlight shell tab-shell"><code><span class="c"># With curl, you can just pass the correct header with each request</span>
+curl -X POST <span class="se">\</span>
+  -d <span class="s2">"{
+        "</span>ORDER_ATTRIBUTES<span class="s2">": {
+          "</span>PROGRAM_ID<span class="s2">": "",
+          "</span>PARENT_ID<span class="s2">": "",
+          "</span>QUANTITY<span class="s2">": "",
+          "</span>SIDE<span class="s2">": "",
+          "</span>PRICE<span class="s2">": "",
+          "</span>ALLOCATIONS<span class="s2">": [
+            {
+              "</span>ALLOCATION_ACCOUNT<span class="s2">": "",
+              "</span>ALLOCATION_QUANTITY<span class="s2">": ""
+            }
+          ],
+          "</span>PRICE_TYPE_QUALIFIER<span class="s2">": "",
+          "</span>TIF<span class="s2">": "",
+          "</span>EXPIRY<span class="s2">": "",
+          "</span>SETTLEMENT_DATE<span class="s2">": "",
+          "</span>CCY_PAIR<span class="s2">": "",
+          "</span>FIXING_DATE<span class="s2">": "",
+          "</span>ORDER_TYPE<span class="s2">": "",
+          "</span>STOP_PRICE<span class="s2">": "",
+          "</span>PAR_VALUE<span class="s2">": "",
+          "</span>MATURITY_DATE<span class="s2">": "",
+          "</span>STRIKE_PRICE<span class="s2">": "",
+          "</span>EXECUTED_VOLUME<span class="s2">": "",
+          "</span>COMMITTED_VOLUME<span class="s2">": "",
+          "</span>OWNER<span class="s2">": "",
+          "</span>ORDER_ATTRIBUTE_ID<span class="s2">": ""
+        },
+        "</span>SECURITY<span class="s2">": {
+          "</span>METADATA_STRING<span class="s2">": "",
+          "</span>SEDOL<span class="s2">": "",
+          "</span>OCC_Symbol<span class="s2">": "",
+          "</span>TICKER<span class="s2">": "",
+          "</span>Instrument_Symbol<span class="s2">": "",
+          "</span>SECURITY_ID<span class="s2">": ""
+        },
+        "</span>SENDER<span class="s2">": {
+          "</span>FIRM_ID<span class="s2">": "",
+          "</span>USER<span class="s2">": "",
+          "</span>TIMESTAMP<span class="s2">": "",
+          "</span>SENDER_ID<span class="s2">": ""
+
+        }
+    }"</span> <span class="se">\</span>
+    <span class="o">{</span>base_url<span class="o">}{</span>url<span class="o">}</span>
+
+</code></pre>
+<blockquote>
+<p>Change {base_url} with main domain and {url} with corresponding endpoint url</p>
+</blockquote>
+
+<h1 id="merge-split">Merge / split</h1>
+
+<h2 id="merge">Merge</h2>
+
+<p><code class="prettyprint">POST api/v1/merge/{order_id}</code></p>
+
+<p>The <code class="prettyprint">&#39;MERGE&#39;</code> data subject is generated when two orders are joined in Portware. When this happens, the order details of
+the merged order will be included within this block. It will repeat every merge that takes place in Portware.</p>
+
+<p>Scope: A block will repeat to include each block that is merged with the order.</p>
+
+<p>The description for each attribute under the ‘MERGE’ data subject are as follows:</p>
+
+<table><thead>
+<tr>
+<th>Attribute</th>
+<th>Description</th>
+</tr>
+</thead><tbody>
+<tr>
+<td>PROGRAM_ID</td>
+<td>Program ID of the Portware Basket.</td>
+</tr>
+<tr>
+<td>PARENT_ID</td>
+<td>Parent ID representing the order.</td>
+</tr>
+<tr>
+<td>QUANTITY</td>
+<td>Order Quantity submitted on the order.</td>
+</tr>
+<tr>
+<td>SIDE</td>
+<td>The side of the order (i.e. B/S/SS)</td>
+</tr>
+<tr>
+<td>PRICE</td>
+<td>The price provided on the order.</td>
+</tr>
+<tr>
+<td>ALLOCATION_ACCOUNT</td>
+<td>The allocations associated with the incoming order.</td>
+</tr>
+<tr>
+<td>ALLOCATION_QUANTITY</td>
+<td>The quantity associated with the referenced account.</td>
+</tr>
+<tr>
+<td>PRICE_TYPE_QUALIFIER</td>
+<td>Held, Not Held</td>
+</tr>
+<tr>
+<td>TIF</td>
+<td>GTC, Day, GTD</td>
+</tr>
+<tr>
+<td>EXPIRY</td>
+<td>Expiry of the order.</td>
+</tr>
+<tr>
+<td>SETTLEMENT_DATE</td>
+<td>Settlement date of the order.</td>
+</tr>
+<tr>
+<td>CCY_PAIR</td>
+<td>If the event is associated with an FX order, currency pair will be included.</td>
+</tr>
+<tr>
+<td>FIXING_DATE</td>
+<td>If the event is associated with an FX NDF order, fixing date will be included.</td>
+</tr>
+<tr>
+<td>ORDER_TYPE</td>
+<td>Stop, Stop Limit, Limit Market</td>
+</tr>
+<tr>
+<td>STOP_PRICE</td>
+<td>Stop price if the ORDER_TYPE is stop limit.</td>
+</tr>
+<tr>
+<td>PAR_VALUE</td>
+<td>Included if the order is specific to Fixed Income.</td>
+</tr>
+<tr>
+<td>MATURITY_DATE</td>
+<td>The Maturity date of a Fixed income or futures contract.</td>
+</tr>
+<tr>
+<td>STRIKE_PRICE</td>
+<td>The strike price of an options contract.</td>
+</tr>
+<tr>
+<td>EXECUTED_VOLUME</td>
+<td>The volume executed at the time of an event.</td>
+</tr>
+<tr>
+<td>COMMITTED_VOLUME</td>
+<td>Any remaining quantity currently allocated to a service / broker at the time of an event.</td>
+</tr>
+<tr>
+<td>OWNER</td>
+<td>The current owner of the order</td>
+</tr>
+<tr>
+<td>MERGE_ID</td>
+<td>The ID assigned to the MERGE block</td>
+</tr>
+</tbody></table>
+<pre class="highlight shell tab-shell"><code><span class="c"># With curl, you can just pass the correct header with each request</span>
+curl -X POST <span class="se">\</span>
+  -d <span class="s2">"{
+        "</span>ORDER_ATTRIBUTES<span class="s2">": {
+          "</span>PROGRAM_ID<span class="s2">": "",
+          "</span>PARENT_ID<span class="s2">": "",
+          "</span>QUANTITY<span class="s2">": "",
+          "</span>SIDE<span class="s2">": "",
+          "</span>PRICE<span class="s2">": "",
+          "</span>ALLOCATIONS<span class="s2">": [
+            {
+              "</span>ALLOCATION_ACCOUNT<span class="s2">": "",
+              "</span>ALLOCATION_QUANTITY<span class="s2">": ""
+            }
+          ],
+          "</span>PRICE_TYPE_QUALIFIER<span class="s2">": "",
+          "</span>TIF<span class="s2">": "",
+          "</span>EXPIRY<span class="s2">": "",
+          "</span>SETTLEMENT_DATE<span class="s2">": "",
+          "</span>CCY_PAIR<span class="s2">": "",
+          "</span>FIXING_DATE<span class="s2">": "",
+          "</span>ORDER_TYPE<span class="s2">": "",
+          "</span>STOP_PRICE<span class="s2">": "",
+          "</span>PAR_VALUE<span class="s2">": "",
+          "</span>MATURITY_DATE<span class="s2">": "",
+          "</span>STRIKE_PRICE<span class="s2">": "",
+          "</span>EXECUTED_VOLUME<span class="s2">": "",
+          "</span>COMMITTED_VOLUME<span class="s2">": "",
+          "</span>OWNER<span class="s2">": "",
+          "</span>ORDER_ATTRIBUTE_ID<span class="s2">": ""
+        },
+        "</span>SECURITY<span class="s2">": {
+          "</span>METADATA_STRING<span class="s2">": "",
+          "</span>SEDOL<span class="s2">": "",
+          "</span>OCC_Symbol<span class="s2">": "",
+          "</span>TICKER<span class="s2">": "",
+          "</span>Instrument_Symbol<span class="s2">": "",
+          "</span>SECURITY_ID<span class="s2">": ""
+        },
+        "</span>SENDER<span class="s2">": {
+          "</span>FIRM_ID<span class="s2">": "",
+          "</span>USER<span class="s2">": "",
+          "</span>TIMESTAMP<span class="s2">": "",
+          "</span>SENDER_ID<span class="s2">": ""
+
+        },
+        "</span>MERGE<span class="s2">" : {
+          "</span>PROGRAM_ID<span class="s2">": "",
+          "</span>PARENT_ID<span class="s2">": "",
+          "</span>QUANTITY<span class="s2">": "",
+          "</span>SIDE<span class="s2">": "",
+          "</span>PRICE<span class="s2">": "",
+          "</span>ALLOCATION_ACCOUNT<span class="s2">": "",
+          "</span>ALLOCATION_QUANTITY<span class="s2">": "",
+          "</span>PRICE_TYPE_QUALIFIER<span class="s2">": "",
+          "</span>TIF<span class="s2">": "",
+          "</span>EXPIRY<span class="s2">": "",
+          "</span>SETTLEMENT_DATE<span class="s2">": "",
+          "</span>CCY_PAIR<span class="s2">": "",
+          "</span>FIXING_DATE<span class="s2">": "",
+          "</span>ORDER_TYPE<span class="s2">": "",
+          "</span>STOP_PRICE<span class="s2">": "",
+          "</span>PAR_VALUE<span class="s2">": "",
+          "</span>MATURITY_DATE<span class="s2">": "",
+          "</span>STRIKE_PRICE<span class="s2">": "",
+          "</span>EXECUTED_VOLUME<span class="s2">": "",
+          "</span>COMMITTED_VOLUME<span class="s2">": "",
+          "</span>OWNER<span class="s2">": "",
+          "</span>MERGE_ID<span class="s2">": ""
+        }
+    }"</span> <span class="se">\</span>
+    <span class="o">{</span>base_url<span class="o">}{</span>url<span class="o">}</span>
+
+</code></pre>
+<h2 id="split"> Split</h2>
+
+<p><code class="prettyprint">POST api/v1/split/{order_id}</code></p>
+
+<p>The <code class="prettyprint">&#39;SPLIT&#39;</code> data subject will detail quantity that is split off from the order. It will repeat for each split executed against theorder during the lifecycle.</p>
+
+<p>Scope: A block will repeat to include each quantity split from the order.</p>
+
+<table><thead>
+<tr>
+<th>Attribute</th>
+<th>Description</th>
+</tr>
+</thead><tbody>
+<tr>
+<td>SPLIT_QUANTITY</td>
+<td> It is the quantity of the order that was split.</td>
+</tr>
+<tr>
+<td>SPLIT_ID</td>
+<td> It is the ID assigned to the SPLIT block.</td>
+</tr>
+</tbody></table>
+<pre class="highlight shell tab-shell"><code><span class="c"># With curl, you can just pass the correct header with each request</span>
+curl -X POST <span class="se">\</span>
+  -d <span class="s2">"{
+        "</span>ORDER_ATTRIBUTES<span class="s2">": {
+          "</span>PROGRAM_ID<span class="s2">": "",
+          "</span>PARENT_ID<span class="s2">": "",
+          "</span>QUANTITY<span class="s2">": "",
+          "</span>SIDE<span class="s2">": "",
+          "</span>PRICE<span class="s2">": "",
+          "</span>ALLOCATIONS<span class="s2">": [
+            {
+              "</span>ALLOCATION_ACCOUNT<span class="s2">": "",
+              "</span>ALLOCATION_QUANTITY<span class="s2">": ""
+            }
+          ],
+          "</span>PRICE_TYPE_QUALIFIER<span class="s2">": "",
+          "</span>TIF<span class="s2">": "",
+          "</span>EXPIRY<span class="s2">": "",
+          "</span>SETTLEMENT_DATE<span class="s2">": "",
+          "</span>CCY_PAIR<span class="s2">": "",
+          "</span>FIXING_DATE<span class="s2">": "",
+          "</span>ORDER_TYPE<span class="s2">": "",
+          "</span>STOP_PRICE<span class="s2">": "",
+          "</span>PAR_VALUE<span class="s2">": "",
+          "</span>MATURITY_DATE<span class="s2">": "",
+          "</span>STRIKE_PRICE<span class="s2">": "",
+          "</span>EXECUTED_VOLUME<span class="s2">": "",
+          "</span>COMMITTED_VOLUME<span class="s2">": "",
+          "</span>OWNER<span class="s2">": "",
+          "</span>ORDER_ATTRIBUTE_ID<span class="s2">": ""
+        },
+        "</span>SECURITY<span class="s2">": {
+          "</span>METADATA_STRING<span class="s2">": "",
+          "</span>SEDOL<span class="s2">": "",
+          "</span>OCC_Symbol<span class="s2">": "",
+          "</span>TICKER<span class="s2">": "",
+          "</span>Instrument_Symbol<span class="s2">": "",
+          "</span>SECURITY_ID<span class="s2">": ""
+        },
+        "</span>SENDER<span class="s2">": {
+          "</span>FIRM_ID<span class="s2">": "",
+          "</span>USER<span class="s2">": "",
+          "</span>TIMESTAMP<span class="s2">": "",
+          "</span>SENDER_ID<span class="s2">": ""
+
+        },
+        "</span>SPLIT<span class="s2">" : {
+          "</span>SPLIT_QUANTITY<span class="s2">": "",
+          "</span>SPLIT_ID<span class="s2">": ""
+        }
+    }"</span> <span class="se">\</span>
+    <span class="o">{</span>base_url<span class="o">}{</span>url<span class="o">}</span>
+
+</code></pre>
+<h1 id="sweep">Sweep</h1>
+
+<p><code class="prettyprint">POST api/v1/sweep/{order_id}</code></p>
+
+<p>The <code class="prettyprint">&#39;SWEEP&#39;</code> data subject details advertisements sent to dark pools associated with the order. This will repeat for each
+sweep performed on an order.</p>
+
+<p>Scope: A block will be included for both CURRENT &amp; PREVIOUS state, and it will repeat for each Sweep.</p>
+
+<table><thead>
+<tr>
+<th>Attribute</th>
+<th>Description</th>
+</tr>
+</thead><tbody>
+<tr>
+<td>OPEN_QUANTITY</td>
+<td>It is the quantity advertised to a dark pool.</td>
+</tr>
+<tr>
+<td>SWEEP_DESITNATION</td>
+<td>It is the dark pool a trader is targeting for the quantity advertised.</td>
+</tr>
+<tr>
+<td>SWEEP_ID</td>
+<td>It represents the ID assigned to the SWEEP block.</td>
+</tr>
+</tbody></table>
+<pre class="highlight shell tab-shell"><code><span class="c"># With curl, you can just pass the correct header with each request</span>
+curl -X POST <span class="se">\</span>
+  -d <span class="s2">"{
+        "</span>ORDER_ATTRIBUTES<span class="s2">": {
+          "</span>PROGRAM_ID<span class="s2">": "",
+          "</span>PARENT_ID<span class="s2">": "",
+          "</span>QUANTITY<span class="s2">": "",
+          "</span>SIDE<span class="s2">": "",
+          "</span>PRICE<span class="s2">": "",
+          "</span>ALLOCATIONS<span class="s2">": [
+            {
+              "</span>ALLOCATION_ACCOUNT<span class="s2">": "",
+              "</span>ALLOCATION_QUANTITY<span class="s2">": ""
+            }
+          ],
+          "</span>PRICE_TYPE_QUALIFIER<span class="s2">": "",
+          "</span>TIF<span class="s2">": "",
+          "</span>EXPIRY<span class="s2">": "",
+          "</span>SETTLEMENT_DATE<span class="s2">": "",
+          "</span>CCY_PAIR<span class="s2">": "",
+          "</span>FIXING_DATE<span class="s2">": "",
+          "</span>ORDER_TYPE<span class="s2">": "",
+          "</span>STOP_PRICE<span class="s2">": "",
+          "</span>PAR_VALUE<span class="s2">": "",
+          "</span>MATURITY_DATE<span class="s2">": "",
+          "</span>STRIKE_PRICE<span class="s2">": "",
+          "</span>EXECUTED_VOLUME<span class="s2">": "",
+          "</span>COMMITTED_VOLUME<span class="s2">": "",
+          "</span>OWNER<span class="s2">": "",
+          "</span>ORDER_ATTRIBUTE_ID<span class="s2">": ""
+        },
+        "</span>SECURITY<span class="s2">": {
+          "</span>METADATA_STRING<span class="s2">": "",
+          "</span>SEDOL<span class="s2">": "",
+          "</span>OCC_Symbol<span class="s2">": "",
+          "</span>TICKER<span class="s2">": "",
+          "</span>Instrument_Symbol<span class="s2">": "",
+          "</span>SECURITY_ID<span class="s2">": ""
+        },
+        "</span>SENDER<span class="s2">": {
+          "</span>FIRM_ID<span class="s2">": "",
+          "</span>USER<span class="s2">": "",
+          "</span>TIMESTAMP<span class="s2">": "",
+          "</span>SENDER_ID<span class="s2">": ""
+
+        },
+        "</span>SWEEP<span class="s2">" : {
+          "</span>SWEEP_DESITNATION<span class="s2">": "",
+          "</span>SWEEP_ID<span class="s2">": ""
+        }
+    }"</span> <span class="se">\</span>
+    <span class="o">{</span>base_url<span class="o">}{</span>url<span class="o">}</span>
+
+</code></pre>
+<h1 id="placements">Placements</h1>
+
+<p>The ‘PLACEMENT’ data subject provides data associated with child orders sent to market to trade. It will detail the
+quantity, destination, and other attributes of the placement. It will be repeated to include all associated placements, as
+well as the current and previous states.</p>
+
+<h2 id="new-placement">New Placement</h2>
+
+<p><code class="prettyprint">POST api/v1/placements/</code></p>
+
+<p>New Placement is an event that represents a milestone for the lifecycle of an order.
+The lifecycle includes the following 4 data subjects: ORDER_ATTRIBUTE, SECURITY, SENDER, PLACEMENT.</p>
+
+<p><code class="prettyprint">Scope</code> A block will be included for both CURRENT &amp; PREVIOUS state, and it will
+repeat for each placement.</p>
+<pre class="highlight shell tab-shell"><code><span class="c"># With curl, you can just pass the correct header with each request</span>
+curl -X POST <span class="se">\</span>
+  -d <span class="s2">"{
+        "</span>ORDER_ATTRIBUTES<span class="s2">": {
+          "</span>PROGRAM_ID<span class="s2">": "",
+          "</span>PARENT_ID<span class="s2">": "",
+          "</span>QUANTITY<span class="s2">": "",
+          "</span>SIDE<span class="s2">": "",
+          "</span>PRICE<span class="s2">": "",
+          "</span>ALLOCATIONS<span class="s2">": [
+            {
+              "</span>ALLOCATION_ACCOUNT<span class="s2">": "",
+              "</span>ALLOCATION_QUANTITY<span class="s2">": ""
+            }
+          ],
+          "</span>PRICE_TYPE_QUALIFIER<span class="s2">": "",
+          "</span>TIF<span class="s2">": "",
+          "</span>EXPIRY<span class="s2">": "",
+          "</span>SETTLEMENT_DATE<span class="s2">": "",
+          "</span>CCY_PAIR<span class="s2">": "",
+          "</span>FIXING_DATE<span class="s2">": "",
+          "</span>ORDER_TYPE<span class="s2">": "",
+          "</span>STOP_PRICE<span class="s2">": "",
+          "</span>PAR_VALUE<span class="s2">": "",
+          "</span>MATURITY_DATE<span class="s2">": "",
+          "</span>STRIKE_PRICE<span class="s2">": "",
+          "</span>EXECUTED_VOLUME<span class="s2">": "",
+          "</span>COMMITTED_VOLUME<span class="s2">": "",
+          "</span>OWNER<span class="s2">": "",
+          "</span>ORDER_ATTRIBUTE_ID<span class="s2">": ""
+        },
+        "</span>SECURITY<span class="s2">": {
+          "</span>METADATA_STRING<span class="s2">": "",
+          "</span>SEDOL<span class="s2">": "",
+          "</span>OCC_Symbol<span class="s2">": "",
+          "</span>TICKER<span class="s2">": "",
+          "</span>Instrument_Symbol<span class="s2">": "",
+          "</span>SECURITY_ID<span class="s2">": ""
+        },
+        "</span>SENDER<span class="s2">": {
+          "</span>FIRM_ID<span class="s2">": "",
+          "</span>USER<span class="s2">": "",
+          "</span>TIMESTAMP<span class="s2">": "",
+          "</span>SENDER_ID<span class="s2">": ""
+
+        },
+        "</span>PLACEMENT<span class="s2">" : {
+          "</span>QUANTITY<span class="s2">": "",
+          "</span>BROKER<span class="s2">": "",
+          "</span>ORDER_PARAMETERS<span class="s2">": "",
+          "</span>ORDER_TYPE<span class="s2">": "",
+          "</span>PRICE<span class="s2">": "",
+          "</span>STOP_PRICE<span class="s2">": "",
+          "</span>COMPLETED_QUANTITY<span class="s2">": "",
+          "</span>TIF<span class="s2">": "",
+          "</span>EXPIRY<span class="s2">": "",
+          "</span>PLACEMENT_ID<span class="s2">": ""
+        }
+    }"</span> <span class="se">\</span>
+    <span class="o">{</span>base_url<span class="o">}{</span>url<span class="o">}</span>
+
+</code></pre>
+<h2 id="placement-amend">Placement Amend</h2>
+
+<p><code class="prettyprint">POST api/v1/placements/{placement_id}/amend</code></p>
+
+<p>Placement Amend is an event that represents a milestone for the lifecycle of an order. Similarly to New Placement, the lifecycle includes the following 4 data subjects: ORDER_ATTRIBUTE, SECURITY, SENDER, PLACEMENT.</p>
+
+<p><code class="prettyprint">Scope</code> A block will be included for both CURRENT &amp; PREVIOUS state, and it will
+repeat for each placement.</p>
+<pre class="highlight shell tab-shell"><code><span class="c"># With curl, you can just pass the correct header with each request</span>
+curl -X POST <span class="se">\</span>
+  -d <span class="s2">"{
+        "</span>ORDER_ATTRIBUTES<span class="s2">": {
+          "</span>PROGRAM_ID<span class="s2">": "",
+          "</span>PARENT_ID<span class="s2">": "",
+          "</span>QUANTITY<span class="s2">": "",
+          "</span>SIDE<span class="s2">": "",
+          "</span>PRICE<span class="s2">": "",
+          "</span>ALLOCATIONS<span class="s2">": [
+            {
+              "</span>ALLOCATION_ACCOUNT<span class="s2">": "",
+              "</span>ALLOCATION_QUANTITY<span class="s2">": ""
+            }
+          ],
+          "</span>PRICE_TYPE_QUALIFIER<span class="s2">": "",
+          "</span>TIF<span class="s2">": "",
+          "</span>EXPIRY<span class="s2">": "",
+          "</span>SETTLEMENT_DATE<span class="s2">": "",
+          "</span>CCY_PAIR<span class="s2">": "",
+          "</span>FIXING_DATE<span class="s2">": "",
+          "</span>ORDER_TYPE<span class="s2">": "",
+          "</span>STOP_PRICE<span class="s2">": "",
+          "</span>PAR_VALUE<span class="s2">": "",
+          "</span>MATURITY_DATE<span class="s2">": "",
+          "</span>STRIKE_PRICE<span class="s2">": "",
+          "</span>EXECUTED_VOLUME<span class="s2">": "",
+          "</span>COMMITTED_VOLUME<span class="s2">": "",
+          "</span>OWNER<span class="s2">": "",
+          "</span>ORDER_ATTRIBUTE_ID<span class="s2">": ""
+        },
+        "</span>SECURITY<span class="s2">": {
+          "</span>METADATA_STRING<span class="s2">": "",
+          "</span>SEDOL<span class="s2">": "",
+          "</span>OCC_Symbol<span class="s2">": "",
+          "</span>TICKER<span class="s2">": "",
+          "</span>Instrument_Symbol<span class="s2">": "",
+          "</span>SECURITY_ID<span class="s2">": ""
+        },
+        "</span>SENDER<span class="s2">": {
+          "</span>FIRM_ID<span class="s2">": "",
+          "</span>USER<span class="s2">": "",
+          "</span>TIMESTAMP<span class="s2">": "",
+          "</span>SENDER_ID<span class="s2">": ""
+
+        },
+        "</span>PLACEMENT<span class="s2">" : {
+          "</span>QUANTITY<span class="s2">": "",
+          "</span>BROKER<span class="s2">": "",
+          "</span>ORDER_PARAMETERS<span class="s2">": "",
+          "</span>ORDER_TYPE<span class="s2">": "",
+          "</span>PRICE<span class="s2">": "",
+          "</span>STOP_PRICE<span class="s2">": "",
+          "</span>COMPLETED_QUANTITY<span class="s2">": "",
+          "</span>TIF<span class="s2">": "",
+          "</span>EXPIRY<span class="s2">": "",
+          "</span>PLACEMENT_ID<span class="s2">": ""
+        }
+    }"</span> <span class="se">\</span>
+    <span class="o">{</span>base_url<span class="o">}{</span>url<span class="o">}</span>
+
+</code></pre>
+<h2 id="placement-cancel">Placement Cancel</h2>
+
+<p><code class="prettyprint">POST api/v1/placements/{placement_id}/cancel</code></p>
+
+<p>Placement Cancel is an event that represents a milestone for the lifecycle of an order. Similarly to New Placement and Placement Amend, this lifecycle includes 4 data subjects: ORDER_ATTRIBUTE, SECURITY, SENDER, PLACEMENT.</p>
+
+<p><code class="prettyprint">Scope</code> A block will be included for both CURRENT &amp; PREVIOUS state, and it will
+repeat for each placement.</p>
+<pre class="highlight shell tab-shell"><code><span class="c"># With curl, you can just pass the correct header with each request</span>
+curl -X POST <span class="se">\</span>
+  -d <span class="s2">"{
+        "</span>ORDER_ATTRIBUTES<span class="s2">": {
+          "</span>PROGRAM_ID<span class="s2">": "",
+          "</span>PARENT_ID<span class="s2">": "",
+          "</span>QUANTITY<span class="s2">": "",
+          "</span>SIDE<span class="s2">": "",
+          "</span>PRICE<span class="s2">": "",
+          "</span>ALLOCATIONS<span class="s2">": [
+            {
+              "</span>ALLOCATION_ACCOUNT<span class="s2">": "",
+              "</span>ALLOCATION_QUANTITY<span class="s2">": ""
+            }
+          ],
+          "</span>PRICE_TYPE_QUALIFIER<span class="s2">": "",
+          "</span>TIF<span class="s2">": "",
+          "</span>EXPIRY<span class="s2">": "",
+          "</span>SETTLEMENT_DATE<span class="s2">": "",
+          "</span>CCY_PAIR<span class="s2">": "",
+          "</span>FIXING_DATE<span class="s2">": "",
+          "</span>ORDER_TYPE<span class="s2">": "",
+          "</span>STOP_PRICE<span class="s2">": "",
+          "</span>PAR_VALUE<span class="s2">": "",
+          "</span>MATURITY_DATE<span class="s2">": "",
+          "</span>STRIKE_PRICE<span class="s2">": "",
+          "</span>EXECUTED_VOLUME<span class="s2">": "",
+          "</span>COMMITTED_VOLUME<span class="s2">": "",
+          "</span>OWNER<span class="s2">": "",
+          "</span>ORDER_ATTRIBUTE_ID<span class="s2">": ""
+        },
+        "</span>SECURITY<span class="s2">": {
+          "</span>METADATA_STRING<span class="s2">": "",
+          "</span>SEDOL<span class="s2">": "",
+          "</span>OCC_Symbol<span class="s2">": "",
+          "</span>TICKER<span class="s2">": "",
+          "</span>Instrument_Symbol<span class="s2">": "",
+          "</span>SECURITY_ID<span class="s2">": ""
+        },
+        "</span>SENDER<span class="s2">": {
+          "</span>FIRM_ID<span class="s2">": "",
+          "</span>USER<span class="s2">": "",
+          "</span>TIMESTAMP<span class="s2">": "",
+          "</span>SENDER_ID<span class="s2">": ""
+
+        },
+        "</span>PLACEMENT<span class="s2">" : {
+          "</span>QUANTITY<span class="s2">": "",
+          "</span>BROKER<span class="s2">": "",
+          "</span>ORDER_PARAMETERS<span class="s2">": "",
+          "</span>ORDER_TYPE<span class="s2">": "",
+          "</span>PRICE<span class="s2">": "",
+          "</span>STOP_PRICE<span class="s2">": "",
+          "</span>COMPLETED_QUANTITY<span class="s2">": "",
+          "</span>TIF<span class="s2">": "",
+          "</span>EXPIRY<span class="s2">": "",
+          "</span>PLACEMENT_ID<span class="s2">": ""
+        }
+    }"</span> <span class="se">\</span>
+    <span class="o">{</span>base_url<span class="o">}{</span>url<span class="o">}</span>
+
+</code></pre>
+<h1 id="executions">Executions</h1>
+
+<p>The ‘EXECUTION’ data subject provides fill level details for any placement sent to market. It will repeat for each
+execution provided to a placement (which will also accompany the data subject). Both the current and previous state will
+be provided.</p>
+
+<h2 id="execution">Execution</h2>
+
+<p><code class="prettyprint">POST api/v1/executions/</code></p>
+
+<table><thead>
+<tr>
+<th>Attribute</th>
+<th>Description</th>
+</tr>
+</thead><tbody>
+<tr>
+<td>EXECUTION_AMOUNT</td>
+<td>It refers to the amount provided on an execution.</td>
+</tr>
+<tr>
+<td>EXECUTION_TYPE</td>
+<td>It represents Bust, Amend, New.</td>
+</tr>
+<tr>
+<td>EXECUTION_SOURCE</td>
+<td>It refers to the source of the execution.</td>
+</tr>
+<tr>
+<td>EXECUTION_PRICE</td>
+<td>refers to the price of the execution.</td>
+</tr>
+<tr>
+<td>EXECUTION_ID</td>
+<td>It is the ID assigned to the EXECUTION block.</td>
+</tr>
+</tbody></table>
+
+<p><code class="prettyprint">Scope</code> A block will be included for both CURRENT &amp; PREVIOUS state, and it will
+repeat for each execution.</p>
+<pre class="highlight shell tab-shell"><code><span class="c"># With curl, you can just pass the correct header with each request</span>
+curl -X POST <span class="se">\</span>
+  -d <span class="s2">"{
+        "</span>ORDER_ATTRIBUTES<span class="s2">": {
+          "</span>PROGRAM_ID<span class="s2">": "",
+          "</span>PARENT_ID<span class="s2">": "",
+          "</span>QUANTITY<span class="s2">": "",
+          "</span>SIDE<span class="s2">": "",
+          "</span>PRICE<span class="s2">": "",
+          "</span>ALLOCATIONS<span class="s2">": [
+            {
+              "</span>ALLOCATION_ACCOUNT<span class="s2">": "",
+              "</span>ALLOCATION_QUANTITY<span class="s2">": ""
+            }
+          ],
+          "</span>PRICE_TYPE_QUALIFIER<span class="s2">": "",
+          "</span>TIF<span class="s2">": "",
+          "</span>EXPIRY<span class="s2">": "",
+          "</span>SETTLEMENT_DATE<span class="s2">": "",
+          "</span>CCY_PAIR<span class="s2">": "",
+          "</span>FIXING_DATE<span class="s2">": "",
+          "</span>ORDER_TYPE<span class="s2">": "",
+          "</span>STOP_PRICE<span class="s2">": "",
+          "</span>PAR_VALUE<span class="s2">": "",
+          "</span>MATURITY_DATE<span class="s2">": "",
+          "</span>STRIKE_PRICE<span class="s2">": "",
+          "</span>EXECUTED_VOLUME<span class="s2">": "",
+          "</span>COMMITTED_VOLUME<span class="s2">": "",
+          "</span>OWNER<span class="s2">": "",
+          "</span>ORDER_ATTRIBUTE_ID<span class="s2">": ""
+        },
+        "</span>SECURITY<span class="s2">": {
+          "</span>METADATA_STRING<span class="s2">": "",
+          "</span>SEDOL<span class="s2">": "",
+          "</span>OCC_Symbol<span class="s2">": "",
+          "</span>TICKER<span class="s2">": "",
+          "</span>Instrument_Symbol<span class="s2">": "",
+          "</span>SECURITY_ID<span class="s2">": ""
+        },
+        "</span>SENDER<span class="s2">": {
+          "</span>FIRM_ID<span class="s2">": "",
+          "</span>USER<span class="s2">": "",
+          "</span>TIMESTAMP<span class="s2">": "",
+          "</span>SENDER_ID<span class="s2">": ""
+
+        },
+        "</span>EXECUTION<span class="s2">" : {
+          "</span>EXECUTION_AMOUNT<span class="s2">": "",
+          "</span>EXECUTION_TYPE<span class="s2">": "",
+          "</span>EXECUTION_SOURCE<span class="s2">": "",
+          "</span>EXECUTION_PRICE<span class="s2">": "",
+          "</span>FX_SPOT_RATE<span class="s2">": "",
+          "</span>FX_FORWARD_POINTS<span class="s2">": "",
+          "</span>EXECUTION_ID<span class="s2">": ""
+
+        },
+        "</span>PLACEMENT<span class="s2">" : {
+          "</span>QUANTITY<span class="s2">": "",
+          "</span>BROKER<span class="s2">": "",
+          "</span>ORDER_PARAMETERS<span class="s2">": "",
+          "</span>ORDER_TYPE<span class="s2">": "",
+          "</span>PRICE<span class="s2">": "",
+          "</span>STOP_PRICE<span class="s2">": "",
+          "</span>COMPLETED_QUANTITY<span class="s2">": "",
+          "</span>TIF<span class="s2">": "",
+          "</span>EXPIRY<span class="s2">": "",
+          "</span>PLACEMENT_ID<span class="s2">": ""
+        }
+    }"</span> <span class="se">\</span>
+    <span class="o">{</span>base_url<span class="o">}{</span>url<span class="o">}</span>
+
+</code></pre>
+<h2 id="execution-amend">Execution Amend</h2>
+
+<p><code class="prettyprint">POST api/v1/executions/amend</code></p>
+
+<p>Execution Amend is an event that represents a milestone for the lifecycle of an order. The event includes 5 data subjects: ORDER_ATTRIBUTE, SECURITY, SENDER, EXECUTION, PLACEMENT.</p>
+
+<p><code class="prettyprint">Scope</code> A block will be included for both CURRENT &amp; PREVIOUS state, and it will
+repeat for each execution.</p>
+<pre class="highlight shell tab-shell"><code><span class="c"># With curl, you can just pass the correct header with each request</span>
+curl -X POST <span class="se">\</span>
+  -d <span class="s2">"{
+        "</span>ORDER_ATTRIBUTES<span class="s2">": {
+          "</span>PROGRAM_ID<span class="s2">": "",
+          "</span>PARENT_ID<span class="s2">": "",
+          "</span>QUANTITY<span class="s2">": "",
+          "</span>SIDE<span class="s2">": "",
+          "</span>PRICE<span class="s2">": "",
+          "</span>ALLOCATIONS<span class="s2">": [
+            {
+              "</span>ALLOCATION_ACCOUNT<span class="s2">": "",
+              "</span>ALLOCATION_QUANTITY<span class="s2">": ""
+            }
+          ],
+          "</span>PRICE_TYPE_QUALIFIER<span class="s2">": "",
+          "</span>TIF<span class="s2">": "",
+          "</span>EXPIRY<span class="s2">": "",
+          "</span>SETTLEMENT_DATE<span class="s2">": "",
+          "</span>CCY_PAIR<span class="s2">": "",
+          "</span>FIXING_DATE<span class="s2">": "",
+          "</span>ORDER_TYPE<span class="s2">": "",
+          "</span>STOP_PRICE<span class="s2">": "",
+          "</span>PAR_VALUE<span class="s2">": "",
+          "</span>MATURITY_DATE<span class="s2">": "",
+          "</span>STRIKE_PRICE<span class="s2">": "",
+          "</span>EXECUTED_VOLUME<span class="s2">": "",
+          "</span>COMMITTED_VOLUME<span class="s2">": "",
+          "</span>OWNER<span class="s2">": "",
+          "</span>ORDER_ATTRIBUTE_ID<span class="s2">": ""
+        },
+        "</span>SECURITY<span class="s2">": {
+          "</span>METADATA_STRING<span class="s2">": "",
+          "</span>SEDOL<span class="s2">": "",
+          "</span>OCC_Symbol<span class="s2">": "",
+          "</span>TICKER<span class="s2">": "",
+          "</span>Instrument_Symbol<span class="s2">": "",
+          "</span>SECURITY_ID<span class="s2">": ""
+        },
+        "</span>SENDER<span class="s2">": {
+          "</span>FIRM_ID<span class="s2">": "",
+          "</span>USER<span class="s2">": "",
+          "</span>TIMESTAMP<span class="s2">": "",
+          "</span>SENDER_ID<span class="s2">": ""
+
+        },
+        "</span>EXECUTION<span class="s2">" : {
+          "</span>EXECUTION_AMOUNT<span class="s2">": "",
+          "</span>EXECUTION_TYPE<span class="s2">": "",
+          "</span>EXECUTION_SOURCE<span class="s2">": "",
+          "</span>EXECUTION_PRICE<span class="s2">": "",
+          "</span>FX_SPOT_RATE<span class="s2">": "",
+          "</span>FX_FORWARD_POINTS<span class="s2">": "",
+          "</span>EXECUTION_ID<span class="s2">": ""
+
+        },
+        "</span>PLACEMENT<span class="s2">" : {
+          "</span>QUANTITY<span class="s2">": "",
+          "</span>BROKER<span class="s2">": "",
+          "</span>ORDER_PARAMETERS<span class="s2">": "",
+          "</span>ORDER_TYPE<span class="s2">": "",
+          "</span>PRICE<span class="s2">": "",
+          "</span>STOP_PRICE<span class="s2">": "",
+          "</span>COMPLETED_QUANTITY<span class="s2">": "",
+          "</span>TIF<span class="s2">": "",
+          "</span>EXPIRY<span class="s2">": "",
+          "</span>PLACEMENT_ID<span class="s2">": ""
+        }
+    }"</span> <span class="se">\</span>
+    <span class="o">{</span>base_url<span class="o">}{</span>url<span class="o">}</span>
+
+</code></pre>
+<h2 id="execution-cancel">Execution cancel</h2>
+
+<p><code class="prettyprint">POST api/v1/executions/cancel</code></p>
+
+<p>Execution Cancel includes 5 data subjects: ORDER_ATTRIBUTE, SECURITY, SENDER, EXECUTION, PLACEMENT.</p>
+
+<p><code class="prettyprint">Scope</code> A block will be included for both CURRENT &amp; PREVIOUS state, and it will
+repeat for each execution.</p>
+<pre class="highlight shell tab-shell"><code><span class="c"># With curl, you can just pass the correct header with each request</span>
+curl -X POST <span class="se">\</span>
+  -d <span class="s2">"{
+        "</span>ORDER_ATTRIBUTES<span class="s2">": {
+          "</span>PROGRAM_ID<span class="s2">": "",
+          "</span>PARENT_ID<span class="s2">": "",
+          "</span>QUANTITY<span class="s2">": "",
+          "</span>SIDE<span class="s2">": "",
+          "</span>PRICE<span class="s2">": "",
+          "</span>ALLOCATIONS<span class="s2">": [
+            {
+              "</span>ALLOCATION_ACCOUNT<span class="s2">": "",
+              "</span>ALLOCATION_QUANTITY<span class="s2">": ""
+            }
+          ],
+          "</span>PRICE_TYPE_QUALIFIER<span class="s2">": "",
+          "</span>TIF<span class="s2">": "",
+          "</span>EXPIRY<span class="s2">": "",
+          "</span>SETTLEMENT_DATE<span class="s2">": "",
+          "</span>CCY_PAIR<span class="s2">": "",
+          "</span>FIXING_DATE<span class="s2">": "",
+          "</span>ORDER_TYPE<span class="s2">": "",
+          "</span>STOP_PRICE<span class="s2">": "",
+          "</span>PAR_VALUE<span class="s2">": "",
+          "</span>MATURITY_DATE<span class="s2">": "",
+          "</span>STRIKE_PRICE<span class="s2">": "",
+          "</span>EXECUTED_VOLUME<span class="s2">": "",
+          "</span>COMMITTED_VOLUME<span class="s2">": "",
+          "</span>OWNER<span class="s2">": "",
+          "</span>ORDER_ATTRIBUTE_ID<span class="s2">": ""
+        },
+        "</span>SECURITY<span class="s2">": {
+          "</span>METADATA_STRING<span class="s2">": "",
+          "</span>SEDOL<span class="s2">": "",
+          "</span>OCC_Symbol<span class="s2">": "",
+          "</span>TICKER<span class="s2">": "",
+          "</span>Instrument_Symbol<span class="s2">": "",
+          "</span>SECURITY_ID<span class="s2">": ""
+        },
+        "</span>SENDER<span class="s2">": {
+          "</span>FIRM_ID<span class="s2">": "",
+          "</span>USER<span class="s2">": "",
+          "</span>TIMESTAMP<span class="s2">": "",
+          "</span>SENDER_ID<span class="s2">": ""
+
+        },
+        "</span>EXECUTION<span class="s2">" : {
+          "</span>EXECUTION_AMOUNT<span class="s2">": "",
+          "</span>EXECUTION_TYPE<span class="s2">": "",
+          "</span>EXECUTION_SOURCE<span class="s2">": "",
+          "</span>EXECUTION_PRICE<span class="s2">": "",
+          "</span>FX_SPOT_RATE<span class="s2">": "",
+          "</span>FX_FORWARD_POINTS<span class="s2">": "",
+          "</span>EXECUTION_ID<span class="s2">": ""
+
+        },
+        "</span>PLACEMENT<span class="s2">" : {
+          "</span>QUANTITY<span class="s2">": "",
+          "</span>BROKER<span class="s2">": "",
+          "</span>ORDER_PARAMETERS<span class="s2">": "",
+          "</span>ORDER_TYPE<span class="s2">": "",
+          "</span>PRICE<span class="s2">": "",
+          "</span>STOP_PRICE<span class="s2">": "",
+          "</span>COMPLETED_QUANTITY<span class="s2">": "",
+          "</span>TIF<span class="s2">": "",
+          "</span>EXPIRY<span class="s2">": "",
+          "</span>PLACEMENT_ID<span class="s2">": ""
+        }
+    }"</span> <span class="se">\</span>
+    <span class="o">{</span>base_url<span class="o">}{</span>url<span class="o">}</span>
+
+</code></pre>
+<h1 id="post-trade-allocation">Post Trade Allocation</h1>
+
+<p><code class="prettyprint">POST api/v1/post_trade_allocation</code></p>
+
+<p>The <code class="prettyprint">&#39;PT_ALLOCATION&#39;</code> data subject provides detail for any post-trade allocation performed on an order. It will detail the
+account, quantity, price, and associated fees. This will repeat for each allocation (totaling up to the quantity of an order).
+Both the current and previous state will be provided.</p>
+
+<p>&lsquo;Scope&rsquo; A block will be included for both CURRENT &amp; PREVIOUS state, and it will repeat for each allocation.</p>
+
+<p>The attributes for PT Allocation include the following:</p>
+
+<table><thead>
+<tr>
+<th>Attribute</th>
+<th>Description</th>
+</tr>
+</thead><tbody>
+<tr>
+<td>ALLOCATION_QUANTITY</td>
+<td>It is the amount that is being allocated.</td>
+</tr>
+<tr>
+<td>ALLOCATION_ACCOUNT</td>
+<td>It is the account in which the referenced amount is allocated.</td>
+</tr>
+<tr>
+<td>ALLOCATION_DESTINATION</td>
+<td>It is any destination specific to an allocation.</td>
+</tr>
+<tr>
+<td>ALLOCATION_METHOD</td>
+<td>It refers to the method used (i.e. best-fit, pro- rata, etc.) to allocate.</td>
+</tr>
+<tr>
+<td>FEE_TYPE</td>
+<td>It is type of fee applied to the allocation.</td>
+</tr>
+<tr>
+<td>FEE_AMOUNT</td>
+<td>It refers to fee amount applied to the allocation.</td>
+</tr>
+<tr>
+<td>CLEARING_BROKER</td>
+<td>It refers to an associated clearing broker.</td>
+</tr>
+<tr>
+<td>PT_ALLOCATION_ID</td>
+<td>It is the ID assigned to the PT_ALLOCATION block.</td>
+</tr>
+</tbody></table>
+<pre class="highlight shell tab-shell"><code><span class="c"># With curl, you can just pass the correct header with each request</span>
+curl -X POST <span class="se">\</span>
+  -d <span class="s2">"{
+        "</span>ORDER_ATTRIBUTES<span class="s2">": {
+          "</span>PROGRAM_ID<span class="s2">": "",
+          "</span>PARENT_ID<span class="s2">": "",
+          "</span>QUANTITY<span class="s2">": "",
+          "</span>SIDE<span class="s2">": "",
+          "</span>PRICE<span class="s2">": "",
+          "</span>ALLOCATIONS<span class="s2">": [
+            {
+              "</span>ALLOCATION_ACCOUNT<span class="s2">": "",
+              "</span>ALLOCATION_QUANTITY<span class="s2">": ""
+            }
+          ],
+          "</span>PRICE_TYPE_QUALIFIER<span class="s2">": "",
+          "</span>TIF<span class="s2">": "",
+          "</span>EXPIRY<span class="s2">": "",
+          "</span>SETTLEMENT_DATE<span class="s2">": "",
+          "</span>CCY_PAIR<span class="s2">": "",
+          "</span>FIXING_DATE<span class="s2">": "",
+          "</span>ORDER_TYPE<span class="s2">": "",
+          "</span>STOP_PRICE<span class="s2">": "",
+          "</span>PAR_VALUE<span class="s2">": "",
+          "</span>MATURITY_DATE<span class="s2">": "",
+          "</span>STRIKE_PRICE<span class="s2">": "",
+          "</span>EXECUTED_VOLUME<span class="s2">": "",
+          "</span>COMMITTED_VOLUME<span class="s2">": "",
+          "</span>OWNER<span class="s2">": "",
+          "</span>ORDER_ATTRIBUTE_ID<span class="s2">": ""
+        },
+        "</span>SECURITY<span class="s2">": {
+          "</span>METADATA_STRING<span class="s2">": "",
+          "</span>SEDOL<span class="s2">": "",
+          "</span>OCC_Symbol<span class="s2">": "",
+          "</span>TICKER<span class="s2">": "",
+          "</span>Instrument_Symbol<span class="s2">": "",
+          "</span>SECURITY_ID<span class="s2">": ""
+        },
+        "</span>SENDER<span class="s2">": {
+          "</span>FIRM_ID<span class="s2">": "",
+          "</span>USER<span class="s2">": "",
+          "</span>TIMESTAMP<span class="s2">": "",
+          "</span>SENDER_ID<span class="s2">": ""
+
+        },
+        "</span>PT_ALLOCATION<span class="s2">" : {
+          "</span>ALLOCATION_QUANTITY<span class="s2">": "",
+          "</span>ALLOCATION_PRICE<span class="s2">": "",
+          "</span>ALLOCATION_ACCOUNT<span class="s2">": "",
+          "</span>ALLOCATION_DESTINATION<span class="s2">": "",
+          "</span>ALLOCATION_METHOD<span class="s2">": "",
+          "</span>FEE_TYPE<span class="s2">": "",
+          "</span>FEE_AMOUNT<span class="s2">": "",
+          "</span>CLEARING_BROKER<span class="s2">": "",
+          "</span>PT_ALLOCATION_ID<span class="s2">": ""
+        }
+    }"</span> <span class="se">\</span>
+    <span class="o">{</span>base_url<span class="o">}{</span>url<span class="o">}</span>
+
+</code></pre>
+<h1 id="exception">Exception</h1>
+
+<p><code class="prettyprint">POST api/v1/exceptions</code></p>
+
+<p>“Exception” is an event that represents a milestone for the lifecycle of an order. This refers to 4 data subjects: ORDER_ATTRIBUTE, SECURITY, SENDER, ALERT.</p>
+
+<p>The <code class="prettyprint">&#39;ALERT&#39;</code> data subject will be generated whenever an exception is raised in association with the order. The subject
+will be repeated for each exception raised during the order lifecycle.</p>
+
+<p><code class="prettyprint">Scope</code> A block will be included for both CURRENT &amp; PREVIOUS state, and it will repeat for each alert.</p>
+
+<p>The  &lsquo;ALERT&rsquo; data subject includes the following attributes:</p>
+
+<table><thead>
+<tr>
+<th>Attribute</th>
+<th>Description</th>
+</tr>
+</thead><tbody>
+<tr>
+<td>ALERT_TYPE</td>
+<td>It refers to the exception type associated with an alert.</td>
+</tr>
+<tr>
+<td>ALERT_REASON_TEXT</td>
+<td>It is the reason text provided.</td>
+</tr>
+<tr>
+<td>ALERT_ID</td>
+<td>It is the ID assigned to the ALERT block.</td>
+</tr>
+</tbody></table>
+<pre class="highlight shell tab-shell"><code><span class="c"># With curl, you can just pass the correct header with each request</span>
+curl -X POST <span class="se">\</span>
+  -d <span class="s2">"{
+        "</span>ORDER_ATTRIBUTES<span class="s2">": {
+          "</span>PROGRAM_ID<span class="s2">": "",
+          "</span>PARENT_ID<span class="s2">": "",
+          "</span>QUANTITY<span class="s2">": "",
+          "</span>SIDE<span class="s2">": "",
+          "</span>PRICE<span class="s2">": "",
+          "</span>ALLOCATIONS<span class="s2">": [
+            {
+              "</span>ALLOCATION_ACCOUNT<span class="s2">": "",
+              "</span>ALLOCATION_QUANTITY<span class="s2">": ""
+            }
+          ],
+          "</span>PRICE_TYPE_QUALIFIER<span class="s2">": "",
+          "</span>TIF<span class="s2">": "",
+          "</span>EXPIRY<span class="s2">": "",
+          "</span>SETTLEMENT_DATE<span class="s2">": "",
+          "</span>CCY_PAIR<span class="s2">": "",
+          "</span>FIXING_DATE<span class="s2">": "",
+          "</span>ORDER_TYPE<span class="s2">": "",
+          "</span>STOP_PRICE<span class="s2">": "",
+          "</span>PAR_VALUE<span class="s2">": "",
+          "</span>MATURITY_DATE<span class="s2">": "",
+          "</span>STRIKE_PRICE<span class="s2">": "",
+          "</span>EXECUTED_VOLUME<span class="s2">": "",
+          "</span>COMMITTED_VOLUME<span class="s2">": "",
+          "</span>OWNER<span class="s2">": "",
+          "</span>ORDER_ATTRIBUTE_ID<span class="s2">": ""
+        },
+        "</span>SECURITY<span class="s2">": {
+          "</span>METADATA_STRING<span class="s2">": "",
+          "</span>SEDOL<span class="s2">": "",
+          "</span>OCC_Symbol<span class="s2">": "",
+          "</span>TICKER<span class="s2">": "",
+          "</span>Instrument_Symbol<span class="s2">": "",
+          "</span>SECURITY_ID<span class="s2">": ""
+        },
+        "</span>SENDER<span class="s2">": {
+          "</span>FIRM_ID<span class="s2">": "",
+          "</span>USER<span class="s2">": "",
+          "</span>TIMESTAMP<span class="s2">": "",
+          "</span>SENDER_ID<span class="s2">": ""
+
+        },
+        "</span>ALERT<span class="s2">" : {
+          "</span>ALERT_TYPE<span class="s2">": "",
+          "</span>ALERT_REASON_TEXT<span class="s2">": "",
+          "</span>ALERT_ID<span class="s2">": ""
+        }
+    }"</span> <span class="se">\</span>
+    <span class="o">{</span>base_url<span class="o">}{</span>url<span class="o">}</span>
+
+</code></pre>
+<h1 id="archive">archive</h1>
+
+<p><code class="prettyprint">POST api/v1/executions/archive</code></p>
+
+<p>Archive is an event that refers to the following 3 data subjects: ORDER_ATTRIBUTE, SECURITY, SENDER.</p>
+
+<p>The <code class="prettyprint">&#39;ORDER_ATTRIBUTES&#39;</code> data subject provides the fundamentals of the order, and may vary depending on asset class.
+Both the current &amp; previous version will be provided. This is a common subject across all Portware events.</p>
+
+<p>The <code class="prettyprint">&#39;SECURITY&#39;</code> data subject provides the underlying Instrument of the order. This will uniquely identify what instrument
+is being traded, and will vary depending on asset class. This is a common subject across all Portware events.</p>
+
+<p>The ‘SENDER’ data subject will identify what user or systematic process is providing information specific to the event.
+This is a common subject across all Portware events.</p>
+<pre class="highlight shell tab-shell"><code><span class="c"># With curl, you can just pass the correct header with each request</span>
+curl -X POST <span class="se">\</span>
+  -d <span class="s2">"{
+        "</span>ORDER_ATTRIBUTES<span class="s2">": {
+          "</span>PROGRAM_ID<span class="s2">": "",
+          "</span>PARENT_ID<span class="s2">": "",
+          "</span>QUANTITY<span class="s2">": "",
+          "</span>SIDE<span class="s2">": "",
+          "</span>PRICE<span class="s2">": "",
+          "</span>ALLOCATIONS<span class="s2">": [
+            {
+              "</span>ALLOCATION_ACCOUNT<span class="s2">": "",
+              "</span>ALLOCATION_QUANTITY<span class="s2">": ""
+            }
+          ],
+          "</span>PRICE_TYPE_QUALIFIER<span class="s2">": "",
+          "</span>TIF<span class="s2">": "",
+          "</span>EXPIRY<span class="s2">": "",
+          "</span>SETTLEMENT_DATE<span class="s2">": "",
+          "</span>CCY_PAIR<span class="s2">": "",
+          "</span>FIXING_DATE<span class="s2">": "",
+          "</span>ORDER_TYPE<span class="s2">": "",
+          "</span>STOP_PRICE<span class="s2">": "",
+          "</span>PAR_VALUE<span class="s2">": "",
+          "</span>MATURITY_DATE<span class="s2">": "",
+          "</span>STRIKE_PRICE<span class="s2">": "",
+          "</span>EXECUTED_VOLUME<span class="s2">": "",
+          "</span>COMMITTED_VOLUME<span class="s2">": "",
+          "</span>OWNER<span class="s2">": "",
+          "</span>ORDER_ATTRIBUTE_ID<span class="s2">": ""
+        },
+        "</span>SECURITY<span class="s2">": {
+          "</span>METADATA_STRING<span class="s2">": "",
+          "</span>SEDOL<span class="s2">": "",
+          "</span>OCC_Symbol<span class="s2">": "",
+          "</span>TICKER<span class="s2">": "",
+          "</span>Instrument_Symbol<span class="s2">": "",
+          "</span>SECURITY_ID<span class="s2">": ""
+        },
+        "</span>SENDER<span class="s2">": {
+          "</span>FIRM_ID<span class="s2">": "",
+          "</span>USER<span class="s2">": "",
+          "</span>TIMESTAMP<span class="s2">": "",
+          "</span>SENDER_ID<span class="s2">": ""
+
+        }
+    }"</span> <span class="se">\</span>
+    <span class="o">{</span>base_url<span class="o">}{</span>url<span class="o">}</span>
+
+</code></pre>
+          <h1 id="errors">Errors</h1>
+
+<aside class="notice"> If you require any assistance, please write to us at <a href="https://www.cgblockchain.com/contact">CG contact page</a>. Providing the request identifier would help to ensure a quicker resolution.</aside>
+
+<p>In some scenarios, the CG API may return error codes. The table below helps you understand the common error codes and their respective descriptions.</p>
+
+<p>In general, error codes in the 4xx range indicate a request that has failed with the information provided, such as a missing parameter. Codes in the 5xx range indicate an error with CG’s servers.</p>
+
+<table><thead>
+<tr>
+<th>Error Code</th>
+<th>Description</th>
+</tr>
+</thead><tbody>
+<tr>
+<td>400</td>
+<td>Bad Request &ndash; The request was unacceptable, please check for a missing parameter.</td>
+</tr>
+<tr>
+<td>401</td>
+<td>Unauthorized &ndash; Unauthorized - No valid API key provided</td>
+</tr>
+<tr>
+<td>403</td>
+<td>Forbidden &ndash; Page requested is hidden for administrators only</td>
+</tr>
+<tr>
+<td>404</td>
+<td>Not Found &ndash; The specified endpoint could not be found</td>
+</tr>
+<tr>
+<td>405</td>
+<td>Method Not Allowed &ndash; You tried to access a cg endpoint with an invalid method</td>
+</tr>
+<tr>
+<td>406</td>
+<td>Not Acceptable &ndash; You requested a format that isn&rsquo;t JSON</td>
+</tr>
+<tr>
+<td>429</td>
+<td>Too Many Requests &ndash; Too Many Requests - Too many requests hit the API too quickly! We recommend an exponential backoff of your requests.</td>
+</tr>
+<tr>
+<td>500</td>
+<td>Internal Server Error &ndash; We had a problem with our server. Try again later.</td>
+</tr>
+<tr>
+<td>503</td>
+<td>Service Unavailable &ndash; We&rsquo;re temporarily offline for maintenance. Please try again later.</td>
+</tr>
+</tbody></table>
+
+      </div>
+      <div class="dark-box">
+          <div class="lang-selector">
+                <a href="#" data-language-name="shell">shell</a>
+          </div>
+      </div>
+    </div>
+  </body>
+</html>
