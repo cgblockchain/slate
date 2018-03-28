@@ -25,7 +25,7 @@ You need to change {base_url} for base url our site that is `https://www.cgblock
 
 ## New order
 
-URL `POST api/v1/neworder/`
+`POST api/v1/neworder/`
 
 > To create new Order, use this code:
 
@@ -39,7 +39,7 @@ Just sure to have the correct credentials every endpoint
 </aside>
 
 ## Order Ammend
-URL `PUT api/v1/order/{order_id}/ammend`
+`PUT api/v1/order/{order_id}/ammend`
 
 > To create Ammend Order, use this code:
 
@@ -49,8 +49,8 @@ URL `PUT api/v1/order/{order_id}/ammend`
 
 
 ## Order Cancel/Complete
-URL `PUT api/v1/order/{order_id}/cancel`
-URL `PUT api/v1/order/{order_id}/complete`
+`PUT api/v1/order/{order_id}/cancel`
+`PUT api/v1/order/{order_id}/complete`
 
 > To create Cancel/Complete Order, use this code:
 
@@ -60,7 +60,7 @@ URL `PUT api/v1/order/{order_id}/complete`
 
 
 ## Run compliance
-URL `POST api/v1/compliance/`
+`POST api/v1/compliance/`
 
 > To create compliance, use this code:
 
@@ -70,7 +70,7 @@ URL `POST api/v1/compliance/`
 
 
 ## Sent to trade
-URL `POST api/v1/order/{order_id}/sent_to_trade`
+`POST api/v1/order/{order_id}/sent_to_trade`
 
 > To create sent to trade Order, use this code:
 
@@ -80,7 +80,7 @@ URL `POST api/v1/order/{order_id}/sent_to_trade`
 
 
 ## Parent Order Creation
-URL `POST api/v1/order/{order_id}/parent_creation`
+`POST api/v1/order/{order_id}/parent_creation`
 
 > To create Parent creation Order, use this code:
 
@@ -90,7 +90,7 @@ URL `POST api/v1/order/{order_id}/parent_creation`
 
 # Assign / adquire
 
-URL `POST api/v1/order/{order_id}/assign`
+`POST api/v1/order/{order_id}/assign`
 
 > To create Assign/adquire Order, use this code:
 
@@ -100,66 +100,66 @@ URL `POST api/v1/order/{order_id}/assign`
 
 # Merge / split
 ## Merge
-URL `POST api/v1/merge/{order_id}`
+`POST api/v1/merge/{order_id}`
 
 <%= partial "partials/order_security_sender.html" %>
 
 ## Split
-URL `POST api/v1/split/{order_id}`
+`POST api/v1/split/{order_id}`
 
 <%= partial "partials/order_security_sender.html" %>
 
 # Sweep
-URL `POST api/v1/sweep/{order_id}`
+`POST api/v1/sweep/{order_id}`
 
 <%= partial "partials/order_security_sender.html" %>
 
 # Placements
 ## New Placement
-URL `POST api/v1/placements/`
+`POST api/v1/placements/`
 
 <%= partial "partials/order_security_sender.html" %>
 
 ## Placement Amend
-URL `POST api/v1/placements/{placement_id}/ammend`
+`POST api/v1/placements/{placement_id}/ammend`
 
 <%= partial "partials/order_security_sender.html" %>
 
 ## Placement Cancel
-URL `POST api/v1/placements/{placement_id}/cancel`
+`POST api/v1/placements/{placement_id}/cancel`
 
 <%= partial "partials/order_security_sender.html" %>
 
 # Executions
 ## Execution
-URL `POST api/v1/executions/`
+`POST api/v1/executions/`
 
 <%= partial "partials/order_security_sender.html" %>
 
 ## Execution ammend
-URL `POST api/v1/executions/ammend`
+`POST api/v1/executions/ammend`
 
 <%= partial "partials/order_security_sender.html" %>
 
 ## Execution cancel
-URL `POST api/v1/executions/cancel`
+`POST api/v1/executions/cancel`
 
 <%= partial "partials/order_security_sender.html" %>
 
 
 # Post Trade Allocation
-URL `POST api/v1/post_trade_allocation`
+`POST api/v1/post_trade_allocation`
 
 <%= partial "partials/order_security_sender.html" %>
 
 # Exception
-URL `POST api/v1/exceptions`
+`POST api/v1/exceptions`
 
 <%= partial "partials/order_security_sender.html" %>
 
 
 # archive
-URL `POST api/v1/executions/archive`
+`POST api/v1/executions/archive`
 
 <%= partial "partials/order_security_sender.html" %>
 
