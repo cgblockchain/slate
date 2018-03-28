@@ -1,0 +1,45 @@
+```shell
+# With curl, you can just pass the correct header with each request
+curl -X POST \
+  -d "{
+        "ORDER_ATTRIBUTES": {
+          "PROGRAM_ID": "",
+          "PARENT_ID": "",
+          "QUANTITY": "",
+          "SIDE": "",
+          "PRICE": "",
+          "ALLOCATIONS": [
+            {
+              "ALLOCATION_ACCOUNT": "",
+              "ALLOCATION_QUANTITY": ""
+            }
+          ],
+          "PRICE_TYPE_QUALIFIER": "",
+          "TIF": "",
+          "EXPIRY": "",
+          "SETTLEMENT_DATE": "",
+          "CCY_PAIR": "",
+          "FIXING_DATE": "",
+          "ORDER_TYPE": "",
+          "STOP_PRICE": "",
+          "PAR_VALUE": "",
+          "MATURITY_DATE": "",
+          "STRIKE_PRICE": "",
+          "EXECUTED_VOLUME": "",
+          "COMMITTED_VOLUME": "",
+          "OWNER": "",
+          "ORDER_ATTRIBUTE_ID": ""
+        },
+        "SECURITY": {
+          "METADATA_STRING": "",
+          "SEDOL": "",
+          "OCC_Symbol": "",
+          "TICKER": "",
+          "Instrument_Symbol": "",
+          "SECURITY_ID": ""
+        },
+        "SENDER": {
+          "FIRM_ID": "",
+          "USER": "",
+          "TIMESTAMP": "",
+          "SENDER_ID": ""
