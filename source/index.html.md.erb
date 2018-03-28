@@ -150,8 +150,16 @@ sweep performed on an order.
 <%= partial "partials/sweep.html" %>
 
 # Placements
+
+The ‘PLACEMENT’ data subject provides data associated with child orders sent to market to trade. It will detail the
+quantity, destination, and other attributes of the placement. It will be repeated to include all associated placements, as
+well as the current and previous states.
+
 ## New Placement
 `POST api/v1/placements/`
+
+`Scope` A block will be included for both CURRENT & PREVIOUS state, and it will
+repeat for each placement.
 
 <%= partial "partials/order_security_sender.html" %>
 <%= partial "partials/placement.html" %>
@@ -159,18 +167,32 @@ sweep performed on an order.
 ## Placement Amend
 `POST api/v1/placements/{placement_id}/ammend`
 
+`Scope` A block will be included for both CURRENT & PREVIOUS state, and it will
+repeat for each placement.
+
 <%= partial "partials/order_security_sender.html" %>
 <%= partial "partials/placement.html" %>
 
 ## Placement Cancel
 `POST api/v1/placements/{placement_id}/cancel`
 
+`Scope` A block will be included for both CURRENT & PREVIOUS state, and it will
+repeat for each placement.
+
 <%= partial "partials/order_security_sender.html" %>
 <%= partial "partials/placement.html" %>
 
 # Executions
+
+The ‘EXECUTION’ data subject provides fill level details for any placement sent to market. It will repeat for each
+execution provided to a placement (which will also accompany the data subject). Both the current and previous state will
+be provided.
+
 ## Execution
 `POST api/v1/executions/`
+
+`Scope` A block will be included for both CURRENT & PREVIOUS state, and it will
+repeat for each execution.
 
 <%= partial "partials/order_security_sender.html" %>
 <%= partial "partials/execution.html" %>
@@ -179,12 +201,18 @@ sweep performed on an order.
 ## Execution ammend
 `POST api/v1/executions/ammend`
 
+`Scope` A block will be included for both CURRENT & PREVIOUS state, and it will
+repeat for each execution.
+
 <%= partial "partials/order_security_sender.html" %>
 <%= partial "partials/execution.html" %>
 <%= partial "partials/placement.html" %>
 
 ## Execution cancel
 `POST api/v1/executions/cancel`
+
+`Scope` A block will be included for both CURRENT & PREVIOUS state, and it will
+repeat for each execution.
 
 <%= partial "partials/order_security_sender.html" %>
 <%= partial "partials/execution.html" %>
@@ -194,11 +222,22 @@ sweep performed on an order.
 # Post Trade Allocation
 `POST api/v1/post_trade_allocation`
 
+The `'PT_ALLOCATION'` data subject provides detail for any post-trade allocation performed on an order. It will detail the
+account, quantity, price, and associated fees. This will repeat for each allocation (totaling up to the quantity of an order).
+Both the current and previous state will be provided.
+
+'Scope' A block will be included for both CURRENT & PREVIOUS state, and it will repeat for each allocation.
+
 <%= partial "partials/order_security_sender.html" %>
 <%= partial "partials/post_trade.html" %>
 
 # Exception
 `POST api/v1/exceptions`
+
+The `'ALERT'` data subject will be generated whenever an exception is raised in association with the order. The subject
+will be repeated for each exception raised during the order lifecycle.
+
+`Scope` A block will be included for both CURRENT & PREVIOUS state, and it will repeat for each alert.
 
 <%= partial "partials/order_security_sender.html" %>
 <%= partial "partials/alert.html" %>
