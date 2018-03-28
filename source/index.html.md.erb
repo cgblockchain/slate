@@ -84,9 +84,10 @@ ORDER_COMPLETE represents the completion of an order.
 The `'COMPLIANCE'` data subject provides a repeating status of compliance checks performed during the order lifecycle.
 For every rule applied, a type; rule description; status; and plain English result text will be provided.
 
-COMPLIANCE_RUN is the iteration of compliance applied to an order.
-
-COMPLIANCE_ID is the ID assigned to the COMPLIANCE block.
+Attribute | Description
+--------- | -------
+COMPLIANCE_RUN | It is the iteration of compliance applied to an order.
+COMPLIANCE_ID | It is the ID assigned to the COMPLIANCE block.
 
 `Scope` Repeats per compliance rule applied to an order, and provides the result.
 
@@ -186,8 +187,15 @@ MERGE_ID | The ID assigned to the MERGE block
 ## Split
 `POST api/v1/split/{order_id}`
 
-The `'SPLIT'` data subject will detail quantity that is split off from the order. It will repeat for each split executed against the
-order during the lifecycle.
+The `'SPLIT'` data subject will detail quantity that is split off from the order. It will repeat for each split executed against theorder during the lifecycle.
+
+Scope: A block will repeat to include each quantity split from the order.
+
+
+Attribute | Description
+--------- | -------
+SPLIT_QUANTITY | It is the quantity of the order that was split.
+SPLIT_ID | It is the ID assigned to the SPLIT block.
 
 <%= partial "partials/order_security_sender.html" %>
 <%= partial "partials/split.html" %>
@@ -197,6 +205,12 @@ order during the lifecycle.
 
 The `'SWEEP'` data subject details advertisements sent to dark pools associated with the order. This will repeat for each
 sweep performed on an order.
+
+Scope: A block will be included for both CURRENT & PREVIOUS state, and it will repeat for each Sweep.
+
+OPEN_QUANTITY is the quantity advertised to a dark pool.
+SWEEP_DESITNATION is the dark pool a trader is targeting for the quantity advertised.
+SWEEP_ID represents the ID assigned to the SWEEP block.
 
 <%= partial "partials/order_security_sender.html" %>
 <%= partial "partials/sweep.html" %>
