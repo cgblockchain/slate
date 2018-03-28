@@ -315,16 +315,39 @@ Both the current and previous state will be provided.
 
 'Scope' A block will be included for both CURRENT & PREVIOUS state, and it will repeat for each allocation.
 
+The attributes for PT Allocation include the following:
+
+Attribute | Description
+--------- | -------
+ALLOCATION_QUANTITY | It is the amount that is being allocated.
+ALLOCATION_ACCOUNT | It is the account in which the referenced amount is allocated.
+ALLOCATION_DESTINATION | It is any destination specific to an allocation.
+ALLOCATION_METHOD | It refers to the method used (i.e. best-fit, pro- rata, etc.) to allocate.
+FEE_TYPE | It is type of fee applied to the allocation.
+FEE_AMOUNT | It refers to fee amount applied to the allocation.
+CLEARING_BROKER | It refers to an associated clearing broker.
+PT_ALLOCATION_ID | It is the ID assigned to the PT_ALLOCATION block.
+
 <%= partial "partials/order_security_sender.html" %>
 <%= partial "partials/post_trade.html" %>
 
 # Exception
 `POST api/v1/exceptions`
 
+“Exception” is an event that represents a milestone for the lifecycle of an order. This refers to 4 data subjects: ORDER_ATTRIBUTE, SECURITY, SENDER, ALERT.
+
 The `'ALERT'` data subject will be generated whenever an exception is raised in association with the order. The subject
 will be repeated for each exception raised during the order lifecycle.
 
 `Scope` A block will be included for both CURRENT & PREVIOUS state, and it will repeat for each alert.
+
+The  'ALERT' data subject includes the following attributes:
+
+Attribute | Description
+--------- | -------
+ALERT_TYPE | It refers to the exception type associated with an alert.
+ALERT_REASON_TEXT | It is the reason text provided.
+ALERT_ID | It is the ID assigned to the ALERT block.
 
 <%= partial "partials/order_security_sender.html" %>
 <%= partial "partials/alert.html" %>
@@ -332,6 +355,8 @@ will be repeated for each exception raised during the order lifecycle.
 
 # archive
 `POST api/v1/executions/archive`
+
+Archive is an event that refers to the following 3 data subjects: ORDER_ATTRIBUTE, SECURITY, SENDER.
 
 <%= partial "partials/order_security_sender_description.html" %>
 
