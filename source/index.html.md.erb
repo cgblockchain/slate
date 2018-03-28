@@ -5,7 +5,7 @@ language_tabs:
   - shell
 
 toc_footers:
-  - <a href='#'>More info</a>
+  - <a href='https://www.cgblockchain.com/'>More info</a>
   - <a href='https://github.com/tripit/slate'>Documentation Powered by Slate</a>
 
 includes:
@@ -16,9 +16,10 @@ search: true
 
 # Introduction
 
-Welcome to the CG API Documentation! You can use our API to access CG API endpoints.
-Every endpoint will use CRUD based on API RestFul implementation.
-You need to change {base_url} for base url our site that is `https://www.cgblockchain.com/` and then use endpoint url that every endpoint has, i.e `New Order ENDPOINT "url" : "api/v1/neworder"` The url result was be : `https://www.cgblockchain.com/api/v1/neworder`
+Welcome to the CG API Documentation! CG’s API platform includes numerous endpoints to help you build your solutions.
+To get started, you will first need to change the base url {base_url} on our website at `https://www.cgblockchain.com/` Next, you will need to use the endpoint 'url' i.e. `New Order == "api/v1/neworder"` The final url result should be: `https://www.cgblockchain.com/api/v1/neworder`
+
+In this API Documentation, you will notice that each data subject contains 3 components.  The “subject name” refers to the block name, “scope” is the frequency of which a block is provided for the data subject, and “attributes” are the contents of each data subject. As the CG API is based on an event-driven architecture, each event will be represented by one or more data subjects based on the Lifecyle of an order.
 
 
 # Order
@@ -29,6 +30,8 @@ You need to change {base_url} for base url our site that is `https://www.cgblock
 
 `POST api/v1/order/`
 
+The attribute NEW_ORDER represents a new order at the inception of the order lifecycle. ORDER_STATUS_ID is the ID assigned to the ORDER_STATUS block.
+
 The `'ORDER_STATUS'` data subject provides the state of the order within the lifecycle; both current and previous.
 
 > To create new Order, use this code:
@@ -36,7 +39,7 @@ The `'ORDER_STATUS'` data subject provides the state of the order within the lif
 <%= partial "partials/order_security_sender.html" %>
 <%= partial "partials/order_status.html" %>
 
-> Base URL is the follow for all the endpoints `https://www.cgblockchain.com/` and url for this endpoint is `api/v1/order` .
+> Change {base_url} with main domain and {url} with corresponding endpoint url
 
 
 <aside class="notice">
@@ -53,7 +56,7 @@ Just sure to have the correct credentials every endpoint
 <%= partial "partials/order_security_sender.html" %>
 <%= partial "partials/order_status.html" %>
 
-> Base URL is the follow for all the endpoints `https://www.cgblockchain.com/` and url for this endpoint is `api/v1/order` .
+> Change {base_url} with main domain and {url} with corresponding endpoint url
 
 
 ## Order Cancel/Complete
@@ -67,7 +70,7 @@ Just sure to have the correct credentials every endpoint
 <%= partial "partials/order_security_sender.html" %>
 <%= partial "partials/order_status.html" %>
 
-> Base URL is the follow for all the endpoints `https://www.cgblockchain.com/` and url for this endpoint is `api/v1/order` .
+> Change {base_url} with main domain and {url} with corresponding endpoint url
 
 
 ## Run compliance
@@ -83,7 +86,7 @@ For every rule applied, a type; rule description; status; and plain English resu
 <%= partial "partials/order_security_sender.html" %>
 <%= partial "partials/compliance.html" %>
 
-> Base URL is the follow for all the endpoints `https://www.cgblockchain.com/` and url for this endpoint is `api/v1/order` .
+> Change {base_url} with main domain and {url} with corresponding endpoint url
 
 
 ## Sent to trade
@@ -96,7 +99,7 @@ For every rule applied, a type; rule description; status; and plain English resu
 <%= partial "partials/order_security_sender.html" %>
 <%= partial "partials/order_status.html" %>
 
-> Base URL is the follow for all the endpoints `https://www.cgblockchain.com/` and url for this endpoint is `api/v1/order` .
+> Change {base_url} with main domain and {url} with corresponding endpoint url
 
 
 ## Parent Order Creation
@@ -109,7 +112,7 @@ For every rule applied, a type; rule description; status; and plain English resu
 <%= partial "partials/order_security_sender.html" %>
 <%= partial "partials/order_status.html" %>
 
-> Base URL is the follow for all the endpoints `https://www.cgblockchain.com/` and url for this endpoint is `api/v1/order` .
+> Change {base_url} with main domain and {url} with corresponding endpoint url
 
 # Assign / adquire
 
@@ -122,7 +125,7 @@ For every rule applied, a type; rule description; status; and plain English resu
 <%= partial "partials/order_security_sender.html" %>
 <%= partial "partials/no_object.html" %>
 
-> Base URL is the follow for all the endpoints `https://www.cgblockchain.com/` and url for this endpoint is `api/v1/order` .
+> Change {base_url} with main domain and {url} with corresponding endpoint url
 
 
 # Merge / split
