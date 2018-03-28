@@ -30,6 +30,7 @@ You need to change {base_url} for base url our site that is `https://www.cgblock
 > To create new Order, use this code:
 
 <%= partial "partials/order_security_sender.html" %>
+<%= partial "partials/order_status.html" %>
 
 > Base URL is the follow for all the endpoints `https://www.cgblockchain.com/` and url for this endpoint is `api/v1/order` .
 
@@ -44,6 +45,7 @@ Just sure to have the correct credentials every endpoint
 > To create Ammend Order, use this code:
 
 <%= partial "partials/order_security_sender.html" %>
+<%= partial "partials/order_status.html" %>
 
 > Base URL is the follow for all the endpoints `https://www.cgblockchain.com/` and url for this endpoint is `api/v1/order` .
 
@@ -55,6 +57,7 @@ Just sure to have the correct credentials every endpoint
 > To create Cancel/Complete Order, use this code:
 
 <%= partial "partials/order_security_sender.html" %>
+<%= partial "partials/order_status.html" %>
 
 > Base URL is the follow for all the endpoints `https://www.cgblockchain.com/` and url for this endpoint is `api/v1/order` .
 
@@ -65,6 +68,7 @@ Just sure to have the correct credentials every endpoint
 > To create compliance, use this code:
 
 <%= partial "partials/order_security_sender.html" %>
+<%= partial "partials/order_status.html" %>
 
 > Base URL is the follow for all the endpoints `https://www.cgblockchain.com/` and url for this endpoint is `api/v1/order` .
 
@@ -75,6 +79,7 @@ Just sure to have the correct credentials every endpoint
 > To create sent to trade Order, use this code:
 
 <%= partial "partials/order_security_sender.html" %>
+<%= partial "partials/order_status.html" %>
 
 > Base URL is the follow for all the endpoints `https://www.cgblockchain.com/` and url for this endpoint is `api/v1/order` .
 
@@ -84,7 +89,8 @@ Just sure to have the correct credentials every endpoint
 
 > To create Parent creation Order, use this code:
 
-
+<%= partial "partials/order_security_sender.html" %>
+<%= partial "partials/order_status.html" %>
 
 > Base URL is the follow for all the endpoints `https://www.cgblockchain.com/` and url for this endpoint is `api/v1/order` .
 
@@ -94,6 +100,8 @@ Just sure to have the correct credentials every endpoint
 
 > To create Assign/adquire Order, use this code:
 
+<%= partial "partials/order_security_sender.html" %>
+<%= partial "partials/no_object.html" %>
 
 > Base URL is the follow for all the endpoints `https://www.cgblockchain.com/` and url for this endpoint is `api/v1/order` .
 
@@ -103,64 +111,76 @@ Just sure to have the correct credentials every endpoint
 `POST api/v1/merge/{order_id}`
 
 <%= partial "partials/order_security_sender.html" %>
+<%= partial "partials/no_object.html" %>
 
 ## Split
 `POST api/v1/split/{order_id}`
 
 <%= partial "partials/order_security_sender.html" %>
+<%= partial "partials/no_object.html" %>
 
 # Sweep
 `POST api/v1/sweep/{order_id}`
 
 <%= partial "partials/order_security_sender.html" %>
+<%= partial "partials/no_object.html" %>
 
 # Placements
 ## New Placement
 `POST api/v1/placements/`
 
 <%= partial "partials/order_security_sender.html" %>
+<%= partial "partials/no_object.html" %>
 
 ## Placement Amend
 `POST api/v1/placements/{placement_id}/ammend`
 
 <%= partial "partials/order_security_sender.html" %>
+<%= partial "partials/no_object.html" %>
 
 ## Placement Cancel
 `POST api/v1/placements/{placement_id}/cancel`
 
 <%= partial "partials/order_security_sender.html" %>
+<%= partial "partials/no_object.html" %>
 
 # Executions
 ## Execution
 `POST api/v1/executions/`
 
 <%= partial "partials/order_security_sender.html" %>
+<%= partial "partials/no_object.html" %>
 
 ## Execution ammend
 `POST api/v1/executions/ammend`
 
 <%= partial "partials/order_security_sender.html" %>
+<%= partial "partials/no_object.html" %>
 
 ## Execution cancel
 `POST api/v1/executions/cancel`
 
 <%= partial "partials/order_security_sender.html" %>
+<%= partial "partials/no_object.html" %>
 
 
 # Post Trade Allocation
 `POST api/v1/post_trade_allocation`
 
 <%= partial "partials/order_security_sender.html" %>
+<%= partial "partials/no_object.html" %>
 
 # Exception
 `POST api/v1/exceptions`
 
 <%= partial "partials/order_security_sender.html" %>
+<%= partial "partials/no_object.html" %>
 
 
 # archive
 `POST api/v1/executions/archive`
 
 <%= partial "partials/order_security_sender.html" %>
+<%= partial "partials/no_object.html" %>
 
 
