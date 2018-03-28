@@ -123,58 +123,61 @@ Just sure to have the correct credentials every endpoint
 `POST api/v1/sweep/{order_id}`
 
 <%= partial "partials/order_security_sender.html" %>
-<%= partial "partials/no_object.html" %>
+<%= partial "partials/sweep.html" %>
 
 # Placements
 ## New Placement
 `POST api/v1/placements/`
 
 <%= partial "partials/order_security_sender.html" %>
-<%= partial "partials/no_object.html" %>
+<%= partial "partials/placement.html" %>
 
 ## Placement Amend
 `POST api/v1/placements/{placement_id}/ammend`
 
 <%= partial "partials/order_security_sender.html" %>
-<%= partial "partials/no_object.html" %>
+<%= partial "partials/placement.html" %>
 
 ## Placement Cancel
 `POST api/v1/placements/{placement_id}/cancel`
 
 <%= partial "partials/order_security_sender.html" %>
-<%= partial "partials/no_object.html" %>
+<%= partial "partials/placement.html" %>
 
 # Executions
 ## Execution
 `POST api/v1/executions/`
 
 <%= partial "partials/order_security_sender.html" %>
-<%= partial "partials/no_object.html" %>
+<%= partial "partials/execution.html" %>
+<%= partial "partials/placement.html" %>
 
 ## Execution ammend
 `POST api/v1/executions/ammend`
 
 <%= partial "partials/order_security_sender.html" %>
-<%= partial "partials/no_object.html" %>
+<%= partial "partials/execution.html" %>
+<%= partial "partials/placement.html" %>
 
 ## Execution cancel
 `POST api/v1/executions/cancel`
 
 <%= partial "partials/order_security_sender.html" %>
-<%= partial "partials/no_object.html" %>
+<%= partial "partials/execution.html" %>
+<%= partial "partials/placement.html" %>
 
 
 # Post Trade Allocation
 `POST api/v1/post_trade_allocation`
 
 <%= partial "partials/order_security_sender.html" %>
-<%= partial "partials/no_object.html" %>
+<%= partial "partials/post_trade.html" %>
 
 # Exception
 `POST api/v1/exceptions`
 
 <%= partial "partials/order_security_sender.html" %>
-<%= partial "partials/no_object.html" %>
+<%= partial "partials/alert.html" %>
 
 
 # archive
