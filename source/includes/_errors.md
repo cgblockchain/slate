@@ -7,8 +7,8 @@ In some scenarios, the CG API may return error codes. The table below helps you 
 In general, error codes in the 4xx range indicate a request that has failed with the information provided, such as a missing parameter. Codes in the 5xx range indicate an error with CG’s servers.
 
 
-Error Code | Meaning
----------- | -------
+Error Code | Description
+---------- | -----------
 400 | Bad Request -- The request was unacceptable, please check for a missing parameter.
 401 | Unauthorized -- Unauthorized - No valid API key provided
 403 | Forbidden -- Page requested is hidden for administrators only
