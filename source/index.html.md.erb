@@ -46,12 +46,14 @@ The `'ORDER_STATUS'` data subject provides the state of the order within the lif
 Just sure to have the correct credentials every endpoint
 </aside>
 
-## Order Ammend
-`PUT api/v1/order/{order_id}/ammend`
+## Order amend
+`PUT api/v1/order/{order_id}/amend`
+
+The attribute ORDER_AMEND represents an amendment to an order's attributes.
 
 `Scope` A block will be included for both CURRENT & PREVIOUS state.
 
-> To create Ammend Order, use this code:
+> To create amend Order, use this code:
 
 <%= partial "partials/order_security_sender.html" %>
 <%= partial "partials/order_status.html" %>
@@ -114,13 +116,13 @@ For every rule applied, a type; rule description; status; and plain English resu
 
 > Change {base_url} with main domain and {url} with corresponding endpoint url
 
-# Assign / adquire
+# Assign / acquire
 
 `POST api/v1/order/{order_id}/assign`
 
 <%= partial "partials/order_security_sender_description.html" %>
 
-> To create Assign/adquire Order, use this code:
+> To create Assign/acquire Order, use this code:
 
 <%= partial "partials/order_security_sender.html" %>
 <%= partial "partials/no_object.html" %>
@@ -173,7 +175,7 @@ repeat for each placement.
 <%= partial "partials/placement.html" %>
 
 ## Placement Amend
-`POST api/v1/placements/{placement_id}/ammend`
+`POST api/v1/placements/{placement_id}/amend`
 
 `Scope` A block will be included for both CURRENT & PREVIOUS state, and it will
 repeat for each placement.
@@ -206,8 +208,8 @@ repeat for each execution.
 <%= partial "partials/execution.html" %>
 <%= partial "partials/placement.html" %>
 
-## Execution ammend
-`POST api/v1/executions/ammend`
+## Execution Amend
+`POST api/v1/executions/amend`
 
 `Scope` A block will be included for both CURRENT & PREVIOUS state, and it will
 repeat for each execution.
