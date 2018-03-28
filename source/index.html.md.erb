@@ -208,9 +208,11 @@ sweep performed on an order.
 
 Scope: A block will be included for both CURRENT & PREVIOUS state, and it will repeat for each Sweep.
 
-OPEN_QUANTITY is the quantity advertised to a dark pool.
-SWEEP_DESITNATION is the dark pool a trader is targeting for the quantity advertised.
-SWEEP_ID represents the ID assigned to the SWEEP block.
+Attribute | Description
+--------- | -------
+OPEN_QUANTITY | It is the quantity advertised to a dark pool.
+SWEEP_DESITNATION | It is the dark pool a trader is targeting for the quantity advertised.
+SWEEP_ID | It represents the ID assigned to the SWEEP block.
 
 <%= partial "partials/order_security_sender.html" %>
 <%= partial "partials/sweep.html" %>
