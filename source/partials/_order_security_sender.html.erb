@@ -2,16 +2,16 @@
 # With curl, you can just pass the correct header with each request
 curl -X POST \
   -d "{
-        "ORDER_ATTRIBUTES" : {
+        "ORDER_ATTRIBUTES": {
           "PROGRAM_ID": "",
           "PARENT_ID": "",
           "QUANTITY": "",
           "SIDE": "",
           "PRICE": "",
-          "ALLOCATIONS": :[
+          "ALLOCATIONS": [
             {
               "ALLOCATION_ACCOUNT": "",
-              "ALLOCATION_QUANTITY: """
+              "ALLOCATION_QUANTITY: ""
             }
           ],
           "PRICE_TYPE_QUALIFIER": "",
@@ -30,7 +30,7 @@ curl -X POST \
           "OWNER": "",
           "ORDER_ATTRIBUTE_ID": ""
         },
-        "SECURITY" : {
+        "SECURITY": {
           "CCY_PAIR_NEAR_DATE_FAR_DATE_ENTERED_TIMESTAMP": "",
           "SEDOL": "",
           "OCC_Symbol": "",
@@ -38,7 +38,7 @@ curl -X POST \
           "Instrument_Symbol": "",
           "SECURITY_ID": ""
         },
-        "SENDER" : {
+        "SENDER": {
           "FIRM_ID": "",
           "USER": "",
           "TIMESTAMP": "",
