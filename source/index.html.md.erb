@@ -49,8 +49,8 @@ URL `PUT api/v1/order/{order_id}/ammend`
 
 
 ## Order Cancel/Complete
-URL `PUT api/v1/order/cancel`
-URL `PUT api/v1/order/complete`
+URL `PUT api/v1/order/{order_id}/cancel`
+URL `PUT api/v1/order/{order_id}/complete`
 
 > To create Cancel/Complete Order, use this code:
 
@@ -101,32 +101,66 @@ URL `POST api/v1/order/{order_id}/assign`
 # Merge / split
 ## Merge
 URL `POST api/v1/merge/{order_id}`
+
+<%= partial "partials/order_security_sender.html" %>
+
 ## Split
 URL `POST api/v1/split/{order_id}`
+
+<%= partial "partials/order_security_sender.html" %>
+
 # Sweep
 URL `POST api/v1/sweep/{order_id}`
+
+<%= partial "partials/order_security_sender.html" %>
 
 # Placements
 ## New Placement
 URL `POST api/v1/placements/`
+
+<%= partial "partials/order_security_sender.html" %>
+
 ## Placement Amend
 URL `POST api/v1/placements/{placement_id}/ammend`
+
+<%= partial "partials/order_security_sender.html" %>
+
 ## Placement Cancel
 URL `POST api/v1/placements/{placement_id}/cancel`
+
+<%= partial "partials/order_security_sender.html" %>
+
 # Executions
 ## Execution
 URL `POST api/v1/executions/`
+
+<%= partial "partials/order_security_sender.html" %>
+
 ## Execution ammend
 URL `POST api/v1/executions/ammend`
+
+<%= partial "partials/order_security_sender.html" %>
+
 ## Execution cancel
 URL `POST api/v1/executions/cancel`
+
+<%= partial "partials/order_security_sender.html" %>
 
 
 # Post Trade Allocation
 URL `POST api/v1/post_trade_allocation`
+
+<%= partial "partials/order_security_sender.html" %>
+
 # Exception
 URL `POST api/v1/exceptions`
+
+<%= partial "partials/order_security_sender.html" %>
+
+
 # archive
 URL `POST api/v1/executions/archive`
+
+<%= partial "partials/order_security_sender.html" %>
 
 
