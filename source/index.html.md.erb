@@ -65,6 +65,9 @@ The attribute ORDER_AMEND represents an amendment to an order's attributes.
 `PUT api/v1/order/{order_id}/cancel`
 `PUT api/v1/order/{order_id}/complete`
 
+ORDER_CANCEL represents the cancellation of an order.
+ORDER_COMPLETE represents the completion of an order.
+
 `Scope` A block will be included for both CURRENT & PREVIOUS state.
 
 > To create Cancel/Complete Order, use this code:
@@ -81,6 +84,10 @@ The attribute ORDER_AMEND represents an amendment to an order's attributes.
 The `'COMPLIANCE'` data subject provides a repeating status of compliance checks performed during the order lifecycle.
 For every rule applied, a type; rule description; status; and plain English result text will be provided.
 
+COMPLIANCE_RUN is the iteration of compliance applied to an order.
+
+COMPLIANCE_ID is the ID assigned to the COMPLIANCE block.
+
 `Scope` Repeats per compliance rule applied to an order, and provides the result.
 
 > To create compliance, use this code:
@@ -94,6 +101,8 @@ For every rule applied, a type; rule description; status; and plain English resu
 ## Sent to trade
 `POST api/v1/order/{order_id}/sent_to_trade`
 
+SENT_TO_TRADE represents an order passing compliance, and being sent to trade. It is an attribute of the ‘ORDER_STATUS’ block name that provides the state of the order within the lifecycle; both current and previous.
+
 `Scope` A block will be included for both CURRENT & PREVIOUS state.
 
 > To create sent to trade Order, use this code:
@@ -106,6 +115,8 @@ For every rule applied, a type; rule description; status; and plain English resu
 
 ## Parent Order Creation
 `POST api/v1/order/{order_id}/parent_creation`
+
+PARENT_ORDER_CREATION represents the activation of the order following the 'SENT_TO_TRADE' event. It is also an attribute of the ‘ORDER_STATUS’ block name that provides the state of the order within the lifecycle; both current and previous.
 
 `Scope` A block will be included for both CURRENT & PREVIOUS state.
 
@@ -122,6 +133,8 @@ For every rule applied, a type; rule description; status; and plain English resu
 
 <%= partial "partials/order_security_sender_description.html" %>
 
+Assign/Acquire is an event that represents a milestone for the lifecycle of an order. It represents 3 data subjects: ORDER_ATTRIBUTE, SECURITY, SENDER.
+
 > To create Assign/acquire Order, use this code:
 
 <%= partial "partials/order_security_sender.html" %>
@@ -137,6 +150,35 @@ For every rule applied, a type; rule description; status; and plain English resu
 
 The `'MERGE'` data subject is generated when two orders are joined in Portware. When this happens, the order details of
 the merged order will be included within this block. It will repeat every merge that takes place in Portware.
+
+Scope: A block will repeat to include each block that is merged with the order.
+
+The description for each attribute under the ‘MERGE’ data subject are as follows:
+
+Attribute | Description
+--------- | -------
+PROGRAM_ID | Program ID of the Portware Basket.
+PARENT_ID | Parent ID representing the order.
+QUANTITY | Order Quantity submitted on the order.
+SIDE | The side of the order (i.e. B/S/SS)
+PRICE | The price provided on the order.
+ALLOCATION_ACCOUNT | The allocations associated with the incoming order.
+ALLOCATION_QUANTITY | The quantity associated with the referenced account.
+PRICE_TYPE_QUALIFIER | Held, Not Held
+TIF | GTC, Day, GTD
+EXPIRY | Expiry of the order.
+SETTLEMENT_DATE | Settlement date of the order.
+CCY_PAIR | If the event is associated with an FX order, currency pair will be included.
+FIXING_DATE | If the event is associated with an FX NDF order, fixing date will be included.
+ORDER_TYPE | Stop, Stop Limit, Limit Market
+STOP_PRICE | Stop price if the ORDER_TYPE is stop limit.
+PAR_VALUE | Included if the order is specific to Fixed Income.
+MATURITY_DATE | The Maturity date of a Fixed income or futures contract.
+STRIKE_PRICE | The strike price of an options contract.
+EXECUTED_VOLUME | The volume executed at the time of an event.
+COMMITTED_VOLUME | Any remaining quantity currently allocated to a service / broker at the time of an event.
+OWNER | The current owner of the order
+MERGE_ID | The ID assigned to the MERGE block
 
 <%= partial "partials/order_security_sender.html" %>
 <%= partial "partials/merge.html" %>
