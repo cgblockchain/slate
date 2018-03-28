@@ -23,9 +23,20 @@ You need to change {base_url} for base url our site that is `https://www.cgblock
 
 # Order
 
+The `'ORDER_ATTRIBUTES'` data subject provides the fundamentals of the order, and may vary depending on asset class.
+Both the current & previous version will be provided. This is a common subject across all Portware events.
+
+The `'SECURITY'` data subject provides the underlying Instrument of the order. This will uniquely identify what instrument
+is being traded, and will vary depending on asset class. This is a common subject across all Portware events.
+
+The ‘SENDER’ data subject will identify what user or systematic process is providing information specific to the event.
+This is a common subject across all Portware events.
+
 ## New order
 
-`POST api/v1/neworder/`
+`POST api/v1/order/`
+
+The `'ORDER_STATUS'` data subject provides the state of the order within the lifecycle; both current and previous.
 
 > To create new Order, use this code:
 
@@ -64,6 +75,9 @@ Just sure to have the correct credentials every endpoint
 
 ## Run compliance
 `POST api/v1/compliance/`
+
+The `'COMPLIANCE'` data subject provides a repeating status of compliance checks performed during the order lifecycle.
+For every rule applied, a type; rule description; status; and plain English result text will be provided.
 
 > To create compliance, use this code:
 
@@ -108,7 +122,11 @@ Just sure to have the correct credentials every endpoint
 
 # Merge / split
 ## Merge
+
 `POST api/v1/merge/{order_id}`
+
+The `'MERGE'` data subject is generated when two orders are joined in Portware. When this happens, the order details of
+the merged order will be included within this block. It will repeat every merge that takes place in Portware.
 
 <%= partial "partials/order_security_sender.html" %>
 <%= partial "partials/merge.html" %>
@@ -116,11 +134,17 @@ Just sure to have the correct credentials every endpoint
 ## Split
 `POST api/v1/split/{order_id}`
 
+The `'SPLIT'` data subject will detail quantity that is split off from the order. It will repeat for each split executed against the
+order during the lifecycle.
+
 <%= partial "partials/order_security_sender.html" %>
 <%= partial "partials/split.html" %>
 
 # Sweep
 `POST api/v1/sweep/{order_id}`
+
+The `'SWEEP'` data subject details advertisements sent to dark pools associated with the order. This will repeat for each
+sweep performed on an order.
 
 <%= partial "partials/order_security_sender.html" %>
 <%= partial "partials/sweep.html" %>
