@@ -117,38 +117,6 @@ ORDER_STATUS_ID | ID assigned to the ORDER_STATUS block.
 
 > Change {base_url} with main domain and {url} with corresponding endpoint url
 
-## Order amend
-`PUT api/v1/order/{order_id}/amend`
-
-The attribute ORDER_AMEND represents an amendment to an order's attributes.
-
-`Scope` A block will be included for both CURRENT & PREVIOUS state.
-
-> To create amend Order, use this code:
-
-<%= partial "partials/order_security_sender.html" %>
-<%= partial "partials/order_status.html" %>
-
-> Change {base_url} with main domain and {url} with corresponding endpoint url
-
-
-## Order Cancel/Complete
-`PUT api/v1/order/{order_id}/cancel`
-`PUT api/v1/order/{order_id}/complete`
-
-ORDER_CANCEL represents the cancellation of an order.
-ORDER_COMPLETE represents the completion of an order.
-
-`Scope` A block will be included for both CURRENT & PREVIOUS state.
-
-> To create Cancel/Complete Order, use this code:
-
-<%= partial "partials/order_security_sender.html" %>
-<%= partial "partials/order_status.html" %>
-
-> Change {base_url} with main domain and {url} with corresponding endpoint url
-
-
 ## Run compliance
 `POST api/v1/compliance/`
 
@@ -306,28 +274,6 @@ repeat for each placement.
 <%= partial "partials/order_security_sender.html" %>
 <%= partial "partials/placement.html" %>
 
-## Placement Amend
-`POST api/v1/placements/{placement_id}/amend`
-
-Placement Amend is an event that represents a milestone for the lifecycle of an order. Similarly to New Placement, the lifecycle includes the following 4 data subjects: ORDER_ATTRIBUTE, SECURITY, SENDER, PLACEMENT.
-
-`Scope` A block will be included for both CURRENT & PREVIOUS state, and it will
-repeat for each placement.
-
-<%= partial "partials/order_security_sender.html" %>
-<%= partial "partials/placement.html" %>
-
-## Placement Cancel
-`POST api/v1/placements/{placement_id}/cancel`
-
-Placement Cancel is an event that represents a milestone for the lifecycle of an order. Similarly to New Placement and Placement Amend, this lifecycle includes 4 data subjects: ORDER_ATTRIBUTE, SECURITY, SENDER, PLACEMENT.
-
-`Scope` A block will be included for both CURRENT & PREVIOUS state, and it will
-repeat for each placement.
-
-<%= partial "partials/order_security_sender.html" %>
-<%= partial "partials/placement.html" %>
-
 # Executions
 
 The ‘EXECUTION’ data subject provides fill level details for any placement sent to market. It will repeat for each
@@ -351,31 +297,6 @@ repeat for each execution.
 <%= partial "partials/order_security_sender.html" %>
 <%= partial "partials/execution.html" %>
 <%= partial "partials/placement.html" %>
-
-## Execution Amend
-`POST api/v1/executions/amend`
-
-Execution Amend is an event that represents a milestone for the lifecycle of an order. The event includes 5 data subjects: ORDER_ATTRIBUTE, SECURITY, SENDER, EXECUTION, PLACEMENT.
-
-`Scope` A block will be included for both CURRENT & PREVIOUS state, and it will
-repeat for each execution.
-
-<%= partial "partials/order_security_sender.html" %>
-<%= partial "partials/execution.html" %>
-<%= partial "partials/placement.html" %>
-
-## Execution cancel
-`POST api/v1/executions/cancel`
-
-Execution Cancel includes 5 data subjects: ORDER_ATTRIBUTE, SECURITY, SENDER, EXECUTION, PLACEMENT.
-
-`Scope` A block will be included for both CURRENT & PREVIOUS state, and it will
-repeat for each execution.
-
-<%= partial "partials/order_security_sender.html" %>
-<%= partial "partials/execution.html" %>
-<%= partial "partials/placement.html" %>
-
 
 # Post Trade Allocation
 `POST api/v1/post_trade_allocation`
