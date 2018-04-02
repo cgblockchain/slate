@@ -1,0 +1,219 @@
+# Devices
+
+
+
+## Add new Device
+
+```shell
+ 
+ curl \
+   -X POST \
+   -H "Content-Type: application/json" \
+   -d '{"name": "cgbox1", "hash": "0x0004a1af9de734f8ddab0d47c803cf301038d874"}' \
+   https://compliance-guard.lan/api/v1/system/device
+  
+```
+
+> The above command returns JSON structured like this:
+
+```json
+ 
+  {
+    "status": "success",
+    "data": {
+      "device": {
+        "id":"d0691c48-ad21-45db-bbd6-f32aa264d1ad",
+        "name": "cgbox1",
+        "hash":"0x0004a1af9de734f8ddab0d47c803cf301038d874"
+      }
+    }
+  }
+ 
+```
+
+Used to establish a new ComplianceGuard hardware unit. This endpoint stores the new Device’s info to the ComplianceGuard database for authorization. Normally the Integrator who is connecting an EMS or OMS to ComplianceGuard does this.
+
+### HTTP Request
+
+`POST /api/v1/system/devices`
+
+### URL Parameters
+
+| Parameter | Type   | Description |
+|-----------|--------|-------------|
+| name     | String | Human-readable name of device      |
+| hash     | String | Blockchain hash of an account, associated with this device      | 
+
+
+
+
+## Get Device
+
+```shell
+ 
+ curl \
+   -X GET \
+   https://compliance-guard.lan/api/v1/system/devices/d0691c48-ad21-45db-bbd6-f32aa264d1ad
+  
+```
+
+> The above command returns JSON structured like this:
+
+```json
+ 
+  {
+    "status": "success",
+    "data": {
+      "device": {
+        "id":"d0691c48-ad21-45db-bbd6-f32aa264d1ad",
+        "name": "cgbox1",
+        "hash":"0x0004a1af9de734f8ddab0d47c803cf301038d874"
+      }
+    }
+  }
+ 
+```
+
+This endpoint will return the basic information about the Device.
+
+### HTTP Request
+
+`GET /api/v1/system/devices/<id>`
+
+### URL Parameters
+
+| Parameter | Type   | Description |
+|-----------|--------|-------------|
+| Id     | String | Id of the desired device      |
+
+
+
+
+
+## Get list of Devices
+
+```shell
+ 
+ curl \
+   -X GET \
+   https://compliance-guard.lan/api/v1/system/devices?name=cgbox1&limit=5
+  
+```
+
+> The above command returns JSON structured like this:
+
+```json
+ 
+  {
+    "status": "success",
+    "data": {
+      "devices": [
+        {
+          "id":"d0691c48-ad21-45db-bbd6-f32aa264d1ad",
+          "name": "cgbox1",
+          "hash":"0x0004a1af9de734f8ddab0d47c803cf301038d874"
+        }
+      ]
+    }
+  }
+ 
+```
+
+This endpoint returns an array of all the Devices defined in one Client’s system.
+
+### HTTP Request
+
+`GET /api/v1/system/devices`
+
+### URL Parameters
+
+| Parameter | Type   | Description |
+|-----------|--------|-------------|
+| name     | String | [Optional] Human-readable name of device      |
+| hash     | String | [Optional] Blockchain hash of an account, associated with this device      |
+| limit     | String | [Optional] Limit of number of fetched devices. Default value: 0      |
+| offset     | String | [Optional] Number of devices to skip. Default value: 5      | 
+
+
+
+
+## Update Device
+
+```shell
+ 
+ curl \
+   -X PUT \
+   -H "Content-Type: application/json" \
+   -d '{"name": "cgbox2"}' \
+   https://compliance-guard.lan/api/v1/system/devices/d0691c48-ad21-45db-bbd6-f32aa264d1ad
+  
+```
+
+> The above command returns JSON structured like this:
+
+```json
+ 
+  {
+    "status": "success",
+    "data": {
+      "device": {
+        "id":"d0691c48-ad21-45db-bbd6-f32aa264d1ad",
+        "name": "cgbox2",
+        "hash":"0x0004a1af9de734f8ddab0d47c803cf301038d874"
+      }
+    }
+  }
+ 
+```
+
+Use this method to updates the information about a specific Device.
+
+### HTTP Request
+
+`PUT /api/v1/system/devices/<id>`
+
+### URL Parameters
+
+| Parameter | Type   | Description |
+|-----------|--------|-------------|
+| ID     | String | of the desired device      |
+
+
+
+
+
+## Delete Device
+
+```shell
+ 
+ curl \
+   -X DELETE \
+   https://compliance-guard.lan/api/v1/system/devices/d0691c48-ad21-45db-bbd6-f32aa264d1ad
+  
+```
+
+> The above command returns JSON structured like this:
+
+```json
+ 
+  {
+    "status": "success",
+    "data": null
+  }
+ 
+```
+
+Use this method to delete the information about a specific Device.
+
+### HTTP Request
+
+`DELETE /api/v1/system/devices/<id>`
+
+### URL Parameters
+
+| Parameter | Type   | Description |
+|-----------|--------|-------------|
+| ID     | String | of the desired device      |
+
+
+

@@ -9,6 +9,14 @@ toc_footers:
   - <a href='https://github.com/tripit/slate'>Documentation Powered by Slate</a>
 
 includes:
+  - devices
+  - draft
+  - field
+  - entity
+  - entry
+  - roles
+  - snapshot
+  - users
   - errors
 
 search: true
@@ -20,6 +28,33 @@ Welcome to the ComplianceGuard API Documentation! ComplianceGuard’s API platfo
 To get started, you will first need to change the base url {base_url} on our website at `https://www.cgblockchain.com/` Next, you will need to use the endpoint 'url' i.e. `New Order == "api/v1/neworder"` The final url result should be: `https://www.cgblockchain.com/api/v1/neworder`
 
 In this API Documentation, you will notice that each data subject contains 3 components.  The “subject name” refers to the block name, “scope” is the frequency of which a block is provided for the data subject, and “attributes” are the contents of each data subject. As the ComplianceGuard API is based on an event-driven architecture, each event will be represented by one or more data subjects based on the Lifecyle of an order.
+
+
+# Anticipated API users
+
+There are 4 main roles that are accounted for in this API:
+
+- ComplianceGuard Developers – The CGBlockchain Development Team
+
+- Clients – Hedge Funds that install ComplianceGuard
+
+- Integrators- Companies that connect ComplianceGuard with the software used by the Client (their EMS or OMS)
+
+- Software Provider – The provider of an EMS or OMS solution
+
+# Terminology
+
+Some clarity about our use of terms may be helpful to familiarize the newcomer with how our API works. Devices refer to ComplianceGuard hardware units. Each Client may have numerous Devices. Entities are categories of data that ComplianceGuard records and stores (such as business conduct rules, execution mandates, compliance alerts, etc.). Entities are constructed through the intermediate state of Drafts, which automatically become Entities when they have been finalized. Each particular Entity is made up of a set of Fields. Entries are Fields where the Client will push data into ComplianceGuard (such as particular instances of compliance alerts or transactions).
+
+# Authentication
+
+ComplianceGuard is flexible on authentication, it highly depends on each client's requirements. Current version supports following basic authentication mechanisms:
+
+* providing authentication token by HTTP header Authorization;
+
+* signing all HTTP requests by client's certificate.
+
+In general, agreement on authentication schema is topic for close conversation with Integrators.
 
 
 # Order
