@@ -128,6 +128,13 @@ SENDER_ID | ID assigned to the SENDER block.
 
 ## New order
 
+> To create new Order, use this code:
+
+<%= partial "partials/order_security_sender.html" %>
+<%= partial "partials/order_status.html" %>
+
+> Change {base_url} with main domain and {url} with corresponding endpoint url
+
 `POST api/v1/order/`
 
 The `'ORDER_STATUS'` data subject provides the state of the order within the lifecycle; both current and previous.
@@ -145,14 +152,15 @@ PARENT_ORDER_CREATION | Represents the activation of the order following the 'SE
 ARCHIVE | Represents an order's archival.
 ORDER_STATUS_ID | ID assigned to the ORDER_STATUS block.
 
-> To create new Order, use this code:
+## Run compliance
+
+> To create compliance, use this code:
 
 <%= partial "partials/order_security_sender.html" %>
-<%= partial "partials/order_status.html" %>
+<%= partial "partials/compliance.html" %>
 
 > Change {base_url} with main domain and {url} with corresponding endpoint url
 
-## Run compliance
 `POST api/v1/compliance/`
 
 The `'COMPLIANCE'` data subject provides a repeating status of compliance checks performed during the order lifecycle.
@@ -165,20 +173,7 @@ COMPLIANCE_ID | It is the ID assigned to the COMPLIANCE block.
 
 `Scope` Repeats per compliance rule applied to an order, and provides the result.
 
-> To create compliance, use this code:
-
-<%= partial "partials/order_security_sender.html" %>
-<%= partial "partials/compliance.html" %>
-
-> Change {base_url} with main domain and {url} with corresponding endpoint url
-
-
 ## Sent to trade
-`POST api/v1/order/{order_id}/sent_to_trade`
-
-SENT_TO_TRADE represents an order passing compliance, and being sent to trade. It is an attribute of the ‘ORDER_STATUS’ block name that provides the state of the order within the lifecycle; both current and previous.
-
-`Scope` A block will be included for both CURRENT & PREVIOUS state.
 
 > To create sent to trade Order, use this code:
 
@@ -187,13 +182,13 @@ SENT_TO_TRADE represents an order passing compliance, and being sent to trade. I
 
 > Change {base_url} with main domain and {url} with corresponding endpoint url
 
+`POST api/v1/order/{order_id}/sent_to_trade`
 
-## Parent Order Creation
-`POST api/v1/order/{order_id}/parent_creation`
-
-PARENT_ORDER_CREATION represents the activation of the order following the 'SENT_TO_TRADE' event. It is also an attribute of the ‘ORDER_STATUS’ block name that provides the state of the order within the lifecycle; both current and previous.
+SENT_TO_TRADE represents an order passing compliance, and being sent to trade. It is an attribute of the ‘ORDER_STATUS’ block name that provides the state of the order within the lifecycle; both current and previous.
 
 `Scope` A block will be included for both CURRENT & PREVIOUS state.
+
+## Parent Order Creation
 
 > To create Parent creation Order, use this code:
 
@@ -202,13 +197,13 @@ PARENT_ORDER_CREATION represents the activation of the order following the 'SENT
 
 > Change {base_url} with main domain and {url} with corresponding endpoint url
 
+`POST api/v1/order/{order_id}/parent_creation`
+
+PARENT_ORDER_CREATION represents the activation of the order following the 'SENT_TO_TRADE' event. It is also an attribute of the ‘ORDER_STATUS’ block name that provides the state of the order within the lifecycle; both current and previous.
+
+`Scope` A block will be included for both CURRENT & PREVIOUS state.
+
 # Assign / acquire
-
-`POST api/v1/order/{order_id}/assign`
-
-<%= partial "partials/order_security_sender_description.html" %>
-
-Assign/Acquire is an event that represents a milestone for the lifecycle of an order. It represents 3 data subjects: ORDER_ATTRIBUTE, SECURITY, SENDER.
 
 > To create Assign/acquire Order, use this code:
 
@@ -217,9 +212,17 @@ Assign/Acquire is an event that represents a milestone for the lifecycle of an o
 
 > Change {base_url} with main domain and {url} with corresponding endpoint url
 
+`POST api/v1/order/{order_id}/assign`
+
+<%= partial "partials/order_security_sender_description.html" %>
+
+Assign/Acquire is an event that represents a milestone for the lifecycle of an order. It represents 3 data subjects: ORDER_ATTRIBUTE, SECURITY, SENDER.
 
 # Merge / split
 ## Merge
+
+<%= partial "partials/order_security_sender.html" %>
+<%= partial "partials/merge.html" %>
 
 `POST api/v1/merge/{order_id}`
 
@@ -255,10 +258,11 @@ COMMITTED_VOLUME | Any remaining quantity currently allocated to a service / bro
 OWNER | The current owner of the order
 MERGE_ID | The ID assigned to the MERGE block
 
-<%= partial "partials/order_security_sender.html" %>
-<%= partial "partials/merge.html" %>
-
 ## Split
+
+<%= partial "partials/order_security_sender.html" %>
+<%= partial "partials/split.html" %>
+
 `POST api/v1/split/{order_id}`
 
 The `'SPLIT'` data subject will detail quantity that is split off from the order. It will repeat for each split executed against theorder during the lifecycle.
@@ -271,10 +275,11 @@ Attribute | Description
 SPLIT_QUANTITY | It is the quantity of the order that was split.
 SPLIT_ID | It is the ID assigned to the SPLIT block.
 
-<%= partial "partials/order_security_sender.html" %>
-<%= partial "partials/split.html" %>
-
 # Sweep
+
+<%= partial "partials/order_security_sender.html" %>
+<%= partial "partials/sweep.html" %>
+
 `POST api/v1/sweep/{order_id}`
 
 The `'SWEEP'` data subject details advertisements sent to dark pools associated with the order. This will repeat for each
@@ -288,9 +293,6 @@ OPEN_QUANTITY | It is the quantity advertised to a dark pool.
 SWEEP_DESITNATION | It is the dark pool a trader is targeting for the quantity advertised.
 SWEEP_ID | It represents the ID assigned to the SWEEP block.
 
-<%= partial "partials/order_security_sender.html" %>
-<%= partial "partials/sweep.html" %>
-
 # Placements
 
 The ‘PLACEMENT’ data subject provides data associated with child orders sent to market to trade. It will detail the
@@ -298,6 +300,10 @@ quantity, destination, and other attributes of the placement. It will be repeate
 well as the current and previous states.
 
 ## New Placement
+
+<%= partial "partials/order_security_sender.html" %>
+<%= partial "partials/placement.html" %>
+
 `POST api/v1/placements/`
 
 New Placement is an event that represents a milestone for the lifecycle of an order.
@@ -306,9 +312,6 @@ The lifecycle includes the following 4 data subjects: ORDER_ATTRIBUTE, SECURITY,
 `Scope` A block will be included for both CURRENT & PREVIOUS state, and it will
 repeat for each placement.
 
-<%= partial "partials/order_security_sender.html" %>
-<%= partial "partials/placement.html" %>
-
 # Executions
 
 The ‘EXECUTION’ data subject provides fill level details for any placement sent to market. It will repeat for each
@@ -316,6 +319,11 @@ execution provided to a placement (which will also accompany the data subject). 
 be provided.
 
 ## Execution
+
+<%= partial "partials/order_security_sender.html" %>
+<%= partial "partials/execution.html" %>
+<%= partial "partials/placement.html" %>
+
 `POST api/v1/executions/`
 
 Attribute | Description
@@ -329,11 +337,11 @@ EXECUTION_ID | It is the ID assigned to the EXECUTION block.
 `Scope` A block will be included for both CURRENT & PREVIOUS state, and it will
 repeat for each execution.
 
-<%= partial "partials/order_security_sender.html" %>
-<%= partial "partials/execution.html" %>
-<%= partial "partials/placement.html" %>
-
 # Post Trade Allocation
+
+<%= partial "partials/order_security_sender.html" %>
+<%= partial "partials/post_trade.html" %>
+
 `POST api/v1/post_trade_allocation`
 
 The `'PT_ALLOCATION'` data subject provides detail for any post-trade allocation performed on an order. It will detail the
@@ -355,10 +363,11 @@ FEE_AMOUNT | It refers to fee amount applied to the allocation.
 CLEARING_BROKER | It refers to an associated clearing broker.
 PT_ALLOCATION_ID | It is the ID assigned to the PT_ALLOCATION block.
 
-<%= partial "partials/order_security_sender.html" %>
-<%= partial "partials/post_trade.html" %>
-
 # Exception
+
+<%= partial "partials/order_security_sender.html" %>
+<%= partial "partials/alert.html" %>
+
 `POST api/v1/exceptions`
 
 “Exception” is an event that represents a milestone for the lifecycle of an order. This refers to 4 data subjects: ORDER_ATTRIBUTE, SECURITY, SENDER, ALERT.
@@ -376,18 +385,13 @@ ALERT_TYPE | It refers to the exception type associated with an alert.
 ALERT_REASON_TEXT | It is the reason text provided.
 ALERT_ID | It is the ID assigned to the ALERT block.
 
-<%= partial "partials/order_security_sender.html" %>
-<%= partial "partials/alert.html" %>
-
-
 # archive
+
+<%= partial "partials/order_security_sender.html" %>
+<%= partial "partials/no_object.html" %>
+
 `POST api/v1/executions/archive`
 
 Archive is an event that refers to the following 3 data subjects: ORDER_ATTRIBUTE, SECURITY, SENDER.
 
 <%= partial "partials/order_security_sender_description.html" %>
-
-<%= partial "partials/order_security_sender.html" %>
-<%= partial "partials/no_object.html" %>
-
-
