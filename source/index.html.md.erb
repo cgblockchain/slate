@@ -44,17 +44,17 @@ There are 4 main roles that are accounted for in this API:
 
 # Terminology
 
-Some clarity about our use of terms may be helpful to familiarize the newcomer with how our API works. Devices refer to ComplianceGuard hardware units. Each Client may have numerous Devices. Entities are categories of data that ComplianceGuard records and stores (such as business conduct rules, execution mandates, compliance alerts, etc.). Entities are constructed through the intermediate state of Drafts, which automatically become Entities when they have been finalized. Each particular Entity is made up of a set of Fields. Entries are Fields where the Client will push data into ComplianceGuard (such as particular instances of compliance alerts or transactions).
+Some clarity about our use of terms may be helpful to familiarize the new user with how our API works. Devices refer to ComplianceGuard hardware units. Each Client may have numerous Devices. Entities are categories of data that ComplianceGuard records and stores (such as business conduct rules, execution mandates, compliance alerts, etc.). Entities are constructed through the intermediate state of Drafts, which automatically become Entities when they have been finalized. Each particular Entity is made up of a set of Fields. Entries are Fields where the Client will enter into ComplianceGuard (such as particular instances of compliance alerts or transactions).
 
 # Authentication
 
-ComplianceGuard is flexible on authentication, it highly depends on each client's requirements. Current version supports following basic authentication mechanisms:
+ComplianceGuard is flexible on authentication, which is highly dependent on each client’s respective requirements. The current version supports the following basic authentication mechanisms:
 
-* providing authentication token by HTTP header Authorization;
+* Providing authentication token by HTTP header Authorization;
 
-* signing all HTTP requests by client's certificate.
+* Signing all HTTP requests by client's certificate.
 
-In general, agreement on authentication schema is topic for close conversation with Integrators.
+As a general guideline, agreement on the authentication schema should be a topic for discussion with Integrators.
 
 
 # Order
@@ -82,8 +82,7 @@ SETTLEMENT_DATE | Settlement date of the order.
 CCY_PAIR | If the event is associated with an FX order, currency pair will be included.
 FIXING_DATE | If the event is associated with an FX NDF order, fixing date will be included.
 ORDER_TYPE | Stop, Stop Limit, Limit Market
-STOP_PRICE | Stop price if the
-ORDER_TYPE | It is stop limit.
+STOP_PRICE | Stop price if the if the ORDER_TYPE is stop limit.
 PAR_VALUE | Included if the order is specific to Fixed Income.
 MATURITY_DATE | The Maturity date of a Fixed income or futures contract.
 STRIKE_PRICE | The strike price of an options contract.
