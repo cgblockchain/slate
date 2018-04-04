@@ -47,9 +47,9 @@ Use this method to adds a specific Entry of data as key value pairs. This is the
 ### Payload Attributes
 
 | Attribute | Description |
-|-----------|--------|-------------|
-| entityId     | String | Id of the corresponding entity      |
-| chainId     | String | [Optional] Id of the target entry to update. No data actually changed, and chain of changes created instead      |
+|----------|-----------|
+| ENTITYID    | Id of the corresponding entity      |
+| CHAINID    | [Optional] Id of the target entry to update. No data actually changed, and chain of changes created instead      |
 
 
 
@@ -111,12 +111,12 @@ Use this method to add a specific Entry of data using the ComplianceGuard User I
 
 `POST /api/v1/entries/<entityId>/form`
 
-### URL Parameters
+### Payload Attributes
 
-| Parameter | Type   | Description |
-|-----------|--------|-------------|
-| entityId     | String | Id of the corresponding entity      |
-| [Optional]     | String | chainId Id of the target entry to update. No data actually changed, and chain of changes created instead      |
+| Parameter  | Description |
+|----------|-----------|
+| ENTITYID    | Id of the corresponding entity      |
+| [OPTIONAL]    | chainId Id of the target entry to update. No data actually changed, and chain of changes created instead      |
 
 
 
@@ -191,12 +191,12 @@ Use this method to add a specific Entry where Clients can attach files (such as 
 
 `POST /api/v1/entries/<entityId>/form`
 
-### URL Parameters
+### Payload Attributes
 
-| Parameter | Type   | Description |
-|-----------|--------|-------------|
-| entityId     | String | Id of the corresponding entity      |
-| [Optional]     | String | chainId Id of the target entry to update. No data actually changed, and chain of changes created instead      |
+| Parameter  | Description |
+|----------|-----------|
+| ENTITYID    | Id of the corresponding entity      |
+| [OPTIONAL]    | chainId Id of the target entry to update. No data actually changed, and chain of changes created instead      |
 
 
 
@@ -245,11 +245,11 @@ This endpoint returns an array of specific Entries.
 
 ### URL Parameters
 
-| Parameter | Type   | Description |
-|-----------|--------|-------------|
-| entityId     | String | Id of the corresponding entity      |
-| limit     | String | [Optional] Limit of number of fetched devices. Default value: 0      |
-| offset     | String | [Optional] Number of devices to skip. Default value: 5      |
+| Parameter  | Description |
+|----------|-----------|
+| ENTITYID    | Id of the corresponding entity      |
+| LIMIT    | [Optional] Limit of number of fetched devices. Default value: 0      |
+| OFFSET    | [Optional] Number of devices to skip. Default value: 5      |
 
 
 
@@ -298,11 +298,11 @@ This endpoint returns an array of Entries, each of which describes a single chan
 
 ### URL Parameters
 
-| Parameter | Type   | Description |
-|-----------|--------|-------------|
-| chainId     | String | Id of the original entry      |
-| limit     | String | [Optional] Limit of number of fetched devices. Default value: 0      |
-| offset     | String | [Optional] Number of devices to skip. Default value: 5      |
+| Parameter  | Description |
+|----------|-----------|
+| CHAINID    | Id of the original entry      |
+| LIMIT    | [Optional] Limit of number of fetched devices. Default value: 0      |
+| OFFSET    | [Optional] Number of devices to skip. Default value: 5      |
 
 
 
@@ -375,12 +375,12 @@ This endpoint returns list of Entries that are associated with the latest versio
 
 ### URL Parameters
 
-| Parameter | Type   | Description |
-|-----------|--------|-------------|
-| chainId     | String | Id of the original entry      |
-| entityId     | String | Id of the entity, which items you want to see      |
-| limit     | String | [Optional] Limit of number of fetched devices. Default value: 0      |
-| offset     | String | [Optional] Number of devices to skip. Default value: 5      |
+| Parameter  | Description |
+|----------|-----------|
+| CHAINID    | Id of the original entry      |
+| ENTITYID    | Id of the entity, which items you want to see      |
+| LIMIT    | [Optional] Limit of number of fetched devices. Default value: 0      |
+| OFFSET    | [Optional] Number of devices to skip. Default value: 5      |
 
 
 
@@ -427,9 +427,9 @@ This endpoint returns the latest version of an Entry, showing all the changes ma
 
 ### URL Parameters
 
-| Parameter | Type   | Description |
-|-----------|--------|-------------|
-| chainId     | String | Id of the original entry      |
+| Parameter  | Description |
+|----------|-----------|
+| CHAINID    | Id of the original entry      |
 
 
 
@@ -470,10 +470,10 @@ This endpoint returns the sender’s public key, data signature, and payload so 
 
 ### URL Parameters
 
-| Parameter | Type   | Description |
-|-----------|--------|-------------|
-| chainId     | String | Id of the original entry      |
-| id     | String | Id of the specific changeset      |
+| Parameter  | Description |
+|----------|-----------|
+| CHAINID    | Id of the original entry      |
+| ID    | Id of the specific changeset      |
 
 
 
@@ -546,13 +546,13 @@ This endpoint returns a list of Entries that are associated with a specific Entr
 
 ### URL Parameters
 
-| Parameter | Type   | Description |
-|-----------|--------|-------------|
-| chainId     | String | Id of the original entry      |
-| id     | String | Id of the specific changeset      |
-| entityId     | String | Id of the entity, which items you want to see      |
-| limit     | String | [Optional] Limit of number of fetched devices. Default value: 0      |
-| offset     | String | [Optional] Number of devices to skip. Default value: 5      |
+| Parameter  | Description |
+|----------|-----------|
+| CHAINID    | Id of the original entry      |
+| ID    | Id of the specific changeset      |
+| ENTITYID    | Id of the entity, which items you want to see      |
+| LIMIT    | [Optional] Limit of number of fetched devices. Default value: 0      |
+| OFFSET    | [Optional] Number of devices to skip. Default value: 5      |
 
 
 
@@ -599,9 +599,9 @@ This endpoint returns a specific revision of an Entry in a revision chain.
 
 ### URL Parameters
 
-| Parameter | Type   | Description |
-|-----------|--------|-------------|
-| chainId     | String | Id of the original entry      |
-| id     | String | Id of the specific changeset      |
+| Parameter  | Description |
+|----------|-----------|
+| CHAINID    | Id of the original entry      |
+| ID    | Id of the specific changeset      |
 
 
