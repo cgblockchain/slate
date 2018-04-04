@@ -41,10 +41,10 @@ This endpoint adds a User Role to the system.
 ### Payload Attributes
 
 | Attribute | Description |
-|-----------|--------|-------------|
-| slugname     | String | Role name      |
-| name     | String | Human-readable name      |
-| permissions     | Object[] | Permissions granted to this role      |
+|----------|------------|
+| SLUGNAME    | Role name      |
+| NAME    | Human-readable name      |
+| PERMISSIONS     | Object[] Permissions granted to this role      |
 
 
 
@@ -85,9 +85,9 @@ Use this method to get the basic information about a User Role.
 
 ### URL Parameters
 
-| Parameter | Type   | Description |
-|-----------|--------|-------------|
-| id     | String | Role id      |
+| Parameter | Description |
+|----------|------------|
+| ID    | Role id      |
 
 
 
@@ -131,11 +131,11 @@ This endpoint returns an array of User Roles.
 
 ### URL Parameters
 
-| Parameter | Type   | Description |
-|-----------|--------|-------------|
-| name     | String | Human-readable name      |
-| limit     | String | [Optional] Limit of number of fetched drafts. Default value: 0      |
-| offset     | String | [Optional] Number of drafts to skip. Default value: 5      |
+| Parameter | Description |
+|----------|------------|
+| NAME    | Human-readable name      |
+| LIMIT    | [Optional] Limit of number of fetched drafts. Default value: 0      |
+| OFFSET    | [Optional] Number of drafts to skip. Default value: 5      |
 
 
 
@@ -178,12 +178,12 @@ Use this method to update the name and permissions of a Role.
 
 ### URL Parameters
 
-| Parameter | Type   | Description |
-|-----------|--------|-------------|
-| id     | String | Role id      |
-| slugname     | String | [Optional] Role name      |
-| name     | String | [Optional] Human-readable name      |
-| permissions     | Object[] | [Optional] Permissions granted to this role      |
+| Parameter | Description |
+|----------|------------|
+| ID    | Role id      |
+| SLUGNAME    | [Optional] Role name      |
+| NAME    | [Optional] Human-readable name      |
+| PERMISSIONS     | Object[] | [Optional] Permissions granted to this role      |
 
 
 
@@ -217,9 +217,9 @@ Use this method to delete a Role.
 
 ### URL Parameters
 
-| Parameter | Type   | Description |
-|-----------|--------|-------------|
-| id     | String | Role id      |
+| Parameter | Description |
+|----------|------------|
+| ID    | Role id      |
 
 
 
