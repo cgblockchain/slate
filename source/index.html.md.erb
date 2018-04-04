@@ -76,7 +76,8 @@ PARENT_ID | The Parent ID representing the order.
 QUANTITY | The Order Quantity submitted on the order.
 SIDE | The side of the order (i.e.B/S/SS).
 PRICE | The price provided on the order.
-PRICE_TYPE_QUALIFIER | Held, Not Held TIF GTC, Day, GTD
+PRICE_TYPE_QUALIFIER | Held, Not Held
+TIF | GTC, Day, GTD
 EXPIRY | Expiry of the order.
 SETTLEMENT_DATE | Settlement date of the order.
 CCY_PAIR | If the event is associated with an FX order, currency pair will be included.
@@ -167,7 +168,7 @@ ORDER_STATUS_ID | ID assigned to the ORDER_STATUS block.
 `POST api/v1/compliance/`
 
 The `'COMPLIANCE'` data subject provides a repeating status of compliance checks performed during the order lifecycle.
-For every rule applied, a type; rule description; status; and plain English result text will be provided.
+For every rule applied, a type, rule description, status and plain English result text will be provided.
 
 ### Payload Attributes
 
