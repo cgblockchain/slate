@@ -21,11 +21,11 @@ Use this method to obtain a full download of the data stored on a Client’s Dev
 
 `GET /api/v1/system/snapshots/<id>`
 
-### Payload Attributes
+### URL Parameters
 
 | Attribute | Description |
-|-----------|--------|-------------|
-| id     | String | Id of the desired snapshot      |
+|----------|-----------|
+| ID   | Id of the desired snapshot      |
 
 
 
@@ -64,11 +64,11 @@ Use this method to initiate the process of building a Snapshot. This starts the 
 
 `POST /api/v1/system/snapshots`
 
-### URL Parameters
+### Payload Attributes
 
-| Parameter | Type   | Description |
-|-----------|--------|-------------|
-| phone     | String | Phone number, to which SMS notification will be send, with private key to decrypt snapshot      |
+| Parameter  | Description |
+|----------|-----------|
+| PHONE   | Phone number, to which SMS notification will be send, with private key to decrypt snapshot      |
 
 
 
