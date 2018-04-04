@@ -55,12 +55,12 @@ This endpoint adds a Field, that can later be used to describe as part of an Ent
 ### Payload Attributes
 
 | Attribute | Description |
-|-----------|--------|-------------|
-| name     | String | Field name      |
-| type     | String | Base types associated to this field      |
-| encodings     | String[] | Available encodings      |
-| transformers     | String[] | Available transformers      |
-| validators     | String[] | Available validators      |
+|----------|-----------|
+| NAME     | Field name      |
+| TYPE     | Base types associated to this field      |
+| ENCODINGS     | Available encodings      |
+| TRANSFORMERS     | Available transformers      |
+| VALIDATORS     | Available validators      |
 
 
 
@@ -115,9 +115,9 @@ This endpoint returns a Field, by its given Name.
 
 ### URL Parameters
 
-| Parameter | Type   | Description |
-|-----------|--------|-------------|
-| name     | String | Field name      |
+| Parameter  | Description |
+|----------|-----------|
+| NAME     | Field name      |
 
 
 
@@ -175,10 +175,10 @@ This endpoint returns an array of Fields
 
 ### URL Parameters
 
-| Parameter | Type   | Description |
-|-----------|--------|-------------|
-| limit     | String | [Optional] Limit of number of fetched drafts. Default value: 0      |
-| offset     | String | [Optional] Number of drafts to skip. Default value: 5      |
+| Parameter  | Description |
+|----------|-----------|
+| LIMIT     | [Optional] Limit of number of fetched drafts. Default value: 0      |
+| OFFSET     | [Optional] Number of drafts to skip. Default value: 5      |
 
 
 
@@ -235,13 +235,13 @@ Use this method to update a Field.
 
 ### URL Parameters
 
-| Parameter | Type   | Description |
-|-----------|--------|-------------|
-| name     | String | Field name      |
-| type     | String | [Optional] Base types associated to this field      |
-| encodings     | String[] | [Optional] Available encodings      |
-| transformers     | String[] | [Optional] Available transformers      |
-| validators     | String[] | [Optional] Available validators      |
+| Parameter  | Description |
+|----------|-----------|
+| NAME     | Field name      |
+| TYPE     | [Optional] Base types associated to this field      |
+| ENCODINGS     | [Optional] Available encodings      |
+| TRANSFORMERS     | [Optional] Available transformers      |
+| VALIDATORS     | [Optional] Available validators      |
 
 
 
@@ -275,9 +275,9 @@ Use this method to delete a Field.
 
 ### URL Parameters
 
-| Parameter | Type   | Description |
-|-----------|--------|-------------|
-| name     | String | Field name      |
+| Parameter  | Description |
+|----------|-----------|
+| NAME     | Field name      |
 
 
 
