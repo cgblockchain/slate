@@ -43,11 +43,11 @@ Use this endpoint method to add a User to the system.
 ### Payload Attributes
 
 | Attribute | Description |
-|-----------|--------|-------------|
-| username     | String | Name of the new user      |
-| fullName     | String | Human-readable name of the new user      |
-| email     | String | Email address of the new user      |
-| password     | String | Password of the new user      |
+|----------|------------|
+| USERNAME     | Name of the new user      |
+| FULLNAME     | Human-readable name of the new user      |
+| EMAIL     | Email address of the new user      |
+| PASSWORD     | Password of the new user      |
 
 
 
@@ -92,11 +92,11 @@ Use this method to add UI Users by using data from LDAP.
 
 `POST /api/v1/system/users/ldap`
 
-### URL Parameters
+### Payload Attributes
 
-| Parameter | Type   | Description |
-|-----------|--------|-------------|
-| users     | String | Array of users, that need to be added to the system      |
+| Parameter  | Description |
+|----------|------------|
+| USERS     | Array of users, that need to be added to the system      |
 
 
 
@@ -138,12 +138,12 @@ Use this method to add a Role to a User.
 
 `POST /api/v1/system/users/<id>/roles`
 
-### URL Parameters
+### Payload Attributes
 
-| Parameter | Type   | Description |
-|-----------|--------|-------------|
-| id     | String | ID of the target user      |
-| roleId     | String[] | Role id      |
+| Parameter  | Description |
+|----------|------------|
+| ID     | ID of the target user      |
+| ROLEID     | String[] | Role id      |
 
 
 
@@ -225,9 +225,9 @@ This endpoint generates a signingKeyPrivate and signingKeyPublic pair for the ta
 
 ### URL Parameters
 
-| Parameter | Type   | Description |
-|-----------|--------|-------------|
-| id     | String | ID of the target user      |
+| Parameter  | Description |
+|----------|------------|
+| ID     | ID of the target user      |
 
 
 
@@ -271,9 +271,9 @@ This endpoint returns the array of Roles that have been assigned to a User.
 
 ### URL Parameters
 
-| Parameter | Type   | Description |
-|-----------|--------|-------------|
-| id     | String | ID of the target user      |
+| Parameter  | Description |
+|----------|------------|
+| ID     | ID of the target user      |
 
 
 
@@ -317,9 +317,9 @@ This endpoint returns User data, excluding private information.
 
 ### URL Parameters
 
-| Parameter | Type   | Description |
-|-----------|--------|-------------|
-| id     | String | ID of the target user      |
+| Parameter  | Description |
+|----------|------------|
+| ID     | ID of the target user      |
 
 
 
@@ -365,10 +365,10 @@ This endpoint returns an array of Users that have been created within a particul
 
 ### URL Parameters
 
-| Parameter | Type   | Description |
-|-----------|--------|-------------|
-| limit     | String | [Optional] Limit of number of fetched drafts. Default value: 0      |
-| offset     | String | [Optional] Number of drafts to skip. Default value: 5      |
+| Parameter  | Description |
+|----------|------------|
+| LIMIT     | [Optional] Limit of number of fetched drafts. Default value: 0      |
+| OFFSET     | [Optional] Number of drafts to skip. Default value: 5      |
 
 
 
@@ -413,13 +413,13 @@ Use this method to updated User data.
 
 ### URL Parameters
 
-| Parameter | Type   | Description |
-|-----------|--------|-------------|
-| id     | String | ID of the desired user      |
-| username     | String | [Optional] Name of the user      |
-| fullName     | String | [Optional] Human-readable name of the user      |
-| email     | String | [Optional] Email address of the user      |
-| password     | String | [Optional] Password of the user      |
+| Parameter  | Description |
+|----------|------------|
+| ID     | ID of the desired user      |
+| USERNAME     | [Optional] Name of the user      |
+| FULLNAME     | [Optional] Human-readable name of the user      |
+| EMAIL     | [Optional] Email address of the user      |
+| PASSWORD     | [Optional] Password of the user      |
 
 
 
@@ -453,10 +453,10 @@ Use this method to delete a Role from a User's list.
 
 ### URL Parameters
 
-| Parameter | Type   | Description |
-|-----------|--------|-------------|
-| id     | String | ID of the user      |
-| id     | String | ID of the desired role      |
+| Parameter  | Description |
+|----------|------------|
+| ID     | ID of the user      |
+| ROLEID     | ID of the desired role      |
 
 
 
@@ -490,9 +490,9 @@ Use this method to delete a User.
 
 ### URL Parameters
 
-| Parameter | Type   | Description |
-|-----------|--------|-------------|
-| id     | String | ID of the user      |
+| Parameter  | Description |
+|----------|------------|
+| ID     | ID of the user      |
 
 
 
