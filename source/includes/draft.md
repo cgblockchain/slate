@@ -9,7 +9,7 @@
  curl \
   -X POST \
   -H "Content-Type: application/json" \
-  -d '{"NAME": "logbook", "MIXINS": [], "FIELDS": [{"NAME": "incident", "TYPE": "text"}]}' \
+  -d '{"name": "logbook", "mixins": [], "fields": [{"name": "incident", "type": "text"}]}' \
   https://compliance-guard.lan/api/v1/drafts
 
 ```
@@ -46,10 +46,10 @@ Use this method to construct new Entities or new versions of an Entity.
 ### Payload Attributes
 
 | Attribute | Description |
-|-----------|--------|-------------|
-| NAME     | String | Name of the draft      |
-| MIXINS     | String[] | Array of used mixins      |
-| FIELDS     | String[] | Array of fields, which entries of this type will have      |
+|-----------|-------------|
+| NAME    | Name of the draft      |
+| MIXINS   | Array of used mixins      |
+| FIELDS   | Array of fields, which entries of this type will have      |
 
 
 
@@ -95,9 +95,9 @@ Use this method to get the information about a Draft.
 
 ### URL Parameters
 
-| Parameter | Type   | Description |
-|-----------|--------|-------------|
-| id     | String | ID of the desired draft      |
+| Parameter | Description |
+|-----------|-------------|
+| ID    | ID of the desired draft      |
 
 
 
@@ -146,11 +146,11 @@ This endpoint returns a list of all the current Drafts.
 
 ### URL Parameters
 
-| Parameter | Type   | Description |
-|-----------|--------|-------------|
-| name     | String | [Optional] Name of the desired draft      |
-| limit     | String | [Optional] Limit of number of fetched drafts. Default value: 0      |
-| offset     | String | [Optional] Number of drafts to skip. Default value: 5      |
+| Parameter | Description |
+|-----------|--------|
+| NAME    | [Optional] Name of the desired draft
+| LIMIT    | [Optional] Limit of number of fetched drafts. Default value: 0
+| OFFSET    | [Optional] Number of drafts to skip. Default value: 5
 
 
 
@@ -196,14 +196,14 @@ Use this method to update a Draft.
 
 `PUT /api/v1/drafts/<id>`
 
-### URL Parameters
+### Payload Attributes
 
-| Parameter | Type   | Description |
-|-----------|--------|-------------|
-| id     | String | ID of the desired draft      |
-| name     | String | [Optional] New name of the draft      |
-| mixins     | String[] | [Optional] New array of used mixins      |
-| fields     | String[] | [Optional] New array of fields, which entries of this type will have      |
+| Parameter | Description |
+|-----------|-------------|
+| ID     | ID of the desired draft      |
+| NAME     | [Optional] New name of the draft      |
+| MIXINS   | [Optional] New array of used mixins      |
+| FIELDS   | [Optional] New array of fields, which entries of this type will have      |
 
 
 
@@ -237,9 +237,9 @@ Use this method to delete a Draft.
 
 ### URL Parameters
 
-| Parameter | Type   | Description |
-|-----------|--------|-------------|
-| ID     | String | of the desired draft      |
+| Parameter | Description |
+|-----------|-------------|
+| ID     | ID of the desired draft  |
 
 
 

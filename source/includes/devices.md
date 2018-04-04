@@ -11,7 +11,7 @@
  curl \
    -X POST \
    -H "Content-Type: application/json" \
-   -d '{"NAME": "cgbox1", "HASH": "0x0004a1af9de734f8ddab0d47c803cf301038d874"}' \
+   -d '{"name": "cgbox1", "hash": "0x0004a1af9de734f8ddab0d47c803cf301038d874"}' \
    https://compliance-guard.lan/api/v1/system/device
 
 ```
@@ -42,7 +42,7 @@ This can be used to establish a new ComplianceGuard hardware unit. This endpoint
 ### Payload Attributes
 
 | Attribute | Description |
-|-----------|--------|-------------|
+|---------|-----------|
 | NAME  | Human-readable name of device      |
 | HASH  | Blockchain hash of an account, associated with this device      |
 
@@ -84,9 +84,9 @@ This endpoint will return the basic information about the Device.
 
 ### URL Parameters
 
-| Parameter | Type   | Description |
-|-----------|--------|-------------|
-| Id     | String | Id of the desired device      |
+| Parameter | Description |
+|-----------|-------------|
+| ID    | Id of the desired device      |
 
 
 
@@ -129,12 +129,12 @@ This endpoint returns an array of all the Devices defined in one Client’s syst
 
 ### URL Parameters
 
-| Parameter | Type   | Description |
-|-----------|--------|-------------|
-| name     | String | [Optional] Human-readable name of device      |
-| hash     | String | [Optional] Blockchain hash of an account, associated with this device      |
-| limit     | String | [Optional] Limit of number of fetched devices. Default value: 0      |
-| offset     | String | [Optional] Number of devices to skip. Default value: 5      |
+| Parameter | Description |
+|-----------|-------------|
+| NAME     | [Optional] Human-readable name of device      |
+| HASH     | [Optional] Blockchain hash of an account, associated with this device      |
+| LIMIT     | [Optional] Limit of number of fetched devices. Default value: 0      |
+| OFFSET     | [Optional] Number of devices to skip. Default value: 5      |
 
 
 
@@ -177,8 +177,8 @@ Use this method to updates the information about a specific Device.
 ### URL Parameters
 
 | Parameter | Type   | Description |
-|-----------|--------|-------------|
-| ID     | String | of the desired device      |
+|---------|-----------|
+| ID     | of the desired device      |
 
 
 
@@ -214,8 +214,8 @@ Use this method to delete the information about a specific Device.
 ### URL Parameters
 
 | Parameter | Type   | Description |
-|-----------|--------|-------------|
-| ID     | String | of the desired device      |
+|---------|-------------|
+| ID     | of the desired device      |
 
 
 
