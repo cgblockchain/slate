@@ -5,19 +5,19 @@
 ## Add Field
 
 ```shell
- 
+
  curl \
    -X POST \
    -H "Content-Type: application/json" \
    -d '{"name":"text", "type":"text", "encodings":["utf8", "ascii", "base64", "binary"], "transformers":["trim", "replace"], "validators":["notEmpty", "maxLength", "minLength"]}' \
    "https://compliance-guard.lan/api/v1/fields"
-  
+
 ```
 
 > The above command returns JSON structured like this:
 
 ```json
- 
+
   {
     "status": "success",
     "data": {
@@ -43,7 +43,7 @@
       }
     }
   }
- 
+
 ```
 
 This endpoint adds a Field, that can later be used to describe as part of an Entity structure.
@@ -52,15 +52,15 @@ This endpoint adds a Field, that can later be used to describe as part of an Ent
 
 `POST /api/v1/fields`
 
-### URL Parameters
+### Payload Attributes
 
-| Parameter | Type   | Description |
+| Attribute | Description |
 |-----------|--------|-------------|
 | name     | String | Field name      |
 | type     | String | Base types associated to this field      |
 | encodings     | String[] | Available encodings      |
 | transformers     | String[] | Available transformers      |
-| validators     | String[] | Available validators      | 
+| validators     | String[] | Available validators      |
 
 
 
@@ -68,17 +68,17 @@ This endpoint adds a Field, that can later be used to describe as part of an Ent
 ## Get Field
 
 ```shell
- 
+
  curl \
    -X GET \
    https://compliance-guard.lan/api/v1/fields/text
-  
+
 ```
 
 > The above command returns JSON structured like this:
 
 ```json
- 
+
   {
     "status": "success",
     "data": {
@@ -104,7 +104,7 @@ This endpoint adds a Field, that can later be used to describe as part of an Ent
       }
     }
   }
- 
+
 ```
 
 This endpoint returns a Field, by its given Name.
@@ -126,17 +126,17 @@ This endpoint returns a Field, by its given Name.
 ## Get list of Fields
 
 ```shell
- 
+
  curl \
    -X GET \
    https://compliance-guard.lan/api/v1/fields?limit=5
-  
+
 ```
 
 > The above command returns JSON structured like this:
 
 ```json
- 
+
   {
     "status": "success",
     "data": {
@@ -164,7 +164,7 @@ This endpoint returns a Field, by its given Name.
       ]
     }
   }
- 
+
 ```
 
 This endpoint returns an array of Fields
@@ -178,7 +178,7 @@ This endpoint returns an array of Fields
 | Parameter | Type   | Description |
 |-----------|--------|-------------|
 | limit     | String | [Optional] Limit of number of fetched drafts. Default value: 0      |
-| offset     | String | [Optional] Number of drafts to skip. Default value: 5      | 
+| offset     | String | [Optional] Number of drafts to skip. Default value: 5      |
 
 
 
@@ -186,19 +186,19 @@ This endpoint returns an array of Fields
 ## Update Field
 
 ```shell
- 
+
  curl \
    -X PUT \
    -H "Content-Type: application/json" \
    -d '{"name":"text", "type":"text", "encodings":["utf8", "ascii", "base64", "binary"], "transformers":["trim", "replace"], "validators":["notEmpty", "maxLength", "minLength"]}' \
    https://compliance-guard.lan/api/v1/drafts/6a2017db-6f7c-45e8-ab28-ebe9e589b4b3
-  
+
 ```
 
 > The above command returns JSON structured like this:
 
 ```json
- 
+
   {
     "status": "success",
     "data": {
@@ -224,7 +224,7 @@ This endpoint returns an array of Fields
       }
     }
   }
- 
+
 ```
 
 Use this method to update a Field.
@@ -241,7 +241,7 @@ Use this method to update a Field.
 | type     | String | [Optional] Base types associated to this field      |
 | encodings     | String[] | [Optional] Available encodings      |
 | transformers     | String[] | [Optional] Available transformers      |
-| validators     | String[] | [Optional] Available validators      | 
+| validators     | String[] | [Optional] Available validators      |
 
 
 
@@ -249,22 +249,22 @@ Use this method to update a Field.
 ## Delete Field
 
 ```shell
- 
+
  curl \
    -X DELETE \
    https://compliance-guard.lan/api/v1/fields/6a2017db-6f7c-45e8-ab28-ebe9e589b4b3
-  
+
 ```
 
 > The above command returns JSON structured like this:
 
 ```json
- 
+
   {
     "status": "success",
     "data": null
   }
- 
+
 ```
 
 Use this method to delete a Field.

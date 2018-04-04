@@ -39,7 +39,7 @@ This can be used to establish a new ComplianceGuard hardware unit. This endpoint
 
 `POST /api/v1/system/devices`
 
-### URL Parameters
+### Payload Attributes
 
 | Attribute | Description |
 |-----------|--------|-------------|

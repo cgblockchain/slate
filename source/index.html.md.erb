@@ -134,13 +134,15 @@ SENDER_ID | ID assigned to the SENDER block.
 
 > Change {base_url} with main domain and {url} with corresponding endpoint url
 
+### HTTP Request
+
 `POST api/v1/order/`
 
 The `'ORDER_STATUS'` data subject provides the state of the order within the lifecycle; both current and previous.
 
-The description for each attribute under the 'ORDER_STATUS' data subject are as follows:
+### Payload Attributes
 
-Attribute | Description
+Attributes | Description
 --------- | -------
 NEW_ORDER | Represents a new order at the inception of the order lifecycle.
 ORDER_AMEND | Represents an amendment to an order's attributes.
@@ -160,10 +162,14 @@ ORDER_STATUS_ID | ID assigned to the ORDER_STATUS block.
 
 > Change {base_url} with main domain and {url} with corresponding endpoint url
 
+### HTTP Request
+
 `POST api/v1/compliance/`
 
 The `'COMPLIANCE'` data subject provides a repeating status of compliance checks performed during the order lifecycle.
 For every rule applied, a type; rule description; status; and plain English result text will be provided.
+
+### Payload Attributes
 
 Attribute | Description
 --------- | -------
@@ -181,6 +187,8 @@ COMPLIANCE_ID | It is the ID assigned to the COMPLIANCE block.
 
 > Change {base_url} with main domain and {url} with corresponding endpoint url
 
+### HTTP Request
+
 `POST api/v1/order/{order_id}/sent_to_trade`
 
 SENT_TO_TRADE represents an order passing compliance, and being sent to trade. It is an attribute of the ‘ORDER_STATUS’ block name that provides the state of the order within the lifecycle; both current and previous.
@@ -195,6 +203,8 @@ SENT_TO_TRADE represents an order passing compliance, and being sent to trade. I
 <%= partial "partials/order_status.html" %>
 
 > Change {base_url} with main domain and {url} with corresponding endpoint url
+
+### HTTP Request
 
 `POST api/v1/order/{order_id}/parent_creation`
 
@@ -211,6 +221,8 @@ PARENT_ORDER_CREATION represents the activation of the order following the 'SENT
 
 > Change {base_url} with main domain and {url} with corresponding endpoint url
 
+### HTTP Request
+
 `POST api/v1/order/{order_id}/assign`
 
 <%= partial "partials/order_security_sender_description.html" %>
@@ -223,12 +235,16 @@ Assign/Acquire is an event that represents a milestone for the lifecycle of an o
 <%= partial "partials/order_security_sender.html" %>
 <%= partial "partials/merge.html" %>
 
+### HTTP Request
+
 `POST api/v1/merge/{order_id}`
 
 The `'MERGE'` data subject is generated when two orders are joined in Portware. When this happens, the order details of
 the merged order will be included within this block. It will repeat every merge that takes place in Portware.
 
 Scope: A block will repeat to include each block that is merged with the order.
+
+### Payload Attributes
 
 The description for each attribute under the ‘MERGE’ data subject are as follows:
 
@@ -262,12 +278,15 @@ MERGE_ID | The ID assigned to the MERGE block
 <%= partial "partials/order_security_sender.html" %>
 <%= partial "partials/split.html" %>
 
+### HTTP Request
+
 `POST api/v1/split/{order_id}`
 
 The `'SPLIT'` data subject will detail quantity that is split off from the order. It will repeat for each split executed against theorder during the lifecycle.
 
 Scope: A block will repeat to include each quantity split from the order.
 
+### Payload Attributes
 
 Attribute | Description
 --------- | -------
@@ -279,12 +298,16 @@ SPLIT_ID | It is the ID assigned to the SPLIT block.
 <%= partial "partials/order_security_sender.html" %>
 <%= partial "partials/sweep.html" %>
 
+### HTTP Request
+
 `POST api/v1/sweep/{order_id}`
 
 The `'SWEEP'` data subject details advertisements sent to dark pools associated with the order. This will repeat for each
 sweep performed on an order.
 
 Scope: A block will be included for both CURRENT & PREVIOUS state, and it will repeat for each Sweep.
+
+### Payload Attributes
 
 Attribute | Description
 --------- | -------
@@ -302,6 +325,8 @@ well as the current and previous states.
 
 <%= partial "partials/order_security_sender.html" %>
 <%= partial "partials/placement.html" %>
+
+### HTTP Request
 
 `POST api/v1/placements/`
 
@@ -323,7 +348,11 @@ be provided.
 <%= partial "partials/execution.html" %>
 <%= partial "partials/placement.html" %>
 
+### HTTP Request
+
 `POST api/v1/executions/`
+
+### Payload Attributes
 
 Attribute | Description
 --------- | -------
@@ -341,6 +370,8 @@ repeat for each execution.
 <%= partial "partials/order_security_sender.html" %>
 <%= partial "partials/post_trade.html" %>
 
+### HTTP Request
+
 `POST api/v1/post_trade_allocation`
 
 The `'PT_ALLOCATION'` data subject provides detail for any post-trade allocation performed on an order. It will detail the
@@ -348,6 +379,8 @@ account, quantity, price, and associated fees. This will repeat for each allocat
 Both the current and previous state will be provided.
 
 'Scope' A block will be included for both CURRENT & PREVIOUS state, and it will repeat for each allocation.
+
+### Payload Attributes
 
 The attributes for PT Allocation include the following:
 
@@ -367,6 +400,8 @@ PT_ALLOCATION_ID | It is the ID assigned to the PT_ALLOCATION block.
 <%= partial "partials/order_security_sender.html" %>
 <%= partial "partials/alert.html" %>
 
+### HTTP Request
+
 `POST api/v1/exceptions`
 
 “Exception” is an event that represents a milestone for the lifecycle of an order. This refers to 4 data subjects: ORDER_ATTRIBUTE, SECURITY, SENDER, ALERT.
@@ -375,6 +410,8 @@ The `'ALERT'` data subject will be generated whenever an exception is raised in 
 will be repeated for each exception raised during the order lifecycle.
 
 `Scope` A block will be included for both CURRENT & PREVIOUS state, and it will repeat for each alert.
+
+### Payload Attributes
 
 The  'ALERT' data subject includes the following attributes:
 
@@ -388,6 +425,8 @@ ALERT_ID | It is the ID assigned to the ALERT block.
 
 <%= partial "partials/order_security_sender.html" %>
 <%= partial "partials/no_object.html" %>
+
+### HTTP Request
 
 `POST api/v1/executions/archive`
 

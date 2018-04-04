@@ -5,19 +5,19 @@
 ## Add Role
 
 ```shell
- 
+
  curl \
    -X POST \
    -H "Content-Type: application/json" \
    -d '{"name":"Manager Role", "slugname":"manager", "permissions":[]}' \
    https://compliance-guard.lan/api/v1/system/roles
-  
+
 ```
 
 > The above command returns JSON structured like this:
 
 ```json
- 
+
   {
     "status": "success",
     "data": {
@@ -29,7 +29,7 @@
       }
     }
   }
- 
+
 ```
 
 This endpoint adds a User Role to the system.
@@ -38,13 +38,13 @@ This endpoint adds a User Role to the system.
 
 `POST /api/v1/system/roles`
 
-### URL Parameters
+### Payload Attributes
 
-| Parameter | Type   | Description |
+| Attribute | Description |
 |-----------|--------|-------------|
 | slugname     | String | Role name      |
 | name     | String | Human-readable name      |
-| permissions     | Object[] | Permissions granted to this role      | 
+| permissions     | Object[] | Permissions granted to this role      |
 
 
 
@@ -52,17 +52,17 @@ This endpoint adds a User Role to the system.
 ## Get Role
 
 ```shell
- 
+
  curl \
    -X GET \
    https://compliance-guard.lan/api/v1/system/roles/6a2017db-6f7c-45e8-ab28-ebe9e589b4b3
-  
+
 ```
 
 > The above command returns JSON structured like this:
 
 ```json
- 
+
   {
     "status": "success",
     "data": {
@@ -74,7 +74,7 @@ This endpoint adds a User Role to the system.
       }
     }
   }
- 
+
 ```
 
 Use this method to get the basic information about a User Role.
@@ -96,17 +96,17 @@ Use this method to get the basic information about a User Role.
 ## Get list of Roles
 
 ```shell
- 
+
  curl \
    -X GET \
    https://compliance-guard.lan/api/v1/system/roles?name=manager&limit=5
-  
+
 ```
 
 > The above command returns JSON structured like this:
 
 ```json
- 
+
   {
     "status": "success",
     "data": {
@@ -120,7 +120,7 @@ Use this method to get the basic information about a User Role.
       ]
     }
   }
- 
+
 ```
 
 This endpoint returns an array of User Roles.
@@ -135,7 +135,7 @@ This endpoint returns an array of User Roles.
 |-----------|--------|-------------|
 | name     | String | Human-readable name      |
 | limit     | String | [Optional] Limit of number of fetched drafts. Default value: 0      |
-| offset     | String | [Optional] Number of drafts to skip. Default value: 5      | 
+| offset     | String | [Optional] Number of drafts to skip. Default value: 5      |
 
 
 
@@ -143,19 +143,19 @@ This endpoint returns an array of User Roles.
 ## Update Role
 
 ```shell
- 
+
  curl \
    -X PUT \
    -H "Content-Type: application/json" \
    -d '{"name":"Manager Role", "slugname":"manager", "permissions":[]}' \
    https://compliance-guard.lan/api/v1/system/roles/6a2017db-6f7c-45e8-ab28-ebe9e589b4b3
-  
+
 ```
 
 > The above command returns JSON structured like this:
 
 ```json
- 
+
   {
     "status": "success",
     "data": {
@@ -167,7 +167,7 @@ This endpoint returns an array of User Roles.
       }
     }
   }
- 
+
 ```
 
 Use this method to update the name and permissions of a Role.
@@ -183,7 +183,7 @@ Use this method to update the name and permissions of a Role.
 | id     | String | Role id      |
 | slugname     | String | [Optional] Role name      |
 | name     | String | [Optional] Human-readable name      |
-| permissions     | Object[] | [Optional] Permissions granted to this role      | 
+| permissions     | Object[] | [Optional] Permissions granted to this role      |
 
 
 
@@ -191,22 +191,22 @@ Use this method to update the name and permissions of a Role.
 ## Delete Role
 
 ```shell
- 
+
  curl \
    -X DELETE \
    https://compliance-guard.lan/api/v1/roles/6a2017db-6f7c-45e8-ab28-ebe9e589b4b3
-  
+
 ```
 
 > The above command returns JSON structured like this:
 
 ```json
- 
+
   {
     "status": "success",
     "data": null
   }
- 
+
 ```
 
 Use this method to delete a Role.

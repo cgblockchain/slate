@@ -5,19 +5,19 @@
 ## Add Entry
 
 ```shell
- 
+
  curl \
    -X POST \
    -H "Content-Type: application/json" \
    -d '{"incident": "test", "explanation": "test reason", "chainId": "df81c9fd-7b90-4098-a084-8dff1e0e1e79"}' \
    https://compliance-guard.lan/api/v1/entries/1cedf4ab-befd-44aa-b31b-86d612f4068e
-  
+
 ```
 
 > The above command returns JSON structured like this:
 
 ```json
- 
+
   {
     "status": "success",
     "data": {
@@ -35,7 +35,7 @@
       }
     }
   }
- 
+
 ```
 
 Use this method to adds a specific Entry of data as key value pairs. This is the normal method utilized by an Integrator to push data into ComplianceGuard.
@@ -44,12 +44,12 @@ Use this method to adds a specific Entry of data as key value pairs. This is the
 
 `POST /api/v1/entries/<entityId>`
 
-### URL Parameters
+### Payload Attributes
 
-| Parameter | Type   | Description |
+| Attribute | Description |
 |-----------|--------|-------------|
 | entityId     | String | Id of the corresponding entity      |
-| chainId     | String | [Optional] Id of the target entry to update. No data actually changed, and chain of changes created instead      | 
+| chainId     | String | [Optional] Id of the target entry to update. No data actually changed, and chain of changes created instead      |
 
 
 
@@ -57,20 +57,20 @@ Use this method to adds a specific Entry of data as key value pairs. This is the
 ## Add Entry (Using Form)
 
 ```shell
- 
+
  curl \
    -X POST \
    -F "incident=test" \
    -F "explanation=test reason" \
    -F "file_1=/path/to/file.txt" \
    https://compliance-guard.lan/api/v1/entries/1cedf4ab-befd-44aa-b31b-86d612f4068e/form
-  
+
 ```
 
 > The above command returns JSON structured like this:
 
 ```json
- 
+
   {
     "status": "success",
     "data": {
@@ -102,7 +102,7 @@ Use this method to adds a specific Entry of data as key value pairs. This is the
       }
     }
   }
- 
+
 ```
 
 Use this method to add a specific Entry of data using the ComplianceGuard User Interface (such as the CCO Logbook). The parameters are the same as those used in the plain Add Entry method, but in this case data is used from a form, rather than plain JSON.
@@ -116,7 +116,7 @@ Use this method to add a specific Entry of data using the ComplianceGuard User I
 | Parameter | Type   | Description |
 |-----------|--------|-------------|
 | entityId     | String | Id of the corresponding entity      |
-| [Optional]     | String | chainId Id of the target entry to update. No data actually changed, and chain of changes created instead      | 
+| [Optional]     | String | chainId Id of the target entry to update. No data actually changed, and chain of changes created instead      |
 
 
 
@@ -124,20 +124,20 @@ Use this method to add a specific Entry of data using the ComplianceGuard User I
 ## Add Entry (Using Form, where one Field can contain multiple files)
 
 ```shell
- 
+
  curl \
    -X POST \
    -F "incident=test" \
    -F "file_1=/path/to/file.txt" \
    -F "file_1=/path/to/another/file.jpg" \
    https://compliance-guard.lan/api/v1/entries/1cedf4ab-befd-44aa-b31b-86d612f4068e/formmultiple
-  
+
 ```
 
 > The above command returns JSON structured like this:
 
 ```json
- 
+
   {
     "status": "success",
     "data": {
@@ -182,7 +182,7 @@ Use this method to add a specific Entry of data using the ComplianceGuard User I
       }
     }
   }
- 
+
 ```
 
 Use this method to add a specific Entry where Clients can attach files (such as PDFs or .doc files). In this method one Field can contain multiple files.
@@ -196,7 +196,7 @@ Use this method to add a specific Entry where Clients can attach files (such as 
 | Parameter | Type   | Description |
 |-----------|--------|-------------|
 | entityId     | String | Id of the corresponding entity      |
-| [Optional]     | String | chainId Id of the target entry to update. No data actually changed, and chain of changes created instead      | 
+| [Optional]     | String | chainId Id of the target entry to update. No data actually changed, and chain of changes created instead      |
 
 
 
@@ -204,17 +204,17 @@ Use this method to add a specific Entry where Clients can attach files (such as 
 ## Get list of Entries of a specific type
 
 ```shell
- 
+
  curl \
    -X GET \
    https://compliance-guard.lan/api/v1/entries/1cedf4ab-befd-44aa-b31b-86d612f4068e?limit=5
-  
+
 ```
 
 > The above command returns JSON structured like this:
 
 ```json
- 
+
   {
     "status": "success",
     "data": {
@@ -234,7 +234,7 @@ Use this method to add a specific Entry where Clients can attach files (such as 
       ]
     }
   }
- 
+
 ```
 
 This endpoint returns an array of specific Entries.
@@ -249,7 +249,7 @@ This endpoint returns an array of specific Entries.
 |-----------|--------|-------------|
 | entityId     | String | Id of the corresponding entity      |
 | limit     | String | [Optional] Limit of number of fetched devices. Default value: 0      |
-| offset     | String | [Optional] Number of devices to skip. Default value: 5      | 
+| offset     | String | [Optional] Number of devices to skip. Default value: 5      |
 
 
 
@@ -257,17 +257,17 @@ This endpoint returns an array of specific Entries.
 ## Get history of changes for a specific Entry
 
 ```shell
- 
+
  curl \
    -X GET \
    https://compliance-guard.lan/api/v1/entries/1cedf4ab-befd-44aa-b31b-86d612f4068e/history?limit=5
-  
+
 ```
 
 > The above command returns JSON structured like this:
 
 ```json
- 
+
   {
     "status": "success",
     "data": {
@@ -287,7 +287,7 @@ This endpoint returns an array of specific Entries.
       ]
     }
   }
- 
+
 ```
 
 This endpoint returns an array of Entries, each of which describes a single changeset of the original Entry.
@@ -302,7 +302,7 @@ This endpoint returns an array of Entries, each of which describes a single chan
 |-----------|--------|-------------|
 | chainId     | String | Id of the original entry      |
 | limit     | String | [Optional] Limit of number of fetched devices. Default value: 0      |
-| offset     | String | [Optional] Number of devices to skip. Default value: 5      | 
+| offset     | String | [Optional] Number of devices to skip. Default value: 5      |
 
 
 
@@ -310,17 +310,17 @@ This endpoint returns an array of Entries, each of which describes a single chan
 ## Get linked items to the latest version of a specific Entry
 
 ```shell
- 
+
  curl \
    -X GET \
    https://compliance-guard.lan/api/v1/entries/1cedf4ab-befd-44aa-b31b-86d612f4068e/latest/links
-  
+
 ```
 
 > The above command returns JSON structured like this:
 
 ```json
- 
+
   {
     "status": "success",
     "data": {
@@ -364,7 +364,7 @@ This endpoint returns an array of Entries, each of which describes a single chan
       ]
     }
   }
- 
+
 ```
 
 This endpoint returns list of Entries that are associated with the latest version of a specific Entry.
@@ -380,7 +380,7 @@ This endpoint returns list of Entries that are associated with the latest versio
 | chainId     | String | Id of the original entry      |
 | entityId     | String | Id of the entity, which items you want to see      |
 | limit     | String | [Optional] Limit of number of fetched devices. Default value: 0      |
-| offset     | String | [Optional] Number of devices to skip. Default value: 5      | 
+| offset     | String | [Optional] Number of devices to skip. Default value: 5      |
 
 
 
@@ -388,17 +388,17 @@ This endpoint returns list of Entries that are associated with the latest versio
 ## Get latest version of the specific Entry
 
 ```shell
- 
+
  curl \
    -X GET \
    https://compliance-guard.lan/api/v1/entries/1cedf4ab-befd-44aa-b31b-86d612f4068e/latest
-  
+
 ```
 
 > The above command returns JSON structured like this:
 
 ```json
- 
+
   {
     "status": "success",
     "data": {
@@ -416,7 +416,7 @@ This endpoint returns list of Entries that are associated with the latest versio
       }
     }
   }
- 
+
 ```
 
 This endpoint returns the latest version of an Entry, showing all the changes made to the original Entry.
@@ -438,17 +438,17 @@ This endpoint returns the latest version of an Entry, showing all the changes ma
 ## Get parameters necessary for validating stored data
 
 ```shell
- 
+
  curl \
    -X GET \
    https://compliance-guard.lan/api/v1/entries/1cedf4ab-befd-44aa-b31b-86d612f4068e/1cedf4ab-befd-44aa-b31b-86d612f4068e/validate
-  
+
 ```
 
 > The above command returns JSON structured like this:
 
 ```json
- 
+
   {
     "status": "success",
     "data": {
@@ -459,7 +459,7 @@ This endpoint returns the latest version of an Entry, showing all the changes ma
       }
     }
   }
- 
+
 ```
 
 This endpoint returns the sender’s public key, data signature, and payload so the Client can validate them.
@@ -473,7 +473,7 @@ This endpoint returns the sender’s public key, data signature, and payload so 
 | Parameter | Type   | Description |
 |-----------|--------|-------------|
 | chainId     | String | Id of the original entry      |
-| id     | String | Id of the specific changeset      | 
+| id     | String | Id of the specific changeset      |
 
 
 
@@ -481,17 +481,17 @@ This endpoint returns the sender’s public key, data signature, and payload so 
 ## Get linked items to the specific revision of an Entry
 
 ```shell
- 
+
  curl \
    -X GET \
    https://compliance-guard.lan/api/v1/entries/1cedf4ab-befd-44aa-b31b-86d612f4068e/1cedf4ab-befd-44aa-b31b-86d612f4068e/links
-  
+
 ```
 
 > The above command returns JSON structured like this:
 
 ```json
- 
+
   {
     "status": "success",
     "data": {
@@ -535,7 +535,7 @@ This endpoint returns the sender’s public key, data signature, and payload so 
       ]
     }
   }
- 
+
 ```
 
 This endpoint returns a list of Entries that are associated with a specific Entry in the revision chain.
@@ -552,7 +552,7 @@ This endpoint returns a list of Entries that are associated with a specific Entr
 | id     | String | Id of the specific changeset      |
 | entityId     | String | Id of the entity, which items you want to see      |
 | limit     | String | [Optional] Limit of number of fetched devices. Default value: 0      |
-| offset     | String | [Optional] Number of devices to skip. Default value: 5      | 
+| offset     | String | [Optional] Number of devices to skip. Default value: 5      |
 
 
 
@@ -560,17 +560,17 @@ This endpoint returns a list of Entries that are associated with a specific Entr
 ## Get specific revision of the Entry
 
 ```shell
- 
+
  curl \
    -X GET \
    "https://compliance-guard.lan/api/v1/entries/1cedf4ab-befd-44aa-b31b-86d612f4068e/1cedf4ab-befd-44aa-b31b-86d612f4068e"
-  
+
 ```
 
 > The above command returns JSON structured like this:
 
 ```json
- 
+
   {
     "status": "success",
     "data": {
@@ -588,7 +588,7 @@ This endpoint returns a list of Entries that are associated with a specific Entr
       }
     }
   }
- 
+
 ```
 
 This endpoint returns a specific revision of an Entry in a revision chain.
@@ -602,6 +602,6 @@ This endpoint returns a specific revision of an Entry in a revision chain.
 | Parameter | Type   | Description |
 |-----------|--------|-------------|
 | chainId     | String | Id of the original entry      |
-| id     | String | Id of the specific changeset      | 
+| id     | String | Id of the specific changeset      |
 
 

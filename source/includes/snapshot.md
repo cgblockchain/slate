@@ -5,7 +5,7 @@
 ## Get Snapshot
 
 ```shell
- 
+
  curl \
    -X GET \
    https://compliance-guard.lan/api/v1/system/snapshots/d0691c48-ad21-45db-bbd6-f32aa264d1ad
@@ -21,9 +21,9 @@ Use this method to obtain a full download of the data stored on a Client’s Dev
 
 `GET /api/v1/system/snapshots/<id>`
 
-### URL Parameters
+### Payload Attributes
 
-| Parameter | Type   | Description |
+| Attribute | Description |
 |-----------|--------|-------------|
 | id     | String | Id of the desired snapshot      |
 
@@ -34,19 +34,19 @@ Use this method to obtain a full download of the data stored on a Client’s Dev
 ## Start Building Snapshot
 
 ```shell
- 
+
  curl \
    -X POST \
    -H "Content-Type: application/json" \
    -d '{"phone": "3752901234567"}' \
    https://compliance-guard.lan/api/v1/system/snapshots
-  
+
 ```
 
 > The above command returns JSON structured like this:
 
 ```json
- 
+
   {
     "status": "success",
     "data": {
@@ -55,7 +55,7 @@ Use this method to obtain a full download of the data stored on a Client’s Dev
       }
     }
   }
- 
+
 ```
 
 Use this method to initiate the process of building a Snapshot. This starts the background task of dumping the blockchain and returns an id of this task.

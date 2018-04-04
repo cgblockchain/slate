@@ -5,19 +5,19 @@
 ## Add User
 
 ```shell
- 
+
  curl \
    -X POST \
    -H "Content-Type: application/json" \
    -d '{"username": "first.last", "fullName": "First Last", "email": "first.last__hedgefund.com", "password": "pwd"}' \
    https://compliance-guard.lan/api/v1/system/users
-  
+
 ```
 
 > The above command returns JSON structured like this:
 
 ```json
- 
+
   {
     "status": "success",
     "data": {
@@ -31,7 +31,7 @@
       }
     }
   }
- 
+
 ```
 
 Use this endpoint method to add a User to the system.
@@ -40,14 +40,14 @@ Use this endpoint method to add a User to the system.
 
 `POST /api/v1/system/users`
 
-### URL Parameters
+### Payload Attributes
 
-| Parameter | Type   | Description |
+| Attribute | Description |
 |-----------|--------|-------------|
 | username     | String | Name of the new user      |
 | fullName     | String | Human-readable name of the new user      |
 | email     | String | Email address of the new user      |
-| password     | String | Password of the new user      | 
+| password     | String | Password of the new user      |
 
 
 
@@ -55,19 +55,19 @@ Use this endpoint method to add a User to the system.
 ## Add Users from LDAP
 
 ```shell
- 
+
  curl \
    -X POST \
    -H "Content-Type: application/json" \
    -d '{"users": ["user1", "user2", "user3"]}' \
    https://compliance-guard.lan/api/v1/system/users/ldap
-  
+
 ```
 
 > The above command returns JSON structured like this:
 
 ```json
- 
+
   {
     "status": "success",
     "data": {
@@ -83,7 +83,7 @@ Use this endpoint method to add a User to the system.
       ]
     }
   }
- 
+
 ```
 
 Use this method to add UI Users by using data from LDAP.
@@ -105,19 +105,19 @@ Use this method to add UI Users by using data from LDAP.
 ## Add Role to the existing User
 
 ```shell
- 
+
  curl \
    -X POST \
    -H "Content-Type: application/json" \
    -d '{"role": "1cedf4ab-befd-44aa-b31b-86d612f4068e"}' \
    https://compliance-guard.lan/api/v1/system/users/6a2017db-6f7c-45e8-ab28-ebe9e589b4b3/roles
-  
+
 ```
 
 > The above command returns JSON structured like this:
 
 ```json
- 
+
   {
     "status": "success",
     "data": {
@@ -129,7 +129,7 @@ Use this method to add UI Users by using data from LDAP.
       }
     }
   }
- 
+
 ```
 
 Use this method to add a Role to a User.
@@ -143,7 +143,7 @@ Use this method to add a Role to a User.
 | Parameter | Type   | Description |
 |-----------|--------|-------------|
 | id     | String | ID of the target user      |
-| roleId     | String[] | Role id      | 
+| roleId     | String[] | Role id      |
 
 
 
@@ -151,17 +151,17 @@ Use this method to add a Role to a User.
 ## Get list of LDAP Users
 
 ```shell
- 
+
  curl \
    -X GET \
    https://compliance-guard.lan/api/v1/system/users/ldap
-  
+
 ```
 
 > The above command returns JSON structured like this:
 
 ```json
- 
+
   {
     "status": "success",
     "data": {
@@ -184,7 +184,7 @@ Use this method to add a Role to a User.
       ]
     }
   }
- 
+
 ```
 
 This endpoint returns an array of LDAP Users.
@@ -199,22 +199,22 @@ This endpoint returns an array of LDAP Users.
 ## Generate new private/public keys pair for User
 
 ```shell
- 
+
  curl \
    -X GET \
    https://compliance-guard.lan/api/v1/system/users/6a2017db-6f7c-45e8-ab28-ebe9e589b4b3/generate
-  
+
 ```
 
 > The above command returns JSON structured like this:
 
 ```json
- 
+
   {
     "status": "success",
     "data": null
   }
- 
+
 ```
 
 This endpoint generates a signingKeyPrivate and signingKeyPublic pair for the target User.
@@ -236,17 +236,17 @@ This endpoint generates a signingKeyPrivate and signingKeyPublic pair for the ta
 ## Get list of Roles for the User
 
 ```shell
- 
+
  curl \
    -X GET \
    https://compliance-guard.lan/api/v1/system/users/6a2017db-6f7c-45e8-ab28-ebe9e589b4b3/roles
-  
+
 ```
 
 > The above command returns JSON structured like this:
 
 ```json
- 
+
   {
     "status": "success",
     "data": {
@@ -260,7 +260,7 @@ This endpoint generates a signingKeyPrivate and signingKeyPublic pair for the ta
       ]
     }
   }
- 
+
 ```
 
 This endpoint returns the array of Roles that have been assigned to a User.
@@ -282,17 +282,17 @@ This endpoint returns the array of Roles that have been assigned to a User.
 ## Get User
 
 ```shell
- 
+
  curl \
    -X GET \
    https://compliance-guard.lan/api/v1/system/users/6a2017db-6f7c-45e8-ab28-ebe9e589b4b3
-  
+
 ```
 
 > The above command returns JSON structured like this:
 
 ```json
- 
+
   {
     "status": "success",
     "data": {
@@ -306,7 +306,7 @@ This endpoint returns the array of Roles that have been assigned to a User.
       }
     }
   }
- 
+
 ```
 
 This endpoint returns User data, excluding private information.
@@ -328,17 +328,17 @@ This endpoint returns User data, excluding private information.
 ## Get list of Users
 
 ```shell
- 
+
  curl \
    -X GET \
    https://compliance-guard.lan/api/v1/system/users&limit=1
-  
+
 ```
 
 > The above command returns JSON structured like this:
 
 ```json
- 
+
   {
     "status": "success",
     "data": {
@@ -354,7 +354,7 @@ This endpoint returns User data, excluding private information.
       ]
     }
   }
- 
+
 ```
 
 This endpoint returns an array of Users that have been created within a particular Client’s system (or imported from LDAP).
@@ -368,7 +368,7 @@ This endpoint returns an array of Users that have been created within a particul
 | Parameter | Type   | Description |
 |-----------|--------|-------------|
 | limit     | String | [Optional] Limit of number of fetched drafts. Default value: 0      |
-| offset     | String | [Optional] Number of drafts to skip. Default value: 5      | 
+| offset     | String | [Optional] Number of drafts to skip. Default value: 5      |
 
 
 
@@ -376,19 +376,19 @@ This endpoint returns an array of Users that have been created within a particul
 ## Update User
 
 ```shell
- 
+
  curl \
    -X PUT \
    -H "Content-Type: application/json" \
    -d '{"fullName": "New First Last", "password": "pwd"}' \
    https://compliance-guard.lan/api/v1/system/users/6a2017db-6f7c-45e8-ab28-ebe9e589b4b3
-  
+
 ```
 
 > The above command returns JSON structured like this:
 
 ```json
- 
+
   {
     "status": "success",
     "data": {
@@ -402,7 +402,7 @@ This endpoint returns an array of Users that have been created within a particul
       }
     }
   }
- 
+
 ```
 
 Use this method to updated User data.
@@ -419,7 +419,7 @@ Use this method to updated User data.
 | username     | String | [Optional] Name of the user      |
 | fullName     | String | [Optional] Human-readable name of the user      |
 | email     | String | [Optional] Email address of the user      |
-| password     | String | [Optional] Password of the user      | 
+| password     | String | [Optional] Password of the user      |
 
 
 
@@ -427,22 +427,22 @@ Use this method to updated User data.
 ## Delete Role from User's list
 
 ```shell
- 
+
  curl \
    -X DELETE \
    https://compliance-guard.lan/api/v1/system/users/6a2017db-6f7c-45e8-ab28-ebe9e589b4b3/roles/1cedf4ab-befd-44aa-b31b-86d612f4068e
-  
+
 ```
 
 > The above command returns JSON structured like this:
 
 ```json
- 
+
   {
     "status": "success",
     "data": null
   }
- 
+
 ```
 
 Use this method to delete a Role from a User's list.
@@ -456,7 +456,7 @@ Use this method to delete a Role from a User's list.
 | Parameter | Type   | Description |
 |-----------|--------|-------------|
 | id     | String | ID of the user      |
-| id     | String | ID of the desired role      | 
+| id     | String | ID of the desired role      |
 
 
 
@@ -464,22 +464,22 @@ Use this method to delete a Role from a User's list.
 ## Delete User
 
 ```shell
- 
+
  curl \
    -X DELETE \
    https://compliance-guard.lan/api/v1/system/users/6a2017db-6f7c-45e8-ab28-ebe9e589b4b3
-  
+
 ```
 
 > The above command returns JSON structured like this:
 
 ```json
- 
+
   {
     "status": "success",
     "data": null
   }
- 
+
 ```
 
 Use this method to delete a User.

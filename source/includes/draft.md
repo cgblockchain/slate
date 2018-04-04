@@ -5,19 +5,19 @@
 ## Add Draft
 
 ```shell
- 
+
  curl \
   -X POST \
   -H "Content-Type: application/json" \
-  -d '{"name": "logbook", "mixins": [], "fields": [{"name": "incident", "type": "text"}]}' \
+  -d '{"NAME": "logbook", "MIXINS": [], "FIELDS": [{"NAME": "incident", "TYPE": "text"}]}' \
   https://compliance-guard.lan/api/v1/drafts
-  
+
 ```
 
 > The above command returns JSON structured like this:
 
 ```json
- 
+
   {
     "status": "success",
     "data": {
@@ -34,7 +34,7 @@
       }
     }
   }
- 
+
 ```
 
 Use this method to construct new Entities or new versions of an Entity.
@@ -43,13 +43,13 @@ Use this method to construct new Entities or new versions of an Entity.
 
 `POST /api/v1/drafts`
 
-### URL Parameters
+### Payload Attributes
 
-| Parameter | Type   | Description |
+| Attribute | Description |
 |-----------|--------|-------------|
-| name     | String | Name of the draft      |
-| mixins     | String[] | Array of used mixins      |
-| fields     | String[] | Array of fields, which entries of this type will have      | 
+| NAME     | String | Name of the draft      |
+| MIXINS     | String[] | Array of used mixins      |
+| FIELDS     | String[] | Array of fields, which entries of this type will have      |
 
 
 
@@ -57,17 +57,17 @@ Use this method to construct new Entities or new versions of an Entity.
 ## Get Draft
 
 ```shell
- 
+
  curl \
    -X GET \
    https://compliance-guard.lan/api/v1/drafts/6a2017db-6f7c-45e8-ab28-ebe9e589b4b3
-  
+
 ```
 
 > The above command returns JSON structured like this:
 
 ```json
- 
+
   {
     "status": "success",
     "data": {
@@ -84,7 +84,7 @@ Use this method to construct new Entities or new versions of an Entity.
       }
     }
   }
- 
+
 ```
 
 Use this method to get the information about a Draft.
@@ -106,17 +106,17 @@ Use this method to get the information about a Draft.
 ## Get list of Drafts
 
 ```shell
- 
+
  curl \
    -X GET \
    https://compliance-guard.lan/api/v1/entities?name=logbook&limit=5
-  
+
 ```
 
 > The above command returns JSON structured like this:
 
 ```json
- 
+
   {
     "status": "success",
     "data": {
@@ -135,7 +135,7 @@ Use this method to get the information about a Draft.
       ]
     }
   }
- 
+
 ```
 
 This endpoint returns a list of all the current Drafts.
@@ -150,7 +150,7 @@ This endpoint returns a list of all the current Drafts.
 |-----------|--------|-------------|
 | name     | String | [Optional] Name of the desired draft      |
 | limit     | String | [Optional] Limit of number of fetched drafts. Default value: 0      |
-| offset     | String | [Optional] Number of drafts to skip. Default value: 5      | 
+| offset     | String | [Optional] Number of drafts to skip. Default value: 5      |
 
 
 
@@ -158,19 +158,19 @@ This endpoint returns a list of all the current Drafts.
 ## Update Draft
 
 ```shell
- 
+
  curl \
    -X PUT \
    -H "Content-Type: application/json" \
    -d '{"name": "logbook", "mixins": [], "fields": [{"name": "timestamp", "type": "date"}]}' \
    https://compliance-guard.lan/api/v1/drafts/6a2017db-6f7c-45e8-ab28-ebe9e589b4b3
-  
+
 ```
 
 > The above command returns JSON structured like this:
 
 ```json
- 
+
   {
     "status": "success",
     "data": {
@@ -187,7 +187,7 @@ This endpoint returns a list of all the current Drafts.
       }
     }
   }
- 
+
 ```
 
 Use this method to update a Draft.
@@ -203,7 +203,7 @@ Use this method to update a Draft.
 | id     | String | ID of the desired draft      |
 | name     | String | [Optional] New name of the draft      |
 | mixins     | String[] | [Optional] New array of used mixins      |
-| fields     | String[] | [Optional] New array of fields, which entries of this type will have      | 
+| fields     | String[] | [Optional] New array of fields, which entries of this type will have      |
 
 
 
@@ -211,22 +211,22 @@ Use this method to update a Draft.
 ## Delete Draft
 
 ```shell
- 
+
  curl \
    -X DELETE \
    https://compliance-guard.lan/api/v1/drafts/6a2017db-6f7c-45e8-ab28-ebe9e589b4b3
-  
+
 ```
 
 > The above command returns JSON structured like this:
 
 ```json
- 
+
   {
     "status": "success",
     "data": null
   }
- 
+
 ```
 
 Use this method to delete a Draft.
